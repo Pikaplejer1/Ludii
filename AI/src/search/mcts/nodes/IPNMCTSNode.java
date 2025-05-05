@@ -7,7 +7,6 @@ import search.mcts.MCTS;
 /**
  * Common interface for various types of PN-MCTS nodes
  * 
- * @author Dennis Soemers
  */
 public abstract class IPNMCTSNode extends DeterministicNode
 {

@@ -21,7 +21,6 @@ import search.mcts.selection.ScoreBoundedMP_PNS_UCB;
 import utils.AIFactory;
 
 public class Run_MP_4P {
-    //Map<String, String> gameFiles  = new HashMap<String, String>() {{put("LOA7x7", "Lines of Action 7x7");put("LOA8x8", "Lines of Action 8x8");put("Minishogi", "Minishogi");put("Knightthrough", "Knightthrough");put("Awari", "Awari");}};
     static String USAGE_ERR = "Usage: Run <time(ms)> <game_name> <num_games> <rank|sum|max> <pns_constant>";
 
     private static String ratio(int wins, int games) {
@@ -61,8 +60,6 @@ public class Run_MP_4P {
         double TIME_FOR_GAME = Double.parseDouble(args[0])/1000;
         int NUM_GAMES = Integer.parseInt(args[2]);
 
-//      ScoreBoundedMP_PNS_UCB
-//      MP_PNS_UCB
         ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT pnsMethod = null;
         switch (args[3]) {
             case "rank": pnsMethod = ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT.RANK; break;
@@ -88,19 +85,16 @@ public class Run_MP_4P {
         Map<Integer, Integer> positions = new HashMap<>();
         int draws = 0;
 
-        // HARDCODED params to test:
         boolean finMove = false;
-        int minVisits = Integer.MAX_VALUE;// 5;
+        int minVisits = Integer.MAX_VALUE;
 
         long startTime = System.currentTimeMillis();
         for (int gameCounter = 1; gameCounter <= NUM_GAMES; ++gameCounter) {
-//        	AI player = MCTS.createMPPNSMCTS(pnsConstant, pnsMethod);
         	AI player = MCTS.createScoreBoundedMPPNSMCTS(pnsConstant, pnsMethod);
         	
         	AI opponent1 = AIFactory.createAI("ScoreBoundedMCTS");
         	AI opponent2 = AIFactory.createAI("ScoreBoundedMCTS");
         	AI opponent3 = AIFactory.createAI("ScoreBoundedMCTS");
-//          AI opponent = AIFactory.createAI("UCT");
 
             List<AI> ais = new ArrayList<>();
             if (gameCounter % 4 == 0) {
@@ -142,7 +136,7 @@ public class Run_MP_4P {
             final Model model = context.model();
             while (!context.trial().over()) { model.startNewStep(context, ais, TIME_FOR_GAME); }
             
-            if(gameCounter == 1) // sanity check that it's actually 4 player game
+            if(gameCounter == 1)
             {
 	            for(int p = 1; p < ais.size(); ++p)
 	            {
@@ -166,7 +160,7 @@ public class Run_MP_4P {
                 if (gameCounter % 4 == winner % 4) {
                     results.put(ALGO_NAME, results.get(ALGO_NAME) + 1);
                 } else {
-                	String alg = String.format("MCTS_%d", (winner%3) + 1); // temporary
+                	String alg = String.format("MCTS_%d", (winner%3) + 1);
                     results.put(alg, results.get(alg) + 1);
                 }
             } else {

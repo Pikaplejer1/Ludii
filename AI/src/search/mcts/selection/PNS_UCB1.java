@@ -18,8 +18,6 @@ import search.mcts.nodes.PNMCTSNode.PNMCTSNodeTypes;
 /**
  * A UCB1-based selection strategy that also includes a 
  * proof-number-search-based term.
- * 
- * @author Dennis Soemers
  */
 public final class PNS_UCB1 implements SelectionStrategy
 {

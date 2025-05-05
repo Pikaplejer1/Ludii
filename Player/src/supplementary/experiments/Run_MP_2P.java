@@ -21,7 +21,6 @@ import search.mcts.selection.ScoreBoundedMP_PNS_UCB;
 import utils.AIFactory;
 
 public class Run_MP_2P {
-    //Map<String, String> gameFiles  = new HashMap<String, String>() {{put("LOA7x7", "Lines of Action 7x7");put("LOA8x8", "Lines of Action 8x8");put("Minishogi", "Minishogi");put("Knightthrough", "Knightthrough");put("Awari", "Awari");}};
     static String USAGE_ERR = "Usage: Run <time(ms)> <game_name> <num_games> <rank|sum|max> <pns_constant>";
 
     private static String ratio(int wins, int games) {
@@ -61,9 +60,6 @@ public class Run_MP_2P {
         double TIME_FOR_GAME = Double.parseDouble(args[0])/1000;
         int NUM_GAMES = Integer.parseInt(args[2]);
 
-        
-//        ScoreBoundedMP_PNS_UCB
-//        MP_PNS_UCB
         ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT pnsMethod = null;
         switch (args[3]) {
             case "rank": pnsMethod = ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT.RANK; break;
@@ -88,19 +84,13 @@ public class Run_MP_2P {
         Map<String, Integer> results = new HashMap<>();
         int draws = 0;
         
-        
-
-        // HARDCODED params to test:
         boolean finMove = false;
-        int minVisits = Integer.MAX_VALUE;// 5;
+        int minVisits = Integer.MAX_VALUE;
 
         long startTime = System.currentTimeMillis();
         for (int gameCounter = 1; gameCounter <= NUM_GAMES; ++gameCounter) {
-//        	AI player = MCTS.createMPPNSMCTS(pnsConstant, pnsMethod);
         	AI player = MCTS.createScoreBoundedMPPNSMCTS(pnsConstant, pnsMethod);
-        	
         	AI opponent = AIFactory.createAI("ScoreBoundedMCTS");
-//          AI opponent = AIFactory.createAI("UCT");
 
         	if(gameCounter == 1)
         	{
@@ -120,7 +110,6 @@ public class Run_MP_2P {
             final Model model = context.model();
             while (!context.trial().over()) { model.startNewStep(context, ais, TIME_FOR_GAME); }
 
-//            System.out.println("PLAYER AND ENEMY SCORES: " + context.score(player) + " | " + context.score(enemy));
             int winner = context.trial().status().winner();
             if (winner > 0) {
                 if (gameCounter % 2 == winner % 2) {

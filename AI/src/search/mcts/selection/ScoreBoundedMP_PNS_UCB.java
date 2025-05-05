@@ -14,12 +14,9 @@ import search.mcts.nodes.BaseNode;
 import search.mcts.nodes.ScoreBoundsPNMCTSNode;
 
 /**
- * A UCB1-based selection strategy that also includes a 
+ * A Score Bounded UCB1-based selection strategy that also includes a 
  * proof-number-search-based term, used for multiplayer games.
  * 
- * TODO currently only need this duplicate of MP_PNS_UCB due to casting of node types. Should refactor.
- * 
- * @author Szymon Kosakowski
  */
 public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
 {

@@ -7,8 +7,6 @@ import search.mcts.MCTS;
 
 /**
  * Node for Multiplayer PN-MCTS tree.
- * 
- * @author Szymon Kosakowski
  */
 public final class MP_PNMCTSNode extends IPNMCTSNode
 {
@@ -17,8 +15,6 @@ public final class MP_PNMCTSNode extends IPNMCTSNode
 	
 	/**
 	 * Nodes types in search trees in PN-MCTS
-	 * 
-	 * @author Dennis Soemers
 	 */
 	public enum MP_PNMCTSNodeTypes 
 	{
@@ -31,8 +27,6 @@ public final class MP_PNMCTSNode extends IPNMCTSNode
 	
 	/**
 	 * Values of nodes in search trees in PN-MCTS
-	 * 
-	 * @author Dennis Soemers
 	 */
 	public enum MP_PNMCTSNodeValues
 	{

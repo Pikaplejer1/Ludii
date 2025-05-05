@@ -19,7 +19,6 @@ import search.mcts.MCTS;
 import search.mcts.selection.PNS_UCB1.PNUCT_VARIANT;
 
 public class Run {
-    //Map<String, String> gameFiles  = new HashMap<String, String>() {{put("LOA7x7", "Lines of Action 7x7");put("LOA8x8", "Lines of Action 8x8");put("Minishogi", "Minishogi");put("Knightthrough", "Knightthrough");put("Awari", "Awari");}};
     static String USAGE_ERR = "Usage: Run <time(ms)> <game_name> <num_games> <rank|sum|max> <pns_constant>";
 
     private static String ratio(int wins, int games) {
@@ -73,7 +72,6 @@ public class Run {
         // ---------------
         final String ALGO_NAME="pnMCTS_2P";
         System.out.println("Runner v0.2b - 2P");
-        //System.out.println(GAME_FILE.getAbsolutePath());
 
         // load and create game
         final Game game = GameLoader.loadGameFromFile(GAME_FILE);
@@ -83,16 +81,11 @@ public class Run {
         Map<String, Integer> results = new HashMap<>();
         int draws = 0;
 
-        // HARDCODED params to test:
         boolean finMove = false;
-        int minVisits = Integer.MAX_VALUE;// 5;
+        int minVisits = Integer.MAX_VALUE;
 
         long startTime = System.currentTimeMillis();
         for (int gameCounter = 1; gameCounter <= NUM_GAMES; ++gameCounter) {
-//            AI testedAI = new PNSMCTS_2P(finMove, minVisits, pnsConstant, pnsMethod);
-            //AI testedAI = new  MCTS.(finMove, minVisits, pnsConstant, pnsMethod);
-//            AI testedAI = MCTS.createUCT(); // TODO
-
             List<AI> ais = new ArrayList<>();
             if (gameCounter % 2 == 0) {
                 ais.add(null); ais.add(MCTS.createUCT()); ais.add(MCTS.createPNSMCTS(pnsConstant, pnsMethod));
@@ -106,7 +99,6 @@ public class Run {
             final Model model = context.model();
             while (!context.trial().over()) { model.startNewStep(context, ais, TIME_FOR_GAME); }
 
-//            System.out.println("PLAYER AND ENEMY SCORES: " + context.score(player) + " | " + context.score(enemy));
             int winner = context.trial().status().winner();
             if (winner > 0) {
                 if (gameCounter % 2 == winner % 2) {

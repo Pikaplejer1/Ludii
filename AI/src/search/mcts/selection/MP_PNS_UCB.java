@@ -16,8 +16,6 @@ import search.mcts.nodes.MP_PNMCTSNode;
 /**
  * A UCB1-based selection strategy that also includes a 
  * proof-number-search-based term, used for multiplayer games.
- * 
- * @author Szymon Kosakowski
  */
 public final class MP_PNS_UCB implements SelectionStrategy
 {

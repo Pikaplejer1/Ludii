@@ -14,8 +14,6 @@ import search.mcts.nodes.MP_PNMCTSNode.MP_PNMCTSNodeTypes;
  * 
  * TODO we have a lot of code duplication with both the ScoreBoundsNode
  * and the MP-PN-MCTSNode. Should think about a way to fix this.
- * 
- * @author Szymon Kosakowski & Dennis Soemers
  */
 public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
 {
