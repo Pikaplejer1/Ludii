@@ -12,6 +12,7 @@ import search.mcts.MCTS;
 import search.mcts.backpropagation.BackpropagationStrategy;
 import search.mcts.nodes.BaseNode;
 import search.mcts.nodes.PNMCTSNode;
+import search.mcts.nodes.PNMCTSNode;
 import search.mcts.nodes.PNMCTSNode.PNMCTSNodeTypes;
 
 /**
@@ -235,42 +236,22 @@ public final class PNS_UCB1 implements SelectionStrategy
 
                 double sum = 0.0;
                 
-                if (currentNodeType == PNMCTSNodeTypes.AND_NODE)
-            	{
-            		// AND node
-                	for (int i = 0; i < numLegalMoves; ++i)
+                
+            	// OR node
+            	for (int i = 0; i < numLegalMoves; ++i)
+				{
+					final PNMCTSNode child = (PNMCTSNode) current.childForNthLegalMove(i);
+					if (child == null)
 					{
-						final PNMCTSNode child = (PNMCTSNode) current.childForNthLegalMove(i);
-						if (child == null)
-						{
-							// This means: disproof number = 1.0 for unexpanded child. TODO this correct?
-							sum += 1.0;
-						}
-						else
-						{
-							if (Double.isFinite(child.disproofNumber()))
-								sum += child.disproofNumber();
-						}
+						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
+						sum += 1.0;
 					}
-            	}
-                else
-                {
-                	// OR node
-                	for (int i = 0; i < numLegalMoves; ++i)
+					else
 					{
-						final PNMCTSNode child = (PNMCTSNode) current.childForNthLegalMove(i);
-						if (child == null)
-						{
-							// This means: proof number = 1.0 for unexpanded child. TODO this correct?
-							sum += 1.0;
-						}
-						else
-						{
-							if (Double.isFinite(child.proofNumber()))
-								sum += child.proofNumber();
-						}
+						if (Double.isFinite(child.proofNumber()))
+							sum += child.proofNumber();
 					}
-                }
+				}
                 
                 if (sum > 0.0)
                 {
@@ -280,16 +261,16 @@ public final class PNS_UCB1 implements SelectionStrategy
 						final double number;
 						if (child == null)
 						{
-							// This means: (dis)proof number = 1.0 for unexpanded child. TODO this correct?
+							// This means: proof number = 1.0 for unexpanded child. TODO this correct?
 							number = 1.0;
 						}
 						else
 						{
-							number = (currentNodeType == PNMCTSNodeTypes.AND_NODE) ? child.disproofNumber() : child.proofNumber();
+							number = child.proofNumber();
 						}
 						
 						if (Double.isFinite(number))
-							childrenPNSSelectionTerms[i] = (1.0 - (number / sum));
+							childrenPNSSelectionTerms[i] = (1.0 - (number / (1 + sum)));
 						else
 							childrenPNSSelectionTerms[i] = 0.0;
 					}
@@ -305,51 +286,27 @@ public final class PNS_UCB1 implements SelectionStrategy
             case MAX:
             	
             	double max = 0.0;
-            	boolean haveInf = false;
+            	double min = Double.POSITIVE_INFINITY;
                 
-                if (currentNodeType == PNMCTSNodeTypes.AND_NODE)
-            	{
-            		// AND node
-                	for (int i = 0; i < numLegalMoves; ++i)
+            	// OR node
+            	for (int i = 0; i < numLegalMoves; ++i)
+				{
+					final PNMCTSNode child = (PNMCTSNode) current.childForNthLegalMove(i);
+					if (child == null)
 					{
-						final PNMCTSNode child = (PNMCTSNode) current.childForNthLegalMove(i);
-						if (child == null)
+						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
+						max = Math.max(max, 1.0);
+						min = Math.min(min, 1.0);
+					}
+					else
+					{
+						if (Double.isFinite(child.proofNumber()))
 						{
-							// This means: disproof number = 1.0 for unexpanded child. TODO this correct?
-							max = Math.max(max, 1.0);
-						}
-						else
-						{
-							if (Double.isFinite(child.disproofNumber()))
-								max = Math.max(max, child.disproofNumber());
-							else
-								haveInf = true;
+							max = Math.max(max, child.proofNumber());
+							min = Math.min(min, child.proofNumber());
 						}
 					}
-            	}
-                else
-                {
-                	// OR node
-                	for (int i = 0; i < numLegalMoves; ++i)
-					{
-						final PNMCTSNode child = (PNMCTSNode) current.childForNthLegalMove(i);
-						if (child == null)
-						{
-							// This means: proof number = 1.0 for unexpanded child. TODO this correct?
-							max = Math.max(max, 1.0);
-						}
-						else
-						{
-							if (Double.isFinite(child.proofNumber()))
-								max = Math.max(max, child.proofNumber());
-							else
-								haveInf = true;
-						}
-					}
-                }
-                
-                if (haveInf)
-                	max += 1.0;
+				}
                 
                 if (max > 0.0)
                 {
@@ -364,11 +321,11 @@ public final class PNS_UCB1 implements SelectionStrategy
 						}
 						else
 						{
-							number = (currentNodeType == PNMCTSNodeTypes.AND_NODE) ? child.disproofNumber() : child.proofNumber();
+							number = child.proofNumber();
 						}
 						
 						if (Double.isFinite(number))
-							childrenPNSSelectionTerms[i] = (1.0 - (number / max));
+							childrenPNSSelectionTerms[i] = (1.0 - ( (number - min) / (1 + max - min) ));
 						else
 							childrenPNSSelectionTerms[i] = 0.0;
 					}
