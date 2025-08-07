@@ -260,19 +260,19 @@ public class AIFactory
 			return ucb1GRAVE;
 		}
 		
-		if (string.equalsIgnoreCase("PN-MCTS"))
+		if (string.equalsIgnoreCase("GPN-MCTS"))
 		{
-			return MCTS.createPNSMCTS(1.0, PNS_UCB1.PNUCT_VARIANT.RANK);
+			return MCTS.createGPNMCTS(1.0, PNS_UCB1.PNUCT_VARIANT.RANK);
 		}
 		
-		if (string.equalsIgnoreCase("MP-PN-MCTS"))
+		if (string.equalsIgnoreCase("MP-GPN-MCTS") || string.equalsIgnoreCase("Multiplayer GPN-MCTS"))
 		{
-			return MCTS.createMPPNSMCTS(1.0, MP_PNS_UCB.PNUCT_VARIANT.RANK);
+			return MCTS.createMPGPNMCTS(1.0, MP_PNS_UCB.PNUCT_VARIANT.RANK);
 		}
 		
-		if (string.equalsIgnoreCase("Score Bounded MP-PN-MCTS"))
+		if (string.equalsIgnoreCase("Score Bounded MP-GPN-MCTS") || string.equalsIgnoreCase("Score Bounded Multiplayer GPN-MCTS"))
 		{
-			return MCTS.createScoreBoundedMPPNSMCTS(1.0, ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT.RANK);
+			return MCTS.createScoreBoundedMPGPNMCTS(1.0, ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT.RANK);
 		}
 		
 		if (string.equalsIgnoreCase("Ludii AI"))
@@ -635,17 +635,17 @@ public class AIFactory
 			ucb1GRAVE.setFriendlyName("UCB1-GRAVE");
 			return ucb1GRAVE;
 		}
-		else if (algName.equalsIgnoreCase("PN-MCTS"))
+		else if (algName.equalsIgnoreCase("GPN-MCTS"))
 		{
-			return createAI("PN-MCTS");
+			return createAI("GPN-MCTS");
 		}
-		else if (algName.equalsIgnoreCase("MP-PN-MCTS"))
+		else if (algName.equalsIgnoreCase("Multiplayer GPN-MCTS"))
 		{
-			return createAI("MP-PN-MCTS");
+			return createAI("Multiplayer GPN-MCTS");
 		}
-		else if (algName.equalsIgnoreCase("Score Bounded MP-PN-MCTS"))
+		else if (algName.equalsIgnoreCase("Score Bounded Mutliplayer GPN-MCTS"))
 		{
-			return createAI("Score Bounded MP-PN-MCTS");
+			return createAI("Score Bounded Multiplayer GPN-MCTS");
 		}
 		else if (algName.equalsIgnoreCase("Biased MCTS"))
 		{

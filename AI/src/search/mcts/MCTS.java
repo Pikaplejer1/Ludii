@@ -426,7 +426,7 @@ public class MCTS extends ExpertPolicy
 	}
 	
 	
-	public static MCTS createPNSMCTS(final double pnsConstant, final PNS_UCB1.PNUCT_VARIANT pnsVariant)
+	public static MCTS createGPNMCTS(final double pnsConstant, final PNS_UCB1.PNUCT_VARIANT pnsVariant)
 	{		
 		final MCTS mcts = 
 				new MCTS
@@ -437,12 +437,12 @@ public class MCTS extends ExpertPolicy
 					new RobustChild()
 				);
 		
-		mcts.friendlyName = "PNSMCTS";
+		mcts.friendlyName = "GPN-MCTS";
 		
 		return mcts;
 	}
 	
-	public static MCTS createMPPNSMCTS(final double pnsConstant, final MP_PNS_UCB.PNUCT_VARIANT pnsVariant)
+	public static MCTS createMPGPNMCTS(final double pnsConstant, final MP_PNS_UCB.PNUCT_VARIANT pnsVariant)
 	{		
 		final MCTS mcts = 
 				new MCTS
@@ -453,12 +453,12 @@ public class MCTS extends ExpertPolicy
 					new RobustChild()
 				);
 		
-		mcts.friendlyName = "MP_PNSMCTS";
+		mcts.friendlyName = "Multiplayer GPN-MCTS";
 		
 		return mcts;
 	}
 	
-	public static MCTS createScoreBoundedMPPNSMCTS(final double pnsConstant, final ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT pnsVariant)
+	public static MCTS createScoreBoundedMPGPNMCTS(final double pnsConstant, final ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT pnsVariant)
 	{		
 		final MCTS mcts = 
 				new MCTS
@@ -470,7 +470,7 @@ public class MCTS extends ExpertPolicy
 				);
 		
 		mcts.setUseScoreBounds(true);
-		mcts.friendlyName = "Score Bounded MP-PNS-MCTS";
+		mcts.friendlyName = "Score Bounded Multiplayer PNS-MCTS";
 		
 		return mcts;
 	}
