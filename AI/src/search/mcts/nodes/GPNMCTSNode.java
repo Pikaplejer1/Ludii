@@ -6,9 +6,9 @@ import other.move.Move;
 import search.mcts.MCTS;
 
 /**
- * Node for Multiplayer PN-MCTS tree.
+ * Node for GPN-MCTS tree (ECAI 2025 paper).
  */
-public final class MP_PNMCTSNode extends IPNMCTSNode
+public final class GPNMCTSNode extends IPNMCTSNode
 {
 	
 	//-------------------------------------------------------------------------
@@ -68,7 +68,7 @@ public final class MP_PNMCTSNode extends IPNMCTSNode
      * @param parentMoveWithoutConseq
      * @param context
      */
-    public MP_PNMCTSNode
+    public GPNMCTSNode
     (
     	final MCTS mcts, 
     	final BaseNode parent, 
@@ -116,7 +116,7 @@ public final class MP_PNMCTSNode extends IPNMCTSNode
     			// TODO check if this handles swap rule correctly
     			final double rank = context.trial().ranking()[p];
     			
-    			if (rank == ((MP_PNMCTSNode) parent).bestAvailableRank)
+    			if (rank == ((GPNMCTSNode) parent).bestAvailableRank)
     			{
     				// proven node
     				proofNumbers[p] = 0.0;
@@ -153,7 +153,7 @@ public final class MP_PNMCTSNode extends IPNMCTSNode
 					proof = 0.0;
 					for (final BaseNode child : children)
 					{
-						final MP_PNMCTSNode childNode = (MP_PNMCTSNode) child;
+						final GPNMCTSNode childNode = (GPNMCTSNode) child;
 						if (childNode != null)
 						{
 							proof += childNode.proofNumber(playerNum);
@@ -195,7 +195,7 @@ public final class MP_PNMCTSNode extends IPNMCTSNode
 					
 					for (final BaseNode child : children)
 					{
-						final MP_PNMCTSNode childNode = (MP_PNMCTSNode) child;
+						final GPNMCTSNode childNode = (GPNMCTSNode) child;
 						if (childNode != null)
 						{
 							if (childNode.proofNumber(playerNum) < proof)
@@ -293,7 +293,7 @@ public final class MP_PNMCTSNode extends IPNMCTSNode
     	if (proofValue[agent] == MP_PNMCTSNodeValues.TRUE && parent != null)
     	{
     		//System.out.println("returning " + RankUtils.rankToUtil(((MP_PNMCTSNode) parent).bestAvailableRank, numPlayers) + " instead of " + super.expectedScore(agent));
-			return RankUtils.rankToUtil(((MP_PNMCTSNode) parent).bestAvailableRank, numPlayers);
+			return RankUtils.rankToUtil(((GPNMCTSNode) parent).bestAvailableRank, numPlayers);
     	}
     	
     	return super.expectedScore(agent);

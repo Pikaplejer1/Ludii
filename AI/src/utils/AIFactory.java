@@ -49,7 +49,6 @@ import search.mcts.playout.RandomPlayout;
 import search.mcts.selection.MP_PNS_UCB;
 import search.mcts.selection.McBRAVE;
 import search.mcts.selection.McGRAVE;
-import search.mcts.selection.PNS_UCB1;
 import search.mcts.selection.ProgressiveBias;
 import search.mcts.selection.ProgressiveHistory;
 import search.mcts.selection.ScoreBoundedMP_PNS_UCB;
@@ -262,17 +261,12 @@ public class AIFactory
 		
 		if (string.equalsIgnoreCase("GPN-MCTS"))
 		{
-			return MCTS.createGPNMCTS(1.0, PNS_UCB1.PNUCT_VARIANT.RANK);
+			return MCTS.createGPNMCTS(1.0, MP_PNS_UCB.PNUCT_VARIANT.RANK);
 		}
 		
-		if (string.equalsIgnoreCase("MP-GPN-MCTS") || string.equalsIgnoreCase("Multiplayer GPN-MCTS"))
+		if (string.equalsIgnoreCase("Score Bounded GPN-MCTS"))
 		{
-			return MCTS.createMPGPNMCTS(1.0, MP_PNS_UCB.PNUCT_VARIANT.RANK);
-		}
-		
-		if (string.equalsIgnoreCase("Score Bounded MP-GPN-MCTS") || string.equalsIgnoreCase("Score Bounded Multiplayer GPN-MCTS"))
-		{
-			return MCTS.createScoreBoundedMPGPNMCTS(1.0, ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT.RANK);
+			return MCTS.createScoreBoundedGPNMCTS(1.0, ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT.RANK);
 		}
 		
 		if (string.equalsIgnoreCase("Ludii AI"))
@@ -639,13 +633,9 @@ public class AIFactory
 		{
 			return createAI("GPN-MCTS");
 		}
-		else if (algName.equalsIgnoreCase("Multiplayer GPN-MCTS"))
+		else if (algName.equalsIgnoreCase("Score Bounded GPN-MCTS"))
 		{
-			return createAI("Multiplayer GPN-MCTS");
-		}
-		else if (algName.equalsIgnoreCase("Score Bounded Mutliplayer GPN-MCTS"))
-		{
-			return createAI("Score Bounded Multiplayer GPN-MCTS");
+			return createAI("Score Bounded GPN-MCTS");
 		}
 		else if (algName.equalsIgnoreCase("Biased MCTS"))
 		{

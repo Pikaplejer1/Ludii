@@ -7,15 +7,15 @@ import other.RankUtils;
 import other.context.Context;
 import other.move.Move;
 import search.mcts.MCTS;
-import search.mcts.nodes.MP_PNMCTSNode.MP_PNMCTSNodeTypes;
+import search.mcts.nodes.GPNMCTSNode.MP_PNMCTSNodeTypes;
 
 /**
- * Node for combined Score Bounds + Multiplayer PN-MCTS tree.
+ * Node for combined Score Bounds + GPN-MCTS tree.
  * 
  * TODO we have a lot of code duplication with both the ScoreBoundsNode
  * and the MP-PN-MCTSNode. Should think about a way to fix this.
  */
-public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
+public final class ScoreBoundsGPNMCTSNode extends IPNMCTSNode
 {
 	
 	//-------------------------------------------------------------------------
@@ -56,7 +56,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
      * @param parentMoveWithoutConseq
      * @param context
      */
-    public ScoreBoundsPNMCTSNode
+    public ScoreBoundsGPNMCTSNode
     (
     	final MCTS mcts, 
     	final BaseNode parent, 
@@ -112,8 +112,8 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
 	    	{
 	    		if (currentUtils[p] != 0.0)
 	    		{
-	    			((ScoreBoundsPNMCTSNode) parent).updatePessBounds(p, pessimisticScores[p], this);
-		    		((ScoreBoundsPNMCTSNode) parent).updateOptBounds(p, optimisticScores[p], this);
+	    			((ScoreBoundsGPNMCTSNode) parent).updatePessBounds(p, pessimisticScores[p], this);
+		    		((ScoreBoundsGPNMCTSNode) parent).updateOptBounds(p, optimisticScores[p], this);
 	    		}
 	    	}
     	}
@@ -136,7 +136,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
     			// TODO check if this handles swap rule correctly
     			final double rank = context.trial().ranking()[p];
     			
-    			if (rank == ((ScoreBoundsPNMCTSNode) parent).bestAvailableRank)
+    			if (rank == ((ScoreBoundsGPNMCTSNode) parent).bestAvailableRank)
     			{
     				// As we proved best available rank for p, we can immediately
     				// disprove all others
@@ -178,7 +178,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
 					proof = 0.0;
 					for (final BaseNode child : children)
 					{
-						final ScoreBoundsPNMCTSNode childNode = (ScoreBoundsPNMCTSNode) child;
+						final ScoreBoundsGPNMCTSNode childNode = (ScoreBoundsGPNMCTSNode) child;
 						if (childNode != null)
 						{
 							proof += childNode.proofNumber(playerNum);
@@ -215,7 +215,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
 					
 					for (final BaseNode child : children)
 					{
-						final ScoreBoundsPNMCTSNode childNode = (ScoreBoundsPNMCTSNode) child;
+						final ScoreBoundsGPNMCTSNode childNode = (ScoreBoundsGPNMCTSNode) child;
 						if (childNode != null)
 						{
 							
@@ -261,7 +261,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
         else 
         {
         	// Terminal node!
-        	final double treatAsWinUtil = RankUtils.rankToUtil(((ScoreBoundsPNMCTSNode) parent).bestAvailableRank, numPlayers);
+        	final double treatAsWinUtil = RankUtils.rankToUtil(((ScoreBoundsGPNMCTSNode) parent).bestAvailableRank, numPlayers);
         	
         	for (int playerNum = 1; playerNum <= numPlayers; playerNum++)
         	{
@@ -310,7 +310,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
     {
     	if (pruned && parent != null)
     	{
-    		final ScoreBoundsPNMCTSNode sbParent = (ScoreBoundsPNMCTSNode) parent;
+    		final ScoreBoundsGPNMCTSNode sbParent = (ScoreBoundsGPNMCTSNode) parent;
     		if (sbParent.optBound(agent) > pessBound(agent))
     			return -10_000.0;
     	}
@@ -330,7 +330,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
      * @param pessBound
      * @param fromChild Child from which we receive update
      */
-    public void updatePessBounds(final int agent, final double pessBound, final ScoreBoundsPNMCTSNode fromChild)
+    public void updatePessBounds(final int agent, final double pessBound, final ScoreBoundsGPNMCTSNode fromChild)
     {
     	final double oldPess = pessimisticScores[agent];
     	
@@ -348,7 +348,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
     			// new pessimistic bound as pruned
     			for (int i = 0; i < children.length; ++i)
     			{
-    				final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) children[i];
+    				final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) children[i];
     				
     				if (child != null)
     				{
@@ -358,7 +358,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
     			}
     			
     			if (parent != null)
-    				((ScoreBoundsPNMCTSNode) parent).updatePessBounds(agent, pessBound, this);
+    				((ScoreBoundsGPNMCTSNode) parent).updatePessBounds(agent, pessBound, this);
     		}
     		else
     		{
@@ -378,7 +378,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
     			
     			for (int i = 0; i < children.length; ++i)
     			{
-    				final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) children[i];
+    				final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) children[i];
     				
     				if (child == null)
     				{
@@ -408,7 +408,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
     			// We can update
     			pessimisticScores[agent] = minPess;
     			if (parent != null)
-    				((ScoreBoundsPNMCTSNode) parent).updatePessBounds(agent, minPess, this);
+    				((ScoreBoundsGPNMCTSNode) parent).updatePessBounds(agent, minPess, this);
     		}
     	}
     }
@@ -421,7 +421,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
      * @param optBound
      * @param fromChild Child from which we receive update
      */
-    public void updateOptBounds(final int agent, final double optBound, final ScoreBoundsPNMCTSNode fromChild)
+    public void updateOptBounds(final int agent, final double optBound, final ScoreBoundsGPNMCTSNode fromChild)
     {
     	final int moverAgent = contextRef().state().playerToAgent(contextRef().state().mover());
     	if (moverAgent == agent)
@@ -445,7 +445,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
 			
 			for (int i = 0; i < children.length; ++i)
 			{
-				final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) children[i];
+				final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) children[i];
 				
 				if (child == null)
 				{
@@ -470,7 +470,7 @@ public final class ScoreBoundsPNMCTSNode extends IPNMCTSNode
 			// We can update
 			optimisticScores[agent] = maxOpt;
 			if (parent != null)
-				((ScoreBoundsPNMCTSNode) parent).updateOptBounds(agent, maxOpt, this);
+				((ScoreBoundsGPNMCTSNode) parent).updateOptBounds(agent, maxOpt, this);
     	}
     }
     

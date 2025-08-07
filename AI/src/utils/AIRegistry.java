@@ -66,8 +66,7 @@ public class AIRegistry
 		registerAI("Lazy UBFM", 26, (game) -> {return AIFactory.createAI("Lazy UBFM").supportsGame(game);}, null);
 		registerAI("UCB1-GRAVE", 27, (game) -> {return AIFactory.createAI("UCB1-GRAVE").supportsGame(game);}, null);
 		registerAI("GPN-MCTS", 28, (game) -> {return AIFactory.createAI("GPN-MCTS").supportsGame(game);}, null);
-		registerAI("Multiplayer GPN-MCTS", 29, (game) -> {return AIFactory.createAI("MP-GPN-MCTS").supportsGame(game);}, null);
-		registerAI("Score Bounded Multiplayer GPN-MCTS", 30, (game) -> {return AIFactory.createAI("Score Bounded MP-GPN-MCTS").supportsGame(game);}, null);
+		registerAI("Score Bounded GPN-MCTS", 29, (game) -> {return AIFactory.createAI("Score Bounded GPN-MCTS").supportsGame(game);}, null);
 		registerAI("From JAR", -1, (game) -> {return false;}, null);	// We have special handling for From JAR in dropdown menus
 	}
 	

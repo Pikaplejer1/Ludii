@@ -11,7 +11,7 @@ import other.state.State;
 import search.mcts.MCTS;
 import search.mcts.backpropagation.BackpropagationStrategy;
 import search.mcts.nodes.BaseNode;
-import search.mcts.nodes.MP_PNMCTSNode;
+import search.mcts.nodes.GPNMCTSNode;
 
 /**
  * A UCB1-based selection strategy that also includes a 
@@ -87,7 +87,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
         final int moverAgent = state.playerToAgent(state.mover());
         final double unvisitedValueEstimate = current.valueEstimateUnvisitedChildren(moverAgent);
 
-        final MP_PNMCTSNode currentMP_PNMCTSNode = (MP_PNMCTSNode) current;
+        final GPNMCTSNode currentMP_PNMCTSNode = (GPNMCTSNode) current;
         if (currentMP_PNMCTSNode.childSelectionScoresDirty())
         {
         	updateChildrenSelectionScores(currentMP_PNMCTSNode);
@@ -95,7 +95,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
         
         for (int i = 0; i < numChildren; ++i) 
         {
-        	final MP_PNMCTSNode child = (MP_PNMCTSNode) current.childForNthLegalMove(i);
+        	final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
         	
         	// TODO the isValueProven() check shouldn't be necessary if we 
         	// backpropagate early for solved nodes
@@ -155,7 +155,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
 	 * Updates the PN-based terms of the selection strategy for all children of current.
 	 * @param current
 	 */
-	public void updateChildrenSelectionScores(final MP_PNMCTSNode current)
+	public void updateChildrenSelectionScores(final GPNMCTSNode current)
 	{
 		//  This is the array that we'll re-compute
 		final double[] childrenPNSSelectionTerms = current.childrenPNSSelectionTerms();
@@ -170,7 +170,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
         		// OR node
         		for (int i = 0; i < numLegalMoves; ++i)
 				{
-					final MP_PNMCTSNode child = (MP_PNMCTSNode) current.childForNthLegalMove(i);
+					final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
 						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
@@ -219,7 +219,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
             	// OR node
             	for (int i = 0; i < numLegalMoves; ++i)
 				{
-					final MP_PNMCTSNode child = (MP_PNMCTSNode) current.childForNthLegalMove(i);
+					final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
 						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
@@ -236,7 +236,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
                 {
                 	for (int i = 0; i < numLegalMoves; ++i)
 					{
-						final MP_PNMCTSNode child = (MP_PNMCTSNode) current.childForNthLegalMove(i);
+						final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
 						final double number;
 						if (child == null)
 						{
@@ -270,7 +270,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
             	// OR node
             	for (int i = 0; i < numLegalMoves; ++i)
 				{
-					final MP_PNMCTSNode child = (MP_PNMCTSNode) current.childForNthLegalMove(i);
+					final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
 						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
@@ -291,7 +291,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
                 {
                 	for (int i = 0; i < numLegalMoves; ++i)
 					{
-						final MP_PNMCTSNode child = (MP_PNMCTSNode) current.childForNthLegalMove(i);
+						final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
 						final double number;
 						if (child == null)
 						{
@@ -329,7 +329,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
 	@Override
 	public int backpropFlags()
 	{
-		return BackpropagationStrategy.PROOF_DISPROOF_NUMBERS | BackpropagationStrategy.MULTIPLAYER_PNSMCTS;
+		return BackpropagationStrategy.GPN_MCTS;
 	}
 	
 	@Override

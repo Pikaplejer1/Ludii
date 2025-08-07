@@ -40,20 +40,17 @@ import policies.softmax.SoftmaxPolicyLogitTree;
 import search.mcts.backpropagation.AlphaGoBackprop;
 import search.mcts.backpropagation.BackpropagationStrategy;
 import search.mcts.backpropagation.HeuristicBackprop;
-import search.mcts.backpropagation.MP_PNSMCTSBackprop;
 import search.mcts.backpropagation.MonteCarloBackprop;
-import search.mcts.backpropagation.PNSMCTSBackprop;
 import search.mcts.backpropagation.QualitativeBonus;
 import search.mcts.finalmoveselection.FinalMoveSelectionStrategy;
 import search.mcts.finalmoveselection.MaxAvgScore;
 import search.mcts.finalmoveselection.ProportionalExpVisitCount;
 import search.mcts.finalmoveselection.RobustChild;
 import search.mcts.nodes.BaseNode;
-import search.mcts.nodes.MP_PNMCTSNode;
+import search.mcts.nodes.GPNMCTSNode;
 import search.mcts.nodes.OpenLoopNode;
-import search.mcts.nodes.PNMCTSNode;
+import search.mcts.nodes.ScoreBoundsGPNMCTSNode;
 import search.mcts.nodes.ScoreBoundsNode;
-import search.mcts.nodes.ScoreBoundsPNMCTSNode;
 import search.mcts.nodes.StandardNode;
 import search.mcts.playout.HeuristicSampingPlayout;
 import search.mcts.playout.PlayoutStrategy;
@@ -61,7 +58,6 @@ import search.mcts.playout.RandomPlayout;
 import search.mcts.selection.AG0Selection;
 import search.mcts.selection.MP_PNS_UCB;
 import search.mcts.selection.NoisyAG0Selection;
-import search.mcts.selection.PNS_UCB1;
 import search.mcts.selection.ProgressiveBias;
 import search.mcts.selection.ProgressiveHistory;
 import search.mcts.selection.ScoreBoundedMP_PNS_UCB;
@@ -425,15 +421,14 @@ public class MCTS extends ExpertPolicy
 		return mcts;
 	}
 	
-	
-	public static MCTS createGPNMCTS(final double pnsConstant, final PNS_UCB1.PNUCT_VARIANT pnsVariant)
+	public static MCTS createGPNMCTS(final double pnsConstant, final MP_PNS_UCB.PNUCT_VARIANT pnsVariant)
 	{		
 		final MCTS mcts = 
 				new MCTS
 				(
-					new PNS_UCB1(Math.sqrt(2), pnsConstant, pnsVariant),
+					new MP_PNS_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
 					new RandomPlayout(200),
-					new PNSMCTSBackprop(),
+					new MonteCarloBackprop(),
 					new RobustChild()
 				);
 		
@@ -442,35 +437,19 @@ public class MCTS extends ExpertPolicy
 		return mcts;
 	}
 	
-	public static MCTS createMPGPNMCTS(final double pnsConstant, final MP_PNS_UCB.PNUCT_VARIANT pnsVariant)
-	{		
-		final MCTS mcts = 
-				new MCTS
-				(
-					new MP_PNS_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
-					new RandomPlayout(200),
-					new MP_PNSMCTSBackprop(),
-					new RobustChild()
-				);
-		
-		mcts.friendlyName = "Multiplayer GPN-MCTS";
-		
-		return mcts;
-	}
-	
-	public static MCTS createScoreBoundedMPGPNMCTS(final double pnsConstant, final ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT pnsVariant)
+	public static MCTS createScoreBoundedGPNMCTS(final double pnsConstant, final ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT pnsVariant)
 	{		
 		final MCTS mcts = 
 				new MCTS
 				(
 					new ScoreBoundedMP_PNS_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
 					new RandomPlayout(200),
-					new MP_PNSMCTSBackprop(),
+					new MonteCarloBackprop(),
 					new RobustChild()
 				);
 		
 		mcts.setUseScoreBounds(true);
-		mcts.friendlyName = "Score Bounded Multiplayer PNS-MCTS";
+		mcts.friendlyName = "Score Bounded PNS-MCTS";
 		
 		return mcts;
 	}
@@ -917,13 +896,11 @@ public class MCTS extends ExpertPolicy
 	{
 		if ((currentGameFlags & GameType.Stochastic) == 0L || wantsCheatRNG())
 		{
-			if ((backpropFlags & BackpropagationStrategy.PROOF_DISPROOF_NUMBERS) != 0)
+			if ((backpropFlags & BackpropagationStrategy.GPN_MCTS) != 0)
 				if (useScoreBounds)
-					return new ScoreBoundsPNMCTSNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
-				else if ((backpropFlags & BackpropagationStrategy.MULTIPLAYER_PNSMCTS) != 0)
-					return new MP_PNMCTSNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
+					return new ScoreBoundsGPNMCTSNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
 				else
-					return new PNMCTSNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
+					return new GPNMCTSNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
 			else if (useScoreBounds)
 				return new ScoreBoundsNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
 			else
@@ -1276,7 +1253,7 @@ public class MCTS extends ExpertPolicy
 		if (learnedSelectionPolicy != null && !learnedSelectionPolicy.supportsGame(game))
 			return false;
 		
-		if ((gameFlags & GameType.Stochastic) != 0L && (backpropFlags & BackpropagationStrategy.PROOF_DISPROOF_NUMBERS) != 0)
+		if ((gameFlags & GameType.Stochastic) != 0L && (backpropFlags & BackpropagationStrategy.GPN_MCTS) != 0)
 			return false;	// cannot handle proof numbers in stochastic games
 		
 		return playoutStrategy.playoutSupportsGame(game);

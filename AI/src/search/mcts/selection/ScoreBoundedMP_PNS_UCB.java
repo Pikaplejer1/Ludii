@@ -11,7 +11,7 @@ import other.state.State;
 import search.mcts.MCTS;
 import search.mcts.backpropagation.BackpropagationStrategy;
 import search.mcts.nodes.BaseNode;
-import search.mcts.nodes.ScoreBoundsPNMCTSNode;
+import search.mcts.nodes.ScoreBoundsGPNMCTSNode;
 
 /**
  * A Score Bounded UCB1-based selection strategy that also includes a 
@@ -88,7 +88,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
         final int moverAgent = state.playerToAgent(state.mover());
         final double unvisitedValueEstimate = current.valueEstimateUnvisitedChildren(moverAgent);
 
-        final ScoreBoundsPNMCTSNode currentMP_PNMCTSNode = (ScoreBoundsPNMCTSNode) current;
+        final ScoreBoundsGPNMCTSNode currentMP_PNMCTSNode = (ScoreBoundsGPNMCTSNode) current;
         if (currentMP_PNMCTSNode.childSelectionScoresDirty())
         {
         	updateChildrenSelectionScores(currentMP_PNMCTSNode);
@@ -96,7 +96,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
         
         for (int i = 0; i < numChildren; ++i) 
         {
-        	final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) current.childForNthLegalMove(i);
+        	final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) current.childForNthLegalMove(i);
         	
         	// TODO the isValueProven() check shouldn't be necessary if we 
         	// backpropagate early for solved nodes
@@ -156,7 +156,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
 	 * Updates the PN-based terms of the selection strategy for all children of current.
 	 * @param current
 	 */
-	public void updateChildrenSelectionScores(final ScoreBoundsPNMCTSNode current)
+	public void updateChildrenSelectionScores(final ScoreBoundsGPNMCTSNode current)
 	{
 		//  This is the array that we'll re-compute
 		final double[] childrenPNSSelectionTerms = current.childrenPNSSelectionTerms();
@@ -171,7 +171,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
         		// OR node
         		for (int i = 0; i < numLegalMoves; ++i)
 				{
-					final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) current.childForNthLegalMove(i);
+					final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
 						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
@@ -220,7 +220,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
             	// OR node
             	for (int i = 0; i < numLegalMoves; ++i)
 				{
-					final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) current.childForNthLegalMove(i);
+					final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
 						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
@@ -237,7 +237,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
                 {
                 	for (int i = 0; i < numLegalMoves; ++i)
 					{
-						final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) current.childForNthLegalMove(i);
+						final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) current.childForNthLegalMove(i);
 						final double number;
 						if (child == null)
 						{
@@ -271,7 +271,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
             	// OR node
             	for (int i = 0; i < numLegalMoves; ++i)
 				{
-					final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) current.childForNthLegalMove(i);
+					final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
 						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
@@ -292,7 +292,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
                 {
                 	for (int i = 0; i < numLegalMoves; ++i)
 					{
-						final ScoreBoundsPNMCTSNode child = (ScoreBoundsPNMCTSNode) current.childForNthLegalMove(i);
+						final ScoreBoundsGPNMCTSNode child = (ScoreBoundsGPNMCTSNode) current.childForNthLegalMove(i);
 						final double number;
 						if (child == null)
 						{
@@ -330,7 +330,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
 	@Override
 	public int backpropFlags()
 	{
-		return BackpropagationStrategy.PROOF_DISPROOF_NUMBERS | BackpropagationStrategy.MULTIPLAYER_PNSMCTS;
+		return BackpropagationStrategy.GPN_MCTS;
 	}
 	
 	@Override

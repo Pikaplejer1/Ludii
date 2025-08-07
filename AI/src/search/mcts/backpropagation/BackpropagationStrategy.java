@@ -37,10 +37,8 @@ public abstract class BackpropagationStrategy
 	public final static int GLOBAL_NGRAM_ACTION_STATS	= (0x1 << 2);
 	/** For every player, track global MCTS-wide stats on heuristic evaluations */
 	public final static int GLOBAL_HEURISTIC_STATS		= (0x1 << 3);
-	/** Update (dis)proof numbers during backpropagation */
-	public final static int PROOF_DISPROOF_NUMBERS		= (0x1 << 4);
-	/** Update (dis)proof numbers during backpropagation */
-	public final static int MULTIPLAYER_PNSMCTS			= (0x1 << 5);
+	/** Update proof numbers for GPN-MCTS during backpropagation */
+	public final static int GPN_MCTS					= (0x1 << 4);
 	
 	//-------------------------------------------------------------------------
 	
@@ -105,7 +103,7 @@ public abstract class BackpropagationStrategy
 		final boolean updateGRAVE = ((backpropFlags & GRAVE_STATS) != 0);
 		final boolean updateGlobalActionStats = ((backpropFlags & GLOBAL_ACTION_STATS) != 0);
 		final boolean updateGlobalNGramActionStats = ((backpropFlags & GLOBAL_NGRAM_ACTION_STATS) != 0);
-		boolean updateProofNumbers = ((backpropFlags & PROOF_DISPROOF_NUMBERS) != 0);
+		boolean updateProofNumbers = ((backpropFlags & GPN_MCTS) != 0);
 		final List<MoveKey> moveKeysAMAF = new ArrayList<MoveKey>();
 		final Iterator<Move> reverseMovesIterator = context.trial().reverseMoveIterator();
 		final int numTrialMoves = context.trial().numMoves();
