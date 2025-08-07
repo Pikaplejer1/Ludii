@@ -7,13 +7,13 @@ import other.RankUtils;
 import other.context.Context;
 import other.move.Move;
 import search.mcts.MCTS;
-import search.mcts.nodes.GPNMCTSNode.MP_PNMCTSNodeTypes;
+import search.mcts.nodes.GPNMCTSNode.GPN_MCTSNodeTypes;
 
 /**
  * Node for combined Score Bounds + GPN-MCTS tree.
  * 
  * TODO we have a lot of code duplication with both the ScoreBoundsNode
- * and the MP-PN-MCTSNode. Should think about a way to fix this.
+ * and the GPN-MCTSNode. Should think about a way to fix this.
  */
 public final class ScoreBoundsGPNMCTSNode extends IPNMCTSNode
 {
@@ -171,7 +171,7 @@ public final class ScoreBoundsGPNMCTSNode extends IPNMCTSNode
         		if (proofNumbers[playerNum] == 0.0 || proofNumbers[playerNum] == Double.POSITIVE_INFINITY)
         			continue;
 
-        		final MP_PNMCTSNodeTypes playerType = (playerNum == currentPlayer ? MP_PNMCTSNodeTypes.OR_NODE : MP_PNMCTSNodeTypes.AND_NODE);
+        		final GPN_MCTSNodeTypes playerType = (playerNum == currentPlayer ? GPN_MCTSNodeTypes.OR_NODE : GPN_MCTSNodeTypes.AND_NODE);
 	        	switch (playerType)
 	        	{
 				case AND_NODE:
@@ -251,7 +251,7 @@ public final class ScoreBoundsGPNMCTSNode extends IPNMCTSNode
 	                
 	                break;
 				default:
-					System.err.println("Unknown node type in MP_PNMCTSNode.setProofAndDisproofNumbers()");
+					System.err.println("Unknown node type in ScoreBoundsGPNMCTSNode.setProofNumbers()");
 					break;
 	        	}
         	}

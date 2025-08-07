@@ -17,6 +17,7 @@ import search.mcts.nodes.BaseNode;
  * 
  * EXCEPTION: if the child with the best expected value (*not* visits) has its
  * value proven, we will prioritise that child.
+ * TODO current implementation around proofs seems kind of questionable.
  * 
  * @author Dennis Soemers
  */
