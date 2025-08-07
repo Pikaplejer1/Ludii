@@ -47,16 +47,20 @@ import search.mcts.finalmoveselection.MaxAvgScore;
 import search.mcts.finalmoveselection.ProportionalExpVisitCount;
 import search.mcts.finalmoveselection.RobustChild;
 import search.mcts.nodes.BaseNode;
+import search.mcts.nodes.GPNMCTSNode;
 import search.mcts.nodes.OpenLoopNode;
+import search.mcts.nodes.ScoreBoundsGPNMCTSNode;
 import search.mcts.nodes.ScoreBoundsNode;
 import search.mcts.nodes.StandardNode;
 import search.mcts.playout.HeuristicSampingPlayout;
 import search.mcts.playout.PlayoutStrategy;
 import search.mcts.playout.RandomPlayout;
 import search.mcts.selection.AG0Selection;
+import search.mcts.selection.GPN_UCB;
 import search.mcts.selection.NoisyAG0Selection;
 import search.mcts.selection.ProgressiveBias;
 import search.mcts.selection.ProgressiveHistory;
+import search.mcts.selection.ScoreBounded_GPN_UCB;
 import search.mcts.selection.SelectionStrategy;
 import search.mcts.selection.UCB1;
 import search.mcts.selection.UCB1GRAVE;
@@ -417,6 +421,39 @@ public class MCTS extends ExpertPolicy
 		return mcts;
 	}
 	
+	public static MCTS createGPNMCTS(final double pnsConstant, final GPN_UCB.PNUCT_VARIANT pnsVariant)
+	{		
+		final MCTS mcts = 
+				new MCTS
+				(
+					new GPN_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
+					new RandomPlayout(200),
+					new MonteCarloBackprop(),
+					new RobustChild()
+				);
+		
+		mcts.friendlyName = "GPN-MCTS";
+		
+		return mcts;
+	}
+	
+	public static MCTS createScoreBoundedGPNMCTS(final double pnsConstant, final ScoreBounded_GPN_UCB.PNUCT_VARIANT pnsVariant)
+	{		
+		final MCTS mcts = 
+				new MCTS
+				(
+					new ScoreBounded_GPN_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
+					new RandomPlayout(200),
+					new MonteCarloBackprop(),
+					new RobustChild()
+				);
+		
+		mcts.setUseScoreBounds(true);
+		mcts.friendlyName = "Score Bounded PNS-MCTS";
+		
+		return mcts;
+	}
+	
 	//-------------------------------------------------------------------------
 	
 	/**
@@ -593,6 +630,8 @@ public class MCTS extends ExpertPolicy
 							
 							while (current.contextRef().trial().status() == null)
 							{
+								// TODO should break early for proven nodes and backpropagate proven value
+								
 								BaseNode prevNode = current;
 								prevNode.getLock().lock();
 
@@ -857,7 +896,12 @@ public class MCTS extends ExpertPolicy
 	{
 		if ((currentGameFlags & GameType.Stochastic) == 0L || wantsCheatRNG())
 		{
-			if (useScoreBounds)
+			if ((backpropFlags & BackpropagationStrategy.GPN_MCTS) != 0)
+				if (useScoreBounds)
+					return new ScoreBoundsGPNMCTSNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
+				else
+					return new GPNMCTSNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
+			else if (useScoreBounds)
 				return new ScoreBoundsNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
 			else
 				return new StandardNode(mcts, parent, parentMove, parentMoveWithoutConseq, context);
@@ -1208,6 +1252,9 @@ public class MCTS extends ExpertPolicy
 		
 		if (learnedSelectionPolicy != null && !learnedSelectionPolicy.supportsGame(game))
 			return false;
+		
+		if ((gameFlags & GameType.Stochastic) != 0L && (backpropFlags & BackpropagationStrategy.GPN_MCTS) != 0)
+			return false;	// cannot handle proof numbers in stochastic games
 		
 		return playoutStrategy.playoutSupportsGame(game);
 	}
