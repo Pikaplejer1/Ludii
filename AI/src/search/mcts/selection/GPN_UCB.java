@@ -15,9 +15,9 @@ import search.mcts.nodes.GPNMCTSNode;
 
 /**
  * A UCB1-based selection strategy that also includes a 
- * proof-number-search-based term, used for multiplayer games.
+ * proof-number-search-based term, for GPN-MCTS.
  */
-public final class MP_PNS_UCB implements SelectionStrategy
+public final class GPN_UCB implements SelectionStrategy
 {
 	
 	//-------------------------------------------------------------------------
@@ -30,7 +30,6 @@ public final class MP_PNS_UCB implements SelectionStrategy
 	    RANK,
 	    SUM,
 	    MAX,
-	    // SOFTMAX?
 	}
 	
 	//-------------------------------------------------------------------------
@@ -52,7 +51,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
 	/**
 	 * Constructor with default value sqrt(2.0) for exploration constant
 	 */
-	public MP_PNS_UCB()
+	public GPN_UCB()
 	{
 		this(Math.sqrt(2.0), 1.0, PNUCT_VARIANT.RANK);
 	}
@@ -65,7 +64,7 @@ public final class MP_PNS_UCB implements SelectionStrategy
 	 * @param pnConstant
 	 * @param variant
 	 */
-	public MP_PNS_UCB(final double explorationConstant, final double pnConstant, final PNUCT_VARIANT variant)
+	public GPN_UCB(final double explorationConstant, final double pnConstant, final PNUCT_VARIANT variant)
 	{
 		this.explorationConstant = explorationConstant;
 		this.pnConstant = pnConstant;

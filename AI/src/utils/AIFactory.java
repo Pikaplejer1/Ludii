@@ -46,12 +46,12 @@ import search.mcts.finalmoveselection.RobustChild;
 import search.mcts.playout.MAST;
 import search.mcts.playout.NST;
 import search.mcts.playout.RandomPlayout;
-import search.mcts.selection.MP_PNS_UCB;
+import search.mcts.selection.GPN_UCB;
 import search.mcts.selection.McBRAVE;
 import search.mcts.selection.McGRAVE;
 import search.mcts.selection.ProgressiveBias;
 import search.mcts.selection.ProgressiveHistory;
-import search.mcts.selection.ScoreBoundedMP_PNS_UCB;
+import search.mcts.selection.ScoreBounded_GPN_UCB;
 import search.mcts.selection.UCB1;
 import search.mcts.selection.UCB1GRAVE;
 import search.mcts.selection.UCB1Tuned;
@@ -261,12 +261,12 @@ public class AIFactory
 		
 		if (string.equalsIgnoreCase("GPN-MCTS"))
 		{
-			return MCTS.createGPNMCTS(1.0, MP_PNS_UCB.PNUCT_VARIANT.RANK);
+			return MCTS.createGPNMCTS(1.0, GPN_UCB.PNUCT_VARIANT.RANK);
 		}
 		
 		if (string.equalsIgnoreCase("Score Bounded GPN-MCTS"))
 		{
-			return MCTS.createScoreBoundedGPNMCTS(1.0, ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT.RANK);
+			return MCTS.createScoreBoundedGPNMCTS(1.0, ScoreBounded_GPN_UCB.PNUCT_VARIANT.RANK);
 		}
 		
 		if (string.equalsIgnoreCase("Ludii AI"))

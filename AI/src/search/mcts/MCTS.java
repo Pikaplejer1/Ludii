@@ -56,11 +56,11 @@ import search.mcts.playout.HeuristicSampingPlayout;
 import search.mcts.playout.PlayoutStrategy;
 import search.mcts.playout.RandomPlayout;
 import search.mcts.selection.AG0Selection;
-import search.mcts.selection.MP_PNS_UCB;
+import search.mcts.selection.GPN_UCB;
 import search.mcts.selection.NoisyAG0Selection;
 import search.mcts.selection.ProgressiveBias;
 import search.mcts.selection.ProgressiveHistory;
-import search.mcts.selection.ScoreBoundedMP_PNS_UCB;
+import search.mcts.selection.ScoreBounded_GPN_UCB;
 import search.mcts.selection.SelectionStrategy;
 import search.mcts.selection.UCB1;
 import search.mcts.selection.UCB1GRAVE;
@@ -421,12 +421,12 @@ public class MCTS extends ExpertPolicy
 		return mcts;
 	}
 	
-	public static MCTS createGPNMCTS(final double pnsConstant, final MP_PNS_UCB.PNUCT_VARIANT pnsVariant)
+	public static MCTS createGPNMCTS(final double pnsConstant, final GPN_UCB.PNUCT_VARIANT pnsVariant)
 	{		
 		final MCTS mcts = 
 				new MCTS
 				(
-					new MP_PNS_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
+					new GPN_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
 					new RandomPlayout(200),
 					new MonteCarloBackprop(),
 					new RobustChild()
@@ -437,12 +437,12 @@ public class MCTS extends ExpertPolicy
 		return mcts;
 	}
 	
-	public static MCTS createScoreBoundedGPNMCTS(final double pnsConstant, final ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT pnsVariant)
+	public static MCTS createScoreBoundedGPNMCTS(final double pnsConstant, final ScoreBounded_GPN_UCB.PNUCT_VARIANT pnsVariant)
 	{		
 		final MCTS mcts = 
 				new MCTS
 				(
-					new ScoreBoundedMP_PNS_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
+					new ScoreBounded_GPN_UCB(Math.sqrt(2), pnsConstant, pnsVariant),
 					new RandomPlayout(200),
 					new MonteCarloBackprop(),
 					new RobustChild()

@@ -15,10 +15,10 @@ import search.mcts.nodes.ScoreBoundsGPNMCTSNode;
 
 /**
  * A Score Bounded UCB1-based selection strategy that also includes a 
- * proof-number-search-based term, used for multiplayer games.
+ * proof-number-search-based term, used for Score Bounded GPN-MCTS.
  * 
  */
-public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
+public final class ScoreBounded_GPN_UCB implements SelectionStrategy
 {
 	
 	//-------------------------------------------------------------------------
@@ -31,7 +31,6 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
 	    RANK,
 	    SUM,
 	    MAX,
-	    // SOFTMAX?
 	}
 	
 	//-------------------------------------------------------------------------
@@ -53,7 +52,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
 	/**
 	 * Constructor with default value sqrt(2.0) for exploration constant
 	 */
-	public ScoreBoundedMP_PNS_UCB()
+	public ScoreBounded_GPN_UCB()
 	{
 		this(Math.sqrt(2.0), 1.0, PNUCT_VARIANT.RANK);
 	}
@@ -66,7 +65,7 @@ public final class ScoreBoundedMP_PNS_UCB implements SelectionStrategy
 	 * @param pnConstant
 	 * @param variant
 	 */
-	public ScoreBoundedMP_PNS_UCB(final double explorationConstant, final double pnConstant, final PNUCT_VARIANT variant)
+	public ScoreBounded_GPN_UCB(final double explorationConstant, final double pnConstant, final PNUCT_VARIANT variant)
 	{
 		this.explorationConstant = explorationConstant;
 		this.pnConstant = pnConstant;
