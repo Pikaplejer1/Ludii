@@ -46,10 +46,13 @@ import search.mcts.finalmoveselection.RobustChild;
 import search.mcts.playout.MAST;
 import search.mcts.playout.NST;
 import search.mcts.playout.RandomPlayout;
+import search.mcts.selection.MP_PNS_UCB;
 import search.mcts.selection.McBRAVE;
 import search.mcts.selection.McGRAVE;
+import search.mcts.selection.PNS_UCB1;
 import search.mcts.selection.ProgressiveBias;
 import search.mcts.selection.ProgressiveHistory;
+import search.mcts.selection.ScoreBoundedMP_PNS_UCB;
 import search.mcts.selection.UCB1;
 import search.mcts.selection.UCB1GRAVE;
 import search.mcts.selection.UCB1Tuned;
@@ -255,6 +258,21 @@ public class AIFactory
 					);
 			ucb1GRAVE.setFriendlyName("UCB1-GRAVE");
 			return ucb1GRAVE;
+		}
+		
+		if (string.equalsIgnoreCase("PN-MCTS"))
+		{
+			return MCTS.createPNSMCTS(1.0, PNS_UCB1.PNUCT_VARIANT.RANK);
+		}
+		
+		if (string.equalsIgnoreCase("MP-PN-MCTS"))
+		{
+			return MCTS.createMPPNSMCTS(1.0, MP_PNS_UCB.PNUCT_VARIANT.RANK);
+		}
+		
+		if (string.equalsIgnoreCase("Score Bounded MP-PN-MCTS"))
+		{
+			return MCTS.createScoreBoundedMPPNSMCTS(1.0, ScoreBoundedMP_PNS_UCB.PNUCT_VARIANT.RANK);
 		}
 		
 		if (string.equalsIgnoreCase("Ludii AI"))
@@ -616,6 +634,18 @@ public class AIFactory
 			final MCTS ucb1GRAVE = new MCTS(new UCB1GRAVE(), new RandomPlayout(200), new MonteCarloBackprop(), new RobustChild());
 			ucb1GRAVE.setFriendlyName("UCB1-GRAVE");
 			return ucb1GRAVE;
+		}
+		else if (algName.equalsIgnoreCase("PN-MCTS"))
+		{
+			return createAI("PN-MCTS");
+		}
+		else if (algName.equalsIgnoreCase("MP-PN-MCTS"))
+		{
+			return createAI("MP-PN-MCTS");
+		}
+		else if (algName.equalsIgnoreCase("Score Bounded MP-PN-MCTS"))
+		{
+			return createAI("Score Bounded MP-PN-MCTS");
 		}
 		else if (algName.equalsIgnoreCase("Biased MCTS"))
 		{
