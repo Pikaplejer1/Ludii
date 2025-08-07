@@ -118,7 +118,7 @@ public final class ScoreBoundsGPNMCTSNode extends IPNMCTSNode
 	    	}
     	}
     	
-    	setProofAndDisproofNumbers();
+    	setProofNumbers();
     }
     
     //-------------------------------------------------------------------------
@@ -158,7 +158,7 @@ public final class ScoreBoundsGPNMCTSNode extends IPNMCTSNode
     }
     
     @Override
-    public boolean setProofAndDisproofNumbers() 
+    public boolean setProofNumbers() 
     {
         if (legalMoves.length > 0) 
         {

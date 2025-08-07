@@ -153,7 +153,7 @@ public abstract class BackpropagationStrategy
 				if (!firstNode && updateProofNumbers)
 				{
 					final IPNMCTSNode pnmctsNode = (IPNMCTSNode) node;
-					updateProofNumbers = pnmctsNode.setProofAndDisproofNumbers();
+					updateProofNumbers = pnmctsNode.setProofNumbers();
 					
 					if (pnmctsNode.children().length > 0) 
 					{

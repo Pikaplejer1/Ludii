@@ -98,7 +98,7 @@ public final class GPNMCTSNode extends IPNMCTSNode
     	if (parent != null)
     		evaluate();
     	
-        setProofAndDisproofNumbers();
+        setProofNumbers();
     }
     
     //-------------------------------------------------------------------------
@@ -133,7 +133,7 @@ public final class GPNMCTSNode extends IPNMCTSNode
     }
     
     @Override
-    public boolean setProofAndDisproofNumbers() 
+    public boolean setProofNumbers() 
     {
         if (legalMoves.length > 0) 
         {

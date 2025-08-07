@@ -46,14 +46,14 @@ public abstract class IPNMCTSNode extends DeterministicNode
     //-------------------------------------------------------------------------
     
     /**
-     * Sets the proof and disproof values of the current node as it is done for 
+     * Sets the proof values of the current node as it is done for 
      * PNS in L. V. Allis' "Searching for Solutions in Games and Artificial 
      * Intelligence". Set differently depending on if the node has children yet.
      *
      * @return Returns true if something was changed and false if not. 
-     * Used to improve PN-MCTS speed.
+     * Used to improve GPN-MCTS speed.
      */
-    public abstract boolean setProofAndDisproofNumbers();
+    public abstract boolean setProofNumbers();
     
     /**
      * @return Do our childrens' PNS-based selection terms need updating?
