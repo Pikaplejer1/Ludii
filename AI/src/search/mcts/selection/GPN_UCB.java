@@ -96,16 +96,6 @@ public final class GPN_UCB implements SelectionStrategy
         {
         	final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
         	
-        	// TODO the isValueProven() check shouldn't be necessary if we 
-        	// backpropagate early for solved nodes
-        	
-        	// old PN-MCTS would prune proven-loss children here, but that doesn't make sense, we can't prove losses anymore
-//        	if (child != null && !current.isValueProven(moverAgent)) 
-//        	{
-//                if (child.proofNumber(moverAgent) == 0 && child.numVisits() > minVisitsSolvedChild) 
-//                	continue;
-//            }
-        	
         	final double exploit;
         	final double explore;
 
@@ -172,7 +162,7 @@ public final class GPN_UCB implements SelectionStrategy
 					final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
-						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
+						// This means: proof number = 1.0 for unexpanded child.
 						sortedChildIndices.add(new ScoredInt(i, 1.0));
 					}
 					else
@@ -221,7 +211,7 @@ public final class GPN_UCB implements SelectionStrategy
 					final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
-						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
+						// This means: proof number = 1.0 for unexpanded child.
 						sum += 1.0;
 					}
 					else
@@ -239,7 +229,7 @@ public final class GPN_UCB implements SelectionStrategy
 						final double number;
 						if (child == null)
 						{
-							// This means: proof number = 1.0 for unexpanded child. TODO this correct?
+							// This means: proof number = 1.0 for unexpanded child.
 							number = 1.0;
 						}
 						else
@@ -272,7 +262,7 @@ public final class GPN_UCB implements SelectionStrategy
 					final GPNMCTSNode child = (GPNMCTSNode) current.childForNthLegalMove(i);
 					if (child == null)
 					{
-						// This means: proof number = 1.0 for unexpanded child. TODO this correct?
+						// This means: proof number = 1.0 for unexpanded child.
 						max = Math.max(max, 1.0);
 						min = Math.min(min, 1.0);
 					}
@@ -294,7 +284,7 @@ public final class GPN_UCB implements SelectionStrategy
 						final double number;
 						if (child == null)
 						{
-							// This means: (dis)proof number = 1.0 for unexpanded child. TODO this correct?
+							// This means: (dis)proof number = 1.0 for unexpanded child.
 							number = 1.0;
 						}
 						else
@@ -356,7 +346,7 @@ public final class GPN_UCB implements SelectionStrategy
 				}
 				else
 				{
-					System.err.println("PNS-UCB1 ignores unknown customisation: " + input);
+					System.err.println("GPN-UCB ignores unknown customisation: " + input);
 				}
 			}
 		}
