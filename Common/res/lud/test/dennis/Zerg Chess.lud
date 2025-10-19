@@ -65,23 +65,10 @@
         })
         
         (play 
-//            (if "SameTurn"
-//                (move Promote (last To) (piece {"Queen" "Knight" "Bishop" "Rook"}) Mover)
-//                (forEach Piece)
-//            )
-			(if (and <WhiteDoubleMove:val> (is Mover P1))
-				(if "SameTurn"
-					(or (forEach Piece) (pass))
-					(forEach Piece (then (moveAgain)))
-				)
-				(if (and <BlackDoubleMove:val> (is Mover P2))
-					(if "SameTurn"
-						(or (forEach Piece) (pass))
-						(forEach Piece (then (moveAgain)))
-					)
-					(forEach Piece)
-				)
-			)
+            (if "SameTurn"
+                (move Promote (last To) (piece {"King" "Knight" "Bishop" "Rook"}) Mover)
+                (forEach Piece)
+            )
         )
         
         (end {
@@ -128,20 +115,6 @@
 	(item "1" <1> <5> "The White player has 1 bishop, knight, and rook.")
 	(item "2" <2> <8> "The White player has 2 bishops, knights, and rooks.")*
 	}
-)
-
-(option "White Double Move per Turn" <WhiteDoubleMove> args:{ <val> }
-    {
-    (item "No" <False> "The White player makes 1 move per turn.")*
-    (item "Yes" <True> "The White player makes 2 moves per turn.")
-    }
-)
-
-(option "Black Double Move per Turn" <BlackDoubleMove> args:{ <val> }
-    {
-    (item "No" <False> "The Black player makes 1 move per turn.")*
-    (item "Yes" <True> "The Black player makes 2 moves per turn.")
-    }
 )
 
 //------------------------------------------------------------------------------
