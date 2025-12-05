@@ -519,7 +519,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Three Dogs Two Hares - Top Extension No Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Three Dogs Two Hares - Top Extension No Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{
@@ -1388,7 +1388,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 1 - No Extension Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 1 - No Extension Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{
@@ -1429,7 +1429,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 1 - Both Extensions Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 1 - Both Extensions Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{
@@ -1454,7 +1454,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 1 - No Extension No Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 1 - No Extension No Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{
@@ -1517,7 +1517,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 1 - Both Extensions No Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 1 - Both Extensions No Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{
@@ -1649,7 +1649,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 2 - Both Extensions No Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Starting Position 2 - Both Extensions No Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{
@@ -1665,7 +1665,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Switch Starting Position 1 - No Extension Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Switch Starting Position 1 - No Extension Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{
@@ -1806,7 +1806,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Switch Starting Position 2 - No Extension Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Four Dogs Two Hares Switch Starting Position 2 - No Extension Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{
@@ -2165,7 +2165,7 @@
         })
         
     )
-    (useFor { "Ruleset/Haretavl Three Dogs Two Hares Starting Position 1 - Top Extension Joined Diagonal (Suggested)" }
+    (useFor { "Ruleset/Haretavl Three Dogs Two Hares Starting Position 1 - Top Extension Joined Diagonal (Scholarly)" }
         
         trainedFeatures:(features {
             (featureSet P1 selectionFeatures:{

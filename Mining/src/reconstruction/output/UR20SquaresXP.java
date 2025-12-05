@@ -271,7 +271,7 @@ public class UR20SquaresXP {
 				// We go to the next move.
 				context.game().apply(context, trial.getMove(i));
 				
-				// FOR THE MUSEUM GAME
+				// FOR UR and 20 squares
 				// To count the frequency/usage of each edge on the board.
 				final Move lastMove = context.trial().lastMove();
 				final int vertexFrom = lastMove.fromNonDecision();
