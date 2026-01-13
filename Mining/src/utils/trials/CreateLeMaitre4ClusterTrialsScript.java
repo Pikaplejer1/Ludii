@@ -49,7 +49,7 @@ public class CreateLeMaitre4ClusterTrialsScript
 		final int numPlayout = 1000;
 		final int maxMove = 5000; // Constants.DEFAULT_MOVES_LIMIT;
 		final int thinkingTime = 1;
-		final String agentName = "UCT"; // Can be "UCT",  "Alpha-Beta", "Alpha-Beta-UCT", "AB-Odd-Even", or "Random"
+		final String agentName = "Random"; // Can be "UCT",  "Alpha-Beta", "Alpha-Beta-UCT", "AB-Odd-Even", or "Random"
 		final String clusterLogin = "epiette";
 		final String mainScriptName = "GenTrials.sh";
 		final int numRulesetsPerBatch = 1; // 48
@@ -147,6 +147,7 @@ public class CreateLeMaitre4ClusterTrialsScript
 					writer.println("#SBATCH --cpus-per-task=" + (numProcessesThisJob * CORES_PER_PROCESS));
 					writer.println("#SBATCH --mem=" + MAX_REQUEST_MEM + "G");
 					writer.println("#SBATCH --exclusive");
+					writer.println("module load releases/2023b");
 					writer.println("module load Java/11.0.20");
 					
 					for(int j = 0; j < numRulesetsPerBatch; j++)

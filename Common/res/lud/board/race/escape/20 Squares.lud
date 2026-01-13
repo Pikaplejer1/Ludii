@@ -146,15 +146,165 @@
 )
 
 (option "Escape" <Escape> args:{ <rule> }
-{
-(item "End" <("IsEndTrack" "MoveTo")> "Remove a Piece in reaching a site +1 after the end.")* 
-(item "Off" <(or ("IsEndTrack" "MoveTo") ("IsOffBoard" "MoveTo"))> "Remove a Piece in reaching any site after the end.")
-}
+    {
+    (item "End" <("IsEndTrack" "MoveTo")> "Remove a Piece in reaching a site +1 after the end.")* 
+    (item "Off" <(or ("IsEndTrack" "MoveTo") ("IsOffBoard" "MoveTo"))> "Remove a Piece in reaching any site after the end.")
+    }
 )
 
 //------------------------------------------------------------------------------
 
 (rulesets { 
+    
+    (ruleset "Ruleset/No capture, free turn, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, free turn, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free and safe, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free and safe, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Finkel, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Finkel, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, free turn, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, free turn, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free and safe, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free and safe, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Finkel, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Finkel, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, free turn, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, free turn, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/No capture, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free and safe, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free and safe, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Free, 5 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Finkel, 7 pieces, D6
+        (Experimental)" {
+        
+    })
+    
+    (ruleset "Ruleset/Finkel, 5 pieces, D6
+        (Experimental)" {
+        
+    })
     
     (ruleset "Ruleset/Seleucid (Scholarly)" 
         {
@@ -429,26 +579,46 @@
         (useFor "Ruleset/No captures free turn five pieces Seleukid (Experimental)" (id "4375"))
         (useFor "Ruleset/No captures free turn seven pieces Seleukid (Experimental)" (rules "No captures, free turn on every rosette, seven pieces per player, Seleukid dice"))
         (useFor "Ruleset/No captures free turn seven pieces Seleukid (Experimental)" (id "4376"))
-        (useFor "Ruleset/Finkel, 5 pieces, D6 (Experimental)" (rules "Free turn on corner rosettes, safe in center rosettes, five pieces per player, D6"))
-        (useFor "Ruleset/Finkel, 5 pieces, D6 (Experimental)" (id "4387"))
-        (useFor "Ruleset/Finkel, 7 pieces, D6 (Experimental)" (rules "Free turn on corner rosettes, safe on center rosettes, seven pieces per player, D6"))
-        (useFor "Ruleset/Finkel, 7 pieces, D6 (Experimental)" (id "4388"))
-        (useFor "Ruleset/Free, 5 pieces, D6 (Experimental)" (rules "Free turn on rosettes, five pieces per player, D6"))
-        (useFor "Ruleset/Free, 5 pieces, D6 (Experimental)" (id "4389"))
-        (useFor "Ruleset/Free, 7 pieces, D6 (Experimental)" (rules "Free turn on rosettes, seven pieces per player, D6"))
-        (useFor "Ruleset/Free, 7 pieces, D6 (Experimental)" (id "4390"))
-        (useFor "Ruleset/Free and safe, 5 pieces, D6 (Experimental)" (rules "Free turn and safe on rosettes, five pieces per player, D6"))
-        (useFor "Ruleset/Free and safe, 5 pieces, D6 (Experimental)" (id "4391"))
-        (useFor "Ruleset/Free and safe, 7 pieces, D6 (Experimental)" (rules "Free turn and safe on rosettes, seven pieces per player, D6"))
-        (useFor "Ruleset/Free and safe, 7 pieces, D6 (Experimental)" (id "4392"))
-        (useFor "Ruleset/No capture, 5 pieces, D6 (Experimental)" (rules "No captures, five pieces per player, D6"))
-        (useFor "Ruleset/No capture, 5 pieces, D6 (Experimental)" (id "4393"))
-        (useFor "Ruleset/No capture, 7 pieces, D6 (Experimental)" (rules "No captures, seven pieces per player, D6"))
-        (useFor "Ruleset/No capture, 7 pieces, D6 (Experimental)" (id "4394"))
-        (useFor "Ruleset/No capture, free turn, 5 pieces, D6 (Experimental)" (rules "No captures, free turn on rosettes, five pieces per player, D6"))
-        (useFor "Ruleset/No capture, free turn, 5 pieces, D6 (Experimental)" (id "4395"))
-        (useFor "Ruleset/No capture, free turn, 7 pieces, D6 (Experimental)" (rules "No captures, free turn on rosettes, seven pieces per player, D6"))
-        (useFor "Ruleset/No capture, free turn, 7 pieces, D6 (Experimental)" (id "4396"))
+        (useFor "Ruleset/Finkel, 5 pieces, D6
+        (Experimental)" (rules "Free turn on corner rosettes, safe in center rosettes, five pieces per player, D6"))
+        (useFor "Ruleset/Finkel, 5 pieces, D6
+        (Experimental)" (id "4387"))
+        (useFor "Ruleset/Finkel, 7 pieces, D6
+        (Experimental)" (rules "Free turn on corner rosettes, safe on center rosettes, seven pieces per player, D6"))
+        (useFor "Ruleset/Finkel, 7 pieces, D6
+        (Experimental)" (id "4388"))
+        (useFor "Ruleset/Free, 5 pieces, D6
+        (Experimental)" (rules "Free turn on rosettes, five pieces per player, D6"))
+        (useFor "Ruleset/Free, 5 pieces, D6
+        (Experimental)" (id "4389"))
+        (useFor "Ruleset/Free, 7 pieces, D6
+        (Experimental)" (rules "Free turn on rosettes, seven pieces per player, D6"))
+        (useFor "Ruleset/Free, 7 pieces, D6
+        (Experimental)" (id "4390"))
+        (useFor "Ruleset/Free and safe, 5 pieces, D6
+        (Experimental)" (rules "Free turn and safe on rosettes, five pieces per player, D6"))
+        (useFor "Ruleset/Free and safe, 5 pieces, D6
+        (Experimental)" (id "4391"))
+        (useFor "Ruleset/Free and safe, 7 pieces, D6
+        (Experimental)" (rules "Free turn and safe on rosettes, seven pieces per player, D6"))
+        (useFor "Ruleset/Free and safe, 7 pieces, D6
+        (Experimental)" (id "4392"))
+        (useFor "Ruleset/No capture, 5 pieces, D6
+        (Experimental)" (rules "No captures, five pieces per player, D6"))
+        (useFor "Ruleset/No capture, 5 pieces, D6
+        (Experimental)" (id "4393"))
+        (useFor "Ruleset/No capture, 7 pieces, D6
+        (Experimental)" (rules "No captures, seven pieces per player, D6"))
+        (useFor "Ruleset/No capture, 7 pieces, D6
+        (Experimental)" (id "4394"))
+        (useFor "Ruleset/No capture, free turn, 5 pieces, D6
+        (Experimental)" (rules "No captures, free turn on rosettes, five pieces per player, D6"))
+        (useFor "Ruleset/No capture, free turn, 5 pieces, D6
+        (Experimental)" (id "4395"))
+        (useFor "Ruleset/No capture, free turn, 7 pieces, D6
+        (Experimental)" (rules "No captures, free turn on rosettes, seven pieces per player, D6"))
+        (useFor "Ruleset/No capture, free turn, 7 pieces, D6
+        (Experimental)" (id "4396"))
         (id "35")
         (version "1.3.14")
         (classification "board/race/escape")
