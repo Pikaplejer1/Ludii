@@ -135,7 +135,7 @@ public final class PlayoutsPerSec
 	public void startExperiment()
 	{
 		final String[] allGameNames = FileHandling.listGames();
-		final List<String> gameNameToTest = new ArrayList<String>();
+		final List<String> gameNamesToTest = new ArrayList<String>();
 
 		for (final String gameName : allGameNames)
 		{
@@ -217,7 +217,7 @@ public final class PlayoutsPerSec
 
 			if (!exclude)
 			{
-				gameNameToTest.add(name);
+				gameNamesToTest.add(name);
 			}
 		}
 		
@@ -226,7 +226,7 @@ public final class PlayoutsPerSec
 		
 		if (!suppressPrints)
 		{
-			System.out.println("NUM GAMES = " + gameNameToTest.size());
+			System.out.println("NUM GAMES = " + gameNamesToTest.size());
 			System.out.println("NUM THREADS = " + numThreads);
 	
 			System.out.println();
@@ -239,7 +239,7 @@ public final class PlayoutsPerSec
 		final List<String> results = new ArrayList<String>();
 		results.add(StringRoutines.join(",", new String[]{ "Name", "p/s", "m/s", "TotalPlayouts" }));
 
-		for (final String gameName : gameNameToTest)
+		for (final String gameName : gameNamesToTest)
 		{
 			final Game game;
 			

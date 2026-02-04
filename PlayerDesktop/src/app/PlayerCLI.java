@@ -21,6 +21,7 @@ import supplementary.experiments.scripts.GenerateBiasedMCTSEvalScripts;
 import supplementary.experiments.scripts.GenerateFeatureEvalScripts;
 import supplementary.experiments.scripts.GenerateGatingScripts;
 import supplementary.experiments.speed.PlayoutsPerSec;
+import supplementary.experiments.speed.TimeTensorsRandomPlayouts;
 import test.instructionGeneration.TestInstructionGeneration;
 import training.expert_iteration.ExpertIteration;
 import utils.concepts.db.ExportDbCsvConcepts;
@@ -60,6 +61,7 @@ public class PlayerCLI
 				.withLegalVals
 				(
 					"--time-playouts",
+					"--time-tensor-playouts",
 					"--expert-iteration",
 					"--eval-agents",
 					"--find-crashing-trial",
@@ -96,6 +98,8 @@ public class PlayerCLI
 		
 		if (command.equalsIgnoreCase("--time-playouts"))
 			PlayoutsPerSec.main(passArgs);
+		else if (command.equalsIgnoreCase("--time-tensor-playouts"))
+			TimeTensorsRandomPlayouts.main(passArgs);
 		else if (command.equalsIgnoreCase("--expert-iteration"))
 			ExpertIteration.main(passArgs);
 		else if (command.equalsIgnoreCase("--eval-agents"))
