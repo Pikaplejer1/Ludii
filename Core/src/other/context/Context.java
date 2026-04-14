@@ -36,7 +36,9 @@ import other.action.Action;
 import other.model.MatchModel;
 import other.model.Model;
 import other.move.Move;
+import other.state.FullState;
 import other.state.State;
+import other.state.TicTacToeState;
 import other.state.container.ContainerState;
 import other.topology.Topology;
 import other.trial.Trial; 
@@ -195,7 +197,15 @@ public class Context
 		else
 		{
 			// This is a Context for just a single Game
-			state = game.stateReference() != null ? new State(game.stateReference()) : null;
+			// TODO make this to look for the concrete game state class dynamically. 
+			if(game.stateReference() != null) {
+				if(game.name().equalsIgnoreCase("tic-tac-toe")) {
+					state = new TicTacToeState(game.stateReference());
+				}else 
+					state = new FullState(game.stateReference());
+			} else 
+				state = null;
+//			state = game.stateReference() != null ? new FullState(game.stateReference()) : null;
 			subcontext = null;
 			
 			models = new Model[game.rules().phases().length];
@@ -345,7 +355,7 @@ public class Context
 	@SuppressWarnings("static-method")
 	protected State copyState(final State otherState)
 	{
-		return otherState == null ? null : new State(otherState);
+		return otherState == null ? null : new FullState(otherState);
 	}
 	
 	/**

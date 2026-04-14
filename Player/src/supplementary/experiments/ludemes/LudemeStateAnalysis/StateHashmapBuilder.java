@@ -12,9 +12,9 @@ import java.util.Map;
 
 //this class does a tree search of what variables does a method need.
 // returns a method name -> field name, descryptor
+// as in method Name -> map of <feld Name, field Descriptor>
 public class StateHashmapBuilder {
 	
-    // Upgraded: Method Name -> Map of <Field Name, Field Descriptor>
 	public static Map<String, Map<String, String>> buildMethodToFieldMap(String classInternalName) {
 		Map<String, Map<String, String>> dictionary = new HashMap<>();
 		
@@ -25,19 +25,16 @@ public class StateHashmapBuilder {
 			reader.accept(classNode, 0);
 			
 			for (MethodNode method : classNode.methods) {
-				// This replaces your Set. Now we store Name AND Type.
 				Map<String, String> touchedFields = new HashMap<>();
 				
 				for (AbstractInsnNode instruction : method.instructions) {
 					if (instruction.getType() == AbstractInsnNode.FIELD_INSN) {
 						FieldInsnNode fieldNode = (FieldInsnNode) instruction;
 						
-						// Checking if reading or setting, and if it belongs to this class
 						if ((fieldNode.getOpcode() == Opcodes.GETFIELD ||
 							 fieldNode.getOpcode() == Opcodes.PUTFIELD) &&
 							fieldNode.owner.equals(classNode.name)) {
 							
-							// Here is the magic. We grab the name AND the descriptor (.desc)
 							touchedFields.put(fieldNode.name, fieldNode.desc);
 						}
 					}
@@ -49,7 +46,7 @@ public class StateHashmapBuilder {
 			}
 		
 		} catch (Exception e) {
-			System.err.println("Bytecode reading has failed. Standard.");
+			System.err.println("Bytecode reading failed.");
 			e.printStackTrace();
 		}
 		return dictionary;
@@ -59,7 +56,6 @@ public class StateHashmapBuilder {
 		String targetClass = "other/state/State";
 		Map<String, Map<String, String>> dictionary = buildMethodToFieldMap(targetClass);
 		
-		System.out.println("--- NEW TYPE-AWARE DICTIONARY ---");
 		dictionary.forEach((method, fields) -> {
 			System.out.println("Method [" + method + "] requires:");
 			fields.forEach((fieldName, fieldDesc) -> {

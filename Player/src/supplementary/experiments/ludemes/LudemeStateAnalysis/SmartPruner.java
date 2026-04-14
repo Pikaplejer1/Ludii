@@ -13,57 +13,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-/**
- * SmartPruner — generates an abstract State.java from the original monolith.
- *
- * STRATEGY (learned from FreshPruner bugs):
- *
- * 1. ONLY remove collection/array DATA fields not in the all-game intersection.
- *    Scalar fields (int, long, boolean) cost 4–8 bytes — not worth the risk.
- *    Removing them breaks hash consistency, triggers(), setActive(), etc.
- *
- * 2. Keep ALL hash infrastructure intact — every hash field, hash array,
- *    hash initialization, and hash method. These are either shared references
- *    (zero per-state cost) or single longs (8 bytes each).
- *
- * 3. Keep ALL engine-critical fields: containerStates, playerOrder, owned,
- *    onTrackIndices.
- *
- * 4. For removed fields: methods become no-ops / return safe defaults.
- *    Subclasses override them for games that need the feature.
- *
- * 5. Add abstract copy() — the engine calls this constantly and every
- *    concrete subclass MUST provide it.
- *
- * 6. Make the class abstract.
- *
- * 7. Smart purging: only check control expressions of compound statements,
- *    recurse into bodies. Track local variables tainted by removed fields.
- *    Check both NameExpr AND FieldAccessExpr (for other.field patterns).
- *
- * 8. Rescue collateral damage: when a kept field (like isDecided) shares
- *    an if-block with removed fields (votes/propositions), re-add its
- *    assignment after pruning.
- *
- * @author SmartPruner v2 — replaces FreshPruner
- */
 public class SmartPruner {
 
-    // ── PATHS ────────────────────────────────────────────────────────────────
-    // Point STATE_INPUT_PATH at your ORIGINAL unmodified State.java monolith.
-    // Keep the original safe — maybe name it State_Master.java.
     private static final String STATE_INPUT_PATH =
         "C:\\Users\\pendy\\Desktop\\wszystko\\studia\\thesis\\ludii\\Ludii\\Ludiiiiii\\Core\\src\\other\\state\\State.java";
 
     private static final String STATE_OUTPUT_PATH =
         "C:\\Users\\pendy\\Desktop\\wszystko\\studia\\thesis\\ludii\\Ludii\\Ludiiiiii\\Core\\src\\other\\state\\StateNew.java";
 
-    // ── REMOVE SET ───────────────────────────────────────────────────────────
-    // Only collection/array fields NOT in the all-game intersection.
-    // These are the fields that actually allocate heap memory per state.
-    // Scalar fields (triggered, tempValue, trumpSuit, moneyPot, diceAllEqual,
-    // storedState, numConsecutivePassesHashCap) are kept — negligible memory,
-    // removing them breaks hash methods and engine behavior.
+    // i cant remember ts 
     private static final Set<String> REMOVE_FIELDS = new HashSet<>(Arrays.asList(
         "amount",               // int[] — only for betting games
         "valuesPlayer",         // int[] — per-player values
@@ -76,9 +34,8 @@ public class SmartPruner {
         "valueMap"              // TObjectIntMap<String> — value map ludeme
     ));
 
-    // ── NEVER TOUCH ──────────────────────────────────────────────────────────
-    // Safety net — if any of these accidentally end up in REMOVE_FIELDS,
-    // this set overrides and protects them.
+
+    
     private static final Set<String> PROTECTED_FIELDS = new HashSet<>(Arrays.asList(
         // Engine fields
         "containerStates", "playerOrder", "owned", "onTrackIndices",
@@ -106,60 +63,46 @@ public class SmartPruner {
         "lastFromHashes", "lastToHashes"
     ));
 
-    // ── COLLATERAL DAMAGE RESCUE ─────────────────────────────────────────────
-    // Kept fields that share an if-block with removed fields and would be
-    // lost as collateral damage. After purging, these assignments are re-added.
-    //
-    // Why: The original has:
-    //   if (other.votes != null) { votes=...; propositions=...; isDecided=other.isDecided; }
-    //   else { votes=null; propositions=null; isDecided=other.isDecided; }
-    // Purging removes the entire if-else because the condition references 'votes'.
-    // But isDecided is a KEPT field that needs to be copied.
+    
     private static final String ISDECIDED_RESCUE = "isDecided = other.isDecided;";
 
     // ══════════════════════════════════════════════════════════════════════════
     public static void main(String[] args) throws Exception {
-        System.out.println("=== SmartPruner: Generating abstract State.java ===\n");
 
-        // Parse the original monolith
         CompilationUnit cu = StaticJavaParser.parse(new File(STATE_INPUT_PATH));
 
-        // ── Step 1: Remove field declarations ────────────────────────────────
+        //emove field declarations
         Set<String> removed = removeFieldDeclarations(cu);
         System.out.println("Removed " + removed.size() + " field declarations: " + removed);
 
-        // ── Step 2: Purge tainted statements from all bodies ─────────────────
+        //remove the statements 
         System.out.println("Purging tainted statements...");
         purgeAllBodies(cu, removed);
 
-        // ── Step 3: Rescue collateral damage ─────────────────────────────────
+        // fix the collatoral dmg done by previous step 
         System.out.println("Rescuing collateral damage...");
         rescueCollateralDamage(cu);
 
-        // ── Step 4: Fix empty non-void methods ───────────────────────────────
+        //add return to methods that dont have return and are non-void 
         System.out.println("Fixing empty methods...");
         fixEmptyMethods(cu);
 
-        // ── Step 5: Make class abstract + add abstract copy() ────────────────
+        // make abstract and add copy method to serve as benchmark 
         System.out.println("Making class abstract, adding copy()...");
         makeAbstract(cu);
 
-        // ── Step 6: Fix class name if needed ─────────────────────────────────
+        //
         fixClassName(cu);
 
-        // ── Step 7: Make data fields protected for subclass access ───────────
+        // make things protected not private 
         adjustFieldVisibility(cu);
 
-        // ── Step 8: Write output ─────────────────────────────────────────────
+        // generate the class
         String output = cu.toString();
         Files.writeString(Path.of(STATE_OUTPUT_PATH), output);
         System.out.println("\nWritten to: " + STATE_OUTPUT_PATH);
-        System.out.println("=== SmartPruner complete ===");
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // STEP 1: Remove field declarations
-    // ══════════════════════════════════════════════════════════════════════════
 
     private static Set<String> removeFieldDeclarations(CompilationUnit cu) {
         Set<String> removed = new LinkedHashSet<>();
@@ -170,7 +113,7 @@ public class SmartPruner {
                 if (REMOVE_FIELDS.contains(name) && !PROTECTED_FIELDS.contains(name)) {
                     removed.add(name);
                     field.remove();
-                    break; // typically one variable per declaration
+                    break;
                 }
             }
         }
@@ -178,34 +121,19 @@ public class SmartPruner {
         return removed;
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // STEP 2: Purge tainted statements
-    // ══════════════════════════════════════════════════════════════════════════
-
-    private static void purgeAllBodies(CompilationUnit cu, Set<String> removed) {
-        // Purge constructors
+  private static void purgeAllBodies(CompilationUnit cu, Set<String> removed) {
+        //constructors
         for (ConstructorDeclaration ctor : cu.findAll(ConstructorDeclaration.class)) {
             purgeBlock(ctor.getBody(), removed);
         }
 
-        // Purge methods
+        //  methods
         for (MethodDeclaration method : cu.findAll(MethodDeclaration.class)) {
             method.getBody().ifPresent(body -> purgeBlock(body, removed));
         }
     }
 
-    /**
-     * Recursively purge statements that reference removed fields.
-     *
-     * For compound statements (if/for/foreach/while):
-     *   - If the CONTROL expression references a removed field → remove entire statement
-     *   - Otherwise → recurse into body blocks (preserving the control structure)
-     *
-     * For simple statements:
-     *   - If it references a removed field → remove it
-     *   - Track local variable declarations that depend on removed fields,
-     *     so subsequent references to those locals also get purged.
-     */
+    
     private static void purgeBlock(BlockStmt block, Set<String> removedFields) {
         // Tainted = removed fields + local variables that were assigned from removed fields
         Set<String> tainted = new HashSet<>(removedFields);
@@ -241,7 +169,6 @@ public class SmartPruner {
     }
 
     private static void handleIfStatement(IfStmt ifStmt, Set<String> tainted) {
-        // Check if the CONDITION itself references tainted fields
         if (referencesAny(ifStmt.getCondition(), tainted)) {
             // Entire if-else is tainted at the control level — remove it all
             collectLocalDeclarations(ifStmt, tainted);
@@ -249,12 +176,11 @@ public class SmartPruner {
             return;
         }
 
-        // Condition is clean — recurse into then-branch
+        
         Statement thenStmt = ifStmt.getThenStmt();
         if (thenStmt.isBlockStmt()) {
             purgeBlock(thenStmt.asBlockStmt(), tainted);
         } else if (referencesAny(thenStmt, tainted)) {
-            // Single-line then-body references tainted field → empty it
             ifStmt.setThenStmt(new BlockStmt());
         }
 
@@ -321,20 +247,7 @@ public class SmartPruner {
         }
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // Reference checking — the KEY improvement over FreshPruner
-    // ══════════════════════════════════════════════════════════════════════════
 
-    /**
-     * Checks if a node references any of the given names.
-     *
-     * Checks BOTH:
-     *   - NameExpr: direct references like `votes`, `amount[i]`, `notes.get(x)`
-     *   - FieldAccessExpr: qualified references like `other.votes`, `this.amount`
-     *
-     * FreshPruner only checked NameExpr, which missed `other.fieldName` patterns
-     * in the copy constructor and resetStateTo — a major source of bugs.
-     */
     private static boolean referencesAny(Node node, Set<String> names) {
         // Check direct name references: votes, amount, notes, etc.
         boolean hasNameRef = node.findAll(NameExpr.class).stream()
@@ -347,14 +260,7 @@ public class SmartPruner {
         return hasFieldRef;
     }
 
-    /**
-     * When removing a statement, track any local variable declarations it contains.
-     * If a statement like `final X foo = notes.get(...)` is removed, subsequent
-     * statements referencing `foo` must also be removed.
-     *
-     * This prevents the FreshPruner bug where `notesForMove` (a local variable
-     * in getNote()) was left dangling after `notes` was removed.
-     */
+
     private static void collectLocalDeclarations(Node node, Set<String> tainted) {
         node.findAll(VariableDeclarator.class).forEach(v ->
             tainted.add(v.getNameAsString())
@@ -368,17 +274,7 @@ public class SmartPruner {
         return false; // single-line body is never "empty"
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // STEP 3: Rescue collateral damage
-    // ══════════════════════════════════════════════════════════════════════════
 
-    /**
-     * Re-add assignments for KEPT fields that were lost as collateral damage.
-     *
-     * The main case: `isDecided = other.isDecided` lives inside an if-block
-     * whose condition references `votes` (removed). The entire if-else gets
-     * purged, taking isDecided with it. We re-add it as a standalone assignment.
-     */
     private static void rescueCollateralDamage(CompilationUnit cu) {
         // ── Copy constructor: rescue isDecided ───────────────────────────────
         cu.findAll(ConstructorDeclaration.class).stream()
@@ -411,11 +307,7 @@ public class SmartPruner {
             || body.toString().contains(fieldName + "=");
     }
 
-    /**
-     * Insert a statement before the hash-copy block at the end of a method body.
-     * The hash copies are lines like `stateHash = other.stateHash;` which are
-     * typically the last ~10 lines.
-     */
+
     private static void addBeforeHashCopies(BlockStmt body, String statementStr) {
         int insertIdx = body.getStatements().size(); // default: end
 
@@ -436,11 +328,7 @@ public class SmartPruner {
         body.addStatement(insertIdx, StaticJavaParser.parseStatement(statementStr));
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // STEP 4: Fix empty methods
-    // ══════════════════════════════════════════════════════════════════════════
-
-    private static void fixEmptyMethods(CompilationUnit cu) {
+  private static void fixEmptyMethods(CompilationUnit cu) {
         for (MethodDeclaration method : cu.findAll(MethodDeclaration.class)) {
             method.getBody().ifPresent(body -> {
                 if (!body.getStatements().isEmpty()) return;
@@ -467,10 +355,6 @@ public class SmartPruner {
         }
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // STEP 5: Make abstract + add copy()
-    // ══════════════════════════════════════════════════════════════════════════
-
     private static void makeAbstract(CompilationUnit cu) {
         cu.findFirst(ClassOrInterfaceDeclaration.class).ifPresent(cls -> {
             // Make the class abstract
@@ -494,10 +378,7 @@ public class SmartPruner {
         });
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // STEP 6: Fix class name
-    // ══════════════════════════════════════════════════════════════════════════
-
+ 
     private static void fixClassName(CompilationUnit cu) {
         cu.findFirst(ClassOrInterfaceDeclaration.class).ifPresent(cls -> {
             String name = cls.getNameAsString();
@@ -515,16 +396,7 @@ public class SmartPruner {
         });
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // STEP 7: Adjust field visibility
-    // ══════════════════════════════════════════════════════════════════════════
-
-    /**
-     * Make data fields protected so subclasses can access them.
-     * Hash value fields (stateHash, moverHash, etc.) stay private —
-     * subclasses should use the public API (updateStateHash, fullHash, etc.)
-     * not manipulate hashes directly.
-     */
+    
     private static void adjustFieldVisibility(CompilationUnit cu) {
         // Hash value fields that should stay private
         Set<String> keepPrivate = new HashSet<>(Arrays.asList(

@@ -25,25 +25,19 @@ public class DynamicMemoryMapper {
 
         System.out.println("Extracting Ludemes and Types for: " + targetGame + "... Try to keep up.");
 
-        // 1. DYNAMICALLY LOAD THE GAME
         Game game = GameLoader.loadGameFromName(targetGame, new ArrayList<>());
         
-        // Extract a clean name for the Java class (e.g., "TicTacToe")
         String gameName = game.name().replace("-", "").replace(" ", "");
 
-        // 2. EXTRACT LUDEMES USING REFLECTION
         Set<String> usedLudemes = new HashSet<>();
         extractLudemes(game, usedLudemes, new HashMap<>());
 
-        // 3. LOAD YOUR UPGRADED DICTIONARY 
         Map<String, Map<String, String>> masterDictionary = StateHashmapBuilder.buildMethodToFieldMap("other/state/State");
         
-        // 4. MAP TO STORE TRANSLATED VARIABLES
         Map<String, String> finalMemoryVariables = new HashMap<>();
 
-        System.out.println("\n--- INITIATING BYTECODE SCAN & TYPE TRANSLATION ---");
+        System.out.println("start");
 
-        // 5. THE DYNAMIC PIPELINE
         for (String javaClassName : usedLudemes) {
             String jvmPath = javaClassName.replace('.', '/');
             Set<String> methodsCalled = LudemeMethodScanner.findStateMethodCalls(jvmPath);
@@ -66,26 +60,20 @@ public class DynamicMemoryMapper {
             }
         }
 
-        // 6. ADD ENGINE CORE DEFAULTS (Essential for the Subclass to compile)
-        finalMemoryVariables.put("mover", "int");
-        finalMemoryVariables.put("containerStates", "other.state.container.ContainerState[]");
-        finalMemoryVariables.put("stateHash", "long");
-        finalMemoryVariables.put("playerOrder", "int[]");
+//        finalMemoryVariables.put("mover", "int");
+//        finalMemoryVariables.put("containerStates", "other.state.container.ContainerState[]");
+//        finalMemoryVariables.put("stateHash", "long");
+//        finalMemoryVariables.put("playerOrder", "int[]");
 
-     // 7. THE RESULTS
-        System.out.println("\n--- FINAL REQUIRED STATE VARIABLES FOR " + targetGame.toUpperCase() + " ---");
+        System.out.println(" Results for the class: " + targetGame.toUpperCase() + " \n");
         if (finalMemoryVariables.isEmpty()) {
-            System.out.println("Nothing. You broke it.");
+            System.out.println("Nothing.");
         } else {
             finalMemoryVariables.forEach((name, type) -> {
                 System.out.println("-> Variable: " + name + " | Type: " + type);
             });
         }
         
-        // 8. AUTOMATED SURGERY
-        System.out.println("\n--- INITIATING DYNAMIC CODE PRUNING ---");
-        // Pass the dynamically discovered variable names to the pruner
-        StatePruner.pruneState(finalMemoryVariables.keySet(), gameName);
     }
     
     
@@ -178,7 +166,6 @@ public class DynamicMemoryMapper {
             System.err.println("Reflection failed.");
         }
     }
- // Add this method to DynamicMemoryMapper — leave main() as-is
     public static Map<String, String> analyseGame(String targetGame) {
         Game game = GameLoader.loadGameFromName(targetGame, new ArrayList<>());
 
@@ -208,8 +195,6 @@ public class DynamicMemoryMapper {
             }
         }
 
-        // Engine core defaults — always required
-        finalMemoryVariables.put("mover", "int");
 
         return finalMemoryVariables;
     }

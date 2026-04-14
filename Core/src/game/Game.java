@@ -104,7 +104,9 @@ import other.playout.PlayoutAddToEmpty;
 import other.playout.PlayoutFilter;
 import other.playout.PlayoutMoveSelector;
 import other.playout.PlayoutNoRepetition;
+import other.state.FullState;
 import other.state.State;
+import other.state.TicTacToeState;
 import other.state.container.ContainerState;
 import other.topology.SiteFinder;
 import other.topology.Topology;
@@ -2598,8 +2600,8 @@ public class Game extends BaseLudeme implements API, Serializable
 		if ((gameFlags & GameType.UsesSwapRule) != 0L)
 			metaRules.setUsesSwapRule(true);
 
-		stateReference = new State(this, StateConstructorLock.INSTANCE);
-
+		stateReference = createInnitialState();
+		
 		// No component for the deduction puzzle (for sandbox)
 		if (isDeductionPuzzle())
 			equipment.clearComponents();
@@ -4033,6 +4035,16 @@ public class Game extends BaseLudeme implements API, Serializable
 		}
 		
 		return true;
+	}
+	
+	
+	protected State createInnitialState() {
+		if(this.name().equals("Tic-Tac-Toe")) {
+			System.out.println("this uses the tictactoe state");
+			return new TicTacToeState(this, StateConstructorLock.INSTANCE);}
+//		if(this.name().equals("Go"))
+//			return new GoState();
+		else return new FullState(this,StateConstructorLock.INSTANCE);
 	}
 
 }
