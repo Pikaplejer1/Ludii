@@ -44,5 +44,8 @@
 	<classpathentry kind="lib" path="/Common/lib/Trove4j_ApacheCommonsRNG.jar" sourcepath="/Common/lib/Trove4j_ApacheCommonsRNG-sources.jar"/>
 	<classpathentry kind="lib" path="/Common/lib/jfreesvg-3.4.jar"/>
 	<classpathentry kind="lib" path="lib/batik-codec-1.14.jar"/>
+	<classpathentry kind="lib" path="lib/asm-9.9.jar" sourcepath="C:/Users/pendy/Desktop/asm-9.9-sources.jar"/>
+	<classpathentry kind="lib" path="lib/asm-tree-9.9.jar" sourcepath="C:/Users/pendy/Desktop/asm-tree-9.9-sources.jar"/>
+	<classpathentry kind="lib" path="lib/javaparser-core-3.28.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
