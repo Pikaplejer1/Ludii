@@ -36,6 +36,7 @@ import other.action.Action;
 import other.model.MatchModel;
 import other.model.Model;
 import other.move.Move;
+import other.state.BackgammonState;
 import other.state.FullState;
 import other.state.State;
 import other.state.TicTacToeState;
@@ -198,11 +199,16 @@ public class Context
 		{
 			// This is a Context for just a single Game
 			// TODO make this to look for the concrete game state class dynamically. 
-			if(game.stateReference() != null) {
-				if(game.name().equalsIgnoreCase("tic-tac-toe")) {
-					state = new TicTacToeState(game.stateReference());
-				}else 
-					state = new FullState(game.stateReference());
+			// Assuming this is inside your instantiation logic:
+			if (game.stateReference() != null) {
+			    String gameName = game.name();
+			    if (gameName.equalsIgnoreCase("Tic-Tac-Toe")) {
+			        state = new TicTacToeState((TicTacToeState) game.stateReference());
+			    } else if (gameName.equalsIgnoreCase("Backgammon")) {
+			        state = new BackgammonState((BackgammonState) game.stateReference());
+			    } else {
+			        state = new FullState((FullState) game.stateReference());
+			    }
 			} else 
 				state = null;
 //			state = game.stateReference() != null ? new FullState(game.stateReference()) : null;
@@ -355,7 +361,8 @@ public class Context
 	@SuppressWarnings("static-method")
 	protected State copyState(final State otherState)
 	{
-		return otherState == null ? null : new FullState(otherState);
+		//TODO fix this. 
+		return otherState == null ? null : new TicTacToeState((TicTacToeState) otherState);
 	}
 	
 	/**

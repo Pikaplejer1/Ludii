@@ -36,6 +36,7 @@ public class Analysis {
 	// ── Games to benchmark ───────────────────────────────────────────────
 	private static final String[] GAMES = {
 		"Tic-Tac-Toe",
+//		"Backgammon"
 //		"Go",
 //		"Hex",
 //		"Reversi",
@@ -86,17 +87,6 @@ public class Analysis {
 		System.out.println("ALL BENCHMARKS COMPLETE");
 		System.out.println("========================================");
 	}
-
-	// ══════════════════════════════════════════════════════════════════════
-	// BENCHMARK 1: Per-State-Copy Memory
-	//
-	// Measures actual bytes consumed by one state.copy().
-	// Each MCTS node = one copy, so this is your per-node memory cost.
-	//
-	// Method: allocate the empty array first, GC, measure baseline,
-	// then fill the array with copies, measure again. No GC after
-	// filling — that was corrupting the measurement.
-	// ══════════════════════════════════════════════════════════════════════
 
 	private static void runPerStateCopyMemory(Game game, State sourceState) {
 		System.out.println("--- Per-State-Copy Memory: " + game.name() + " ---");
@@ -153,7 +143,6 @@ public class Analysis {
 	private static void runCopyThroughput(Game game, State sourceState) {
 		System.out.println("--- Copy Throughput: " + game.name() + " ---");
 		try {
-			// Warmup — let JIT compile the copy path fully
 			long checksum = 0;
 			long warmupEnd = System.currentTimeMillis() + COPY_THROUGHPUT_WARMUP_MS;
 			while (System.currentTimeMillis() < warmupEnd) {
@@ -184,7 +173,6 @@ public class Analysis {
 			System.out.println("Copies/sec:      " + String.format("%,d", copiesPerSec));
 			System.out.println("Nanos/copy:      " + nanosPerCopy);
 
-			// Consume checksum so JIT can't eliminate anything above
 			sinkLong = checksum;
 			System.out.println();
 

@@ -98,12 +98,6 @@
 //    protected int tempValue = Constants.UNDEFINED;
 //
 //    /**
-//     * The pending values of a state. These values are cleared when another state is
-//     * reached.
-//     */
-//    protected TIntHashSet pendingValues = null;
-//
-//    /**
 //     * The money pot.
 //     */
 //    protected int moneyPot = 0;
@@ -112,22 +106,6 @@
 //     * Current Phase for each player.
 //     */
 //    protected int[] currentPhase;
-//
-//    /**
-//     * The sum of each Dice container
-//     */
-//    protected int[] sumDice;
-//
-//    /**
-//     * The current dice values of each set of dice.
-//     */
-//    protected int[][] currentDice;
-//
-//    /**
-//     * To know when the dice are rolled if they are all equals. Note: Even if one
-//     * die is used we know when the dice were rolled they were equal.
-//     */
-//    protected boolean diceAllEqual = false;
 //
 //    /**
 //     * The number of turns played successively by the same player.
@@ -159,31 +137,10 @@
 //    protected transient Owned owned;
 //
 //    /**
-//     * To access where are each type of piece on each track.
-//     */
-//    transient protected OnTrackIndices onTrackIndices;
-//
-//    /**
-//     * BitSet used to store all the site already visited (from & to) by each move
-//     * done by the player in a sequence of turns played by the same player.
-//     */
-//    protected BitSet visited = null;
-//
-//    /**
-//     * Team that each player belongs to, if any.
-//     */
-//    protected int[] teams = null;
-//
-//    /**
 //     * Indexed by original player/agent index at game start.
 //     * Gives us the matching player index at current game state (may be different after swaps)
 //     */
 //    protected int[] playerOrder;
-//
-//    /**
-//     * All the remaining dominoes.
-//     */
-//    protected FastTIntArrayList remainingDominoes;
 //
 //    /**
 //     * The state stored temporary by the game.
@@ -437,28 +394,15 @@
 //        assert (!game.hasSubgames());
 //        moneyPot = 0;
 //        containerStates = new ContainerState[game.equipment().containers().length];
-//        if (game.usesPendingValues())
-//            pendingValues = new TIntHashSet();
 //        int id = 0;
 //        for (final Container container : game.equipment().containers()) containerStates[id++] = ContainerStateFactory.createStateForContainer(generator, game, container);
 //        initPhase(game);
 //        if (game.hasHandDice()) {
-//            sumDice = new int[game.handDice().size()];
-//            currentDice = new int[game.handDice().size()][];
 //            for (int i = 0; i < game.handDice().size(); i++) {
 //                final Dice d = game.handDice().get(i);
-//                currentDice[i] = new int[d.numLocs()];
 //            }
 //        }
 //        owned = OwnedFactory.createOwned(game);
-//        if (game.requiresVisited())
-//            visited = new BitSet(game.board().numSites());
-//        if (game.requiresTeams())
-//            teams = new int[game.players().size()];
-//        if (game.hasTrack() && game.hasInternalLoopInTrack())
-//            onTrackIndices = new OnTrackIndices(game.board().tracks(), game.equipment().components().length);
-//        if (game.hasDominoes())
-//            remainingDominoes = new FastTIntArrayList();
 //    }
 //
 //    /**
@@ -509,32 +453,14 @@
 //        }
 //        counter = other.counter;
 //        tempValue = other.tempValue;
-//        if (other.pendingValues != null)
-//            pendingValues = new TIntHashSet(other.pendingValues);
 //        if (other.currentPhase != null)
 //            currentPhase = Arrays.copyOf(other.currentPhase, other.currentPhase.length);
-//        if (other.sumDice != null)
-//            sumDice = Arrays.copyOf(other.sumDice, other.sumDice.length);
-//        if (other.currentDice != null) {
-//            currentDice = new int[other.currentDice.length][];
-//            for (int i = 0; i < currentDice.length; ++i) {
-//                currentDice[i] = Arrays.copyOf(other.currentDice[i], other.currentDice[i].length);
-//            }
-//        }
-//        if (other.visited != null)
-//            visited = (BitSet) other.visited.clone();
-//        if (other.teams != null)
-//            teams = Arrays.copyOf(other.teams, other.teams.length);
 //        numTurnSamePlayer = other.numTurnSamePlayer;
 //        numTurn = other.numTurn;
 //        if (other.owned == null)
 //            owned = null;
 //        else
 //            owned = other.owned.copy();
-//        diceAllEqual = other.diceAllEqual;
-//        onTrackIndices = copyOnTrackIndices(other.onTrackIndices);
-//        if (other.remainingDominoes != null)
-//            remainingDominoes = new FastTIntArrayList(other.remainingDominoes);
 //        storedState = other.storedState;
 //        numConsecutivePasses = other.numConsecutivePasses;
 //        stateHash = other.stateHash;
@@ -798,32 +724,14 @@
 //        }
 //        counter = other.counter;
 //        tempValue = other.tempValue;
-//        if (other.pendingValues != null)
-//            pendingValues = new TIntHashSet(other.pendingValues);
 //        if (other.currentPhase != null)
 //            currentPhase = Arrays.copyOf(other.currentPhase, other.currentPhase.length);
-//        if (other.sumDice != null)
-//            sumDice = Arrays.copyOf(other.sumDice, other.sumDice.length);
-//        if (other.currentDice != null) {
-//            currentDice = new int[other.currentDice.length][];
-//            for (int i = 0; i < currentDice.length; ++i) {
-//                currentDice[i] = Arrays.copyOf(other.currentDice[i], other.currentDice[i].length);
-//            }
-//        }
-//        if (other.visited != null)
-//            visited = (BitSet) other.visited.clone();
-//        if (other.teams != null)
-//            teams = Arrays.copyOf(other.teams, other.teams.length);
 //        numTurnSamePlayer = other.numTurnSamePlayer;
 //        numTurn = other.numTurn;
 //        if (other.owned == null)
 //            owned = null;
 //        else
 //            owned = other.owned.copy();
-//        diceAllEqual = other.diceAllEqual;
-//        onTrackIndices = copyOnTrackIndices(other.onTrackIndices);
-//        if (other.remainingDominoes != null)
-//            remainingDominoes = new FastTIntArrayList(other.remainingDominoes);
 //        storedState = other.storedState;
 //        numConsecutivePasses = other.numConsecutivePasses;
 //        if (game.isBoardless() && containerStates[0].isEmpty(game.board().topology().centre(SiteType.Cell).get(0).index(), SiteType.Cell))
@@ -859,7 +767,6 @@
 //     * @param otherOnTrackIndices The on track indices to set.
 //     */
 //    public void setOnTrackIndices(final OnTrackIndices otherOnTrackIndices) {
-//        this.onTrackIndices = (otherOnTrackIndices == null ? null : new OnTrackIndices(otherOnTrackIndices));
 //    }
 //
 //    //-------------------------------------------------------------------------
@@ -904,10 +811,6 @@
 //        if (game.usesVote()) {
 //            isDecided = Constants.UNDEFINED;
 //        }
-//        // We init the team to each player to it self
-//        if (teams != null)
-//            for (int i = 1; i < teams.length; i++) teams[i] = i;
-//        diceAllEqual = false;
 //    }
 //
 //    //-------------------------------------------------------------------------
@@ -1029,7 +932,7 @@
 //    public void setAmount(final int player, final int newAmount) {
 //    }
 //
-//    private void updateAmountHash(final int player) {
+//    protected void updateAmountHash(final int player) {
 //    }
 //
 //    /**
@@ -1073,7 +976,7 @@
 //        }
 //    }
 //
-//    private void updatePendingHash(final int pendingVal) {
+//    protected void updatePendingHash(final int pendingVal) {
 //        final int idx = pendingVal + 1;
 //        if (idx < isPendingHashes.length)
 //            pendingHash ^= isPendingHashes[idx];
@@ -1158,7 +1061,7 @@
 //     * @return The pending values.
 //     */
 //    public TIntHashSet pendingValues() {
-//        return pendingValues;
+//        return null;
 //    }
 //
 //    /**
@@ -1211,35 +1114,25 @@
 //    public void setPending(final int value) {
 //        final int pendingValue = (value == Constants.UNDEFINED) ? 1 : value;
 //        updatePendingHash(pendingValue);
-//        if (pendingValues != null)
-//            pendingValues.add(pendingValue);
 //    }
 //
 //    /**
 //     * @return True if the state is in pending.
 //     */
 //    public boolean isPending() {
-//        return (pendingValues == null) ? false : !pendingValues.isEmpty();
+//        return false;
 //    }
 //
 //    /**
 //     * @param value The value to remove from the pending values
 //     */
 //    public void removePendingValue(final int value) {
-//        pendingValues.remove(value);
 //    }
 //
 //    /**
 //     * To clear the pending values
 //     */
 //    public void rebootPending() {
-//        if (pendingValues != null) {
-//            final TIntIterator it = pendingValues.iterator();
-//            while (it.hasNext()) {
-//                updatePendingHash(it.next());
-//            }
-//            pendingValues.clear();
-//        }
 //    }
 //
 //    /**
@@ -1285,7 +1178,7 @@
 //     * @return Sum of dice
 //     */
 //    public int sumDice(final int index) {
-//        return sumDice[index];
+//        return 0;
 //    }
 //
 //    /**
@@ -1293,21 +1186,19 @@
 //     * @return Sum of dice array
 //     */
 //    public int[] sumDice() {
-//        return sumDice;
+//        return null;
 //    }
 //
 //    /**
 //     * @param sumDice
 //     */
 //    public void setSumDice(final int[] sumDice) {
-//        this.sumDice = sumDice;
 //    }
 //
 //    /**
 //     * To reinit the sum of the dice.
 //     */
 //    public void reinitSumDice() {
-//        for (int i = 0; i < sumDice.length; i++) sumDice[i] = 0;
 //    }
 //
 //    /**
@@ -1317,7 +1208,7 @@
 //     * @return Current dice for (container?) index
 //     */
 //    public int[] currentDice(final int index) {
-//        return currentDice[index];
+//        return null;
 //    }
 //
 //    /**
@@ -1326,14 +1217,13 @@
 //     * @param value
 //     */
 //    public void setDiceAllEqual(final boolean value) {
-//        diceAllEqual = value;
 //    }
 //
 //    /**
 //     * @return If the dice are all equal when they are rolled.
 //     */
 //    public boolean isDiceAllEqual() {
-//        return diceAllEqual;
+//        return false;
 //    }
 //
 //    /**
@@ -1342,25 +1232,19 @@
 //     * @return All current dice
 //     */
 //    public int[][] currentDice() {
-//        return currentDice;
+//        return null;
 //    }
 //
 //    /**
 //     * @param currentDice
 //     */
 //    public void setCurrentDice(final int[][] currentDice) {
-//        this.currentDice = currentDice;
 //    }
 //
 //    /**
 //     * To reinit the current dice.
 //     */
 //    public void reinitCurrentDice() {
-//        for (int i = 0; i < currentDice.length; i++) {
-//            for (int j = 0; j < currentDice[i].length; j++) {
-//                currentDice[i][j] = 0;
-//            }
-//        }
 //    }
 //
 //    /**
@@ -1385,7 +1269,6 @@
 //     * @param indexHand
 //     */
 //    public void updateSumDice(final int dieValue, final int indexHand) {
-//        sumDice[indexHand] += dieValue;
 //    }
 //
 //    /**
@@ -1396,14 +1279,12 @@
 //     * @param indexHand
 //     */
 //    public void updateCurrentDice(final int dieValue, final int dieIndex, final int indexHand) {
-//        currentDice[indexHand][dieIndex] = dieValue;
 //    }
 //
 //    /**
 //     * To reinit the visited BitSet.
 //     */
 //    public void reInitVisited() {
-//        visited.clear();
 //    }
 //
 //    /**
@@ -1411,7 +1292,7 @@
 //     * @return true if the site is already visited
 //     */
 //    public boolean isVisited(final int site) {
-//        return visited.get(site);
+//        return false;
 //    }
 //
 //    /**
@@ -1420,8 +1301,6 @@
 //     * @param site
 //     */
 //    public void visit(final int site) {
-//        if (visited.size() > site && site >= 0)
-//            visited.set(site, true);
 //    }
 //
 //    /**
@@ -1430,15 +1309,13 @@
 //     * @param site
 //     */
 //    public void unvisit(final int site) {
-//        if (visited.size() > site && site >= 0)
-//            visited.set(site, false);
 //    }
 //
 //    /**
 //     * @return visited sites.
 //     */
 //    public BitSet visited() {
-//        return visited;
+//        return null;
 //    }
 //
 //    /**
@@ -1477,9 +1354,7 @@
 //     * @return true if the player pid is in the team tid
 //     */
 //    public boolean playerInTeam(final int pid, final int tid) {
-//        if (teams == null || pid >= teams.length)
-//            return false;
-//        return teams[pid] == tid;
+//        return false;
 //    }
 //
 //    /**
@@ -1489,9 +1364,6 @@
 //     * @param tid
 //     */
 //    public void setPlayerToTeam(final int pid, final int tid) {
-//        updateStateHash(teamHashes[pid][teams[pid]]);
-//        teams[pid] = tid;
-//        updateStateHash(teamHashes[pid][teams[pid]]);
 //    }
 //
 //    /**
@@ -1499,9 +1371,7 @@
 //     * @return The index of the team of the player pid
 //     */
 //    public int getTeam(final int pid) {
-//        if (teams == null || pid >= teams.length)
-//            return Constants.UNDEFINED;
-//        return teams[pid];
+//        return 0;
 //    }
 //
 //    /**
@@ -1619,7 +1489,7 @@
 //     * @return The structure to get the indices of each element on the track.
 //     */
 //    public OnTrackIndices onTrackIndices() {
-//        return onTrackIndices;
+//        return null;
 //    }
 //
 //    //-------------------------------------------------------------------------
@@ -1680,7 +1550,7 @@
 //     * @return The remaining dominoes
 //     */
 //    public FastTIntArrayList remainingDominoes() {
-//        return remainingDominoes;
+//        return null;
 //    }
 //
 //    //-------------------------------------------------------------------------

@@ -23,30 +23,23 @@ public class SmartPruner {
 
     // i cant remember ts 
     private static final Set<String> REMOVE_FIELDS = new HashSet<>(Arrays.asList(
-        "amount",               // int[] — only for betting games
-        "valuesPlayer",         // int[] — per-player values
-        "propositions",         // TIntArrayList — only for voting games
-        "votes",                // TIntArrayList — only for voting games
-        "notes",                // TIntObjectMap<TIntObjectMap<String>> — note games
-        "sitesToRemove",        // TIntArrayList — sequence capture (draughts)
-        "rememberingValues",    // FastTIntArrayList — remembering ludeme
-        "mapRememberingValues", // Map<String, FastTIntArrayList> — named remembering
-        "valueMap"              // TObjectIntMap<String> — value map ludeme
-    ));
+    	    "amount", "valuesPlayer", "propositions", "votes", "notes",
+    	    "sitesToRemove", "rememberingValues", "mapRememberingValues", "valueMap",
+    	    "sumDice", "currentDice", "diceAllEqual", "visited", "teams",
+    	    "remainingDominoes", "pendingValues", "onTrackIndices"
+    	));
 
 
     
     private static final Set<String> PROTECTED_FIELDS = new HashSet<>(Arrays.asList(
         // Engine fields
-        "containerStates", "playerOrder", "owned", "onTrackIndices",
+        "containerStates", "playerOrder", "owned",
         // Scalar state (keep — negligible memory, removing breaks things)
         "mover", "next", "prev", "triggered", "stalemated",
         "counter", "tempValue", "moneyPot", "numTurnSamePlayer", "numTurn",
-        "trumpSuit", "isDecided", "diceAllEqual", "numConsecutivePasses",
+        "trumpSuit", "isDecided", "numConsecutivePasses",
         "storedState", "numConsecutivePassesHashCap",
-        // Collections in intersection (keep)
-        "pendingValues", "currentPhase", "sumDice", "currentDice",
-        "visited", "teams", "remainingDominoes",
+        
         // all hash value fields
         "stateHash", "moverHash", "nextHash", "prevHash",
         "activeHash", "checkmatedHash", "stalematedHash",
@@ -75,29 +68,26 @@ public class SmartPruner {
         Set<String> removed = removeFieldDeclarations(cu);
         System.out.println("Removed " + removed.size() + " field declarations: " + removed);
 
-        //remove the statements 
         System.out.println("Purging tainted statements...");
         purgeAllBodies(cu, removed);
 
-        // fix the collatoral dmg done by previous step 
         System.out.println("Rescuing collateral damage...");
         rescueCollateralDamage(cu);
 
-        //add return to methods that dont have return and are non-void 
         System.out.println("Fixing empty methods...");
         fixEmptyMethods(cu);
 
-        // make abstract and add copy method to serve as benchmark 
         System.out.println("Making class abstract, adding copy()...");
         makeAbstract(cu);
 
         //
         fixClassName(cu);
 
-        // make things protected not private 
         adjustFieldVisibility(cu);
 
-        // generate the class
+        
+        makeHashHelpersProtected(cu);
+        
         String output = cu.toString();
         Files.writeString(Path.of(STATE_OUTPUT_PATH), output);
         System.out.println("\nWritten to: " + STATE_OUTPUT_PATH);
@@ -127,7 +117,7 @@ public class SmartPruner {
             purgeBlock(ctor.getBody(), removed);
         }
 
-        //  methods
+        //methods
         for (MethodDeclaration method : cu.findAll(MethodDeclaration.class)) {
             method.getBody().ifPresent(body -> purgeBlock(body, removed));
         }
@@ -135,7 +125,6 @@ public class SmartPruner {
 
     
     private static void purgeBlock(BlockStmt block, Set<String> removedFields) {
-        // Tainted = removed fields + local variables that were assigned from removed fields
         Set<String> tainted = new HashSet<>(removedFields);
 
         for (Statement stmt : new ArrayList<>(block.getStatements())) {
@@ -159,7 +148,6 @@ public class SmartPruner {
                 }
             }
             else {
-                // Simple statement (ExpressionStmt, ReturnStmt, etc.)
                 if (referencesAny(stmt, tainted)) {
                     collectLocalDeclarations(stmt, tainted);
                     stmt.remove();
@@ -170,7 +158,6 @@ public class SmartPruner {
 
     private static void handleIfStatement(IfStmt ifStmt, Set<String> tainted) {
         if (referencesAny(ifStmt.getCondition(), tainted)) {
-            // Entire if-else is tainted at the control level — remove it all
             collectLocalDeclarations(ifStmt, tainted);
             ifStmt.remove();
             return;
@@ -184,7 +171,6 @@ public class SmartPruner {
             ifStmt.setThenStmt(new BlockStmt());
         }
 
-        // Recurse into else-branch (if present)
         ifStmt.getElseStmt().ifPresent(elseStmt -> {
             if (elseStmt.isBlockStmt()) {
                 purgeBlock(elseStmt.asBlockStmt(), tainted);
@@ -195,7 +181,6 @@ public class SmartPruner {
             }
         });
 
-        // After pruning: if both branches are empty, remove the entire if
         boolean thenEmpty = isEmptyBody(ifStmt.getThenStmt());
         boolean elseEmpty = !ifStmt.getElseStmt().isPresent()
                             || isEmptyBody(ifStmt.getElseStmt().get());
@@ -205,7 +190,6 @@ public class SmartPruner {
     }
 
     private static void handleForStatement(ForStmt forStmt, Set<String> tainted) {
-        // Check control expressions: initialization, compare, update
         boolean controlTainted = false;
         for (Expression init : forStmt.getInitialization()) {
             if (referencesAny(init, tainted)) { controlTainted = true; break; }
@@ -233,7 +217,6 @@ public class SmartPruner {
     }
 
     private static void handleForEachStatement(ForEachStmt feStmt, Set<String> tainted) {
-        // Check iterable expression
         if (referencesAny(feStmt.getIterable(), tainted)) {
             collectLocalDeclarations(feStmt, tainted);
             feStmt.remove();
@@ -249,12 +232,10 @@ public class SmartPruner {
 
 
     private static boolean referencesAny(Node node, Set<String> names) {
-        // Check direct name references: votes, amount, notes, etc.
         boolean hasNameRef = node.findAll(NameExpr.class).stream()
             .anyMatch(ne -> names.contains(ne.getNameAsString()));
         if (hasNameRef) return true;
 
-        // Check field access references: other.votes, this.amount, etc.
         boolean hasFieldRef = node.findAll(FieldAccessExpr.class).stream()
             .anyMatch(fa -> names.contains(fa.getNameAsString()));
         return hasFieldRef;
@@ -271,12 +252,11 @@ public class SmartPruner {
         if (stmt.isBlockStmt()) {
             return stmt.asBlockStmt().getStatements().isEmpty();
         }
-        return false; // single-line body is never "empty"
+        return false;
     }
 
 
     private static void rescueCollateralDamage(CompilationUnit cu) {
-        // ── Copy constructor: rescue isDecided ───────────────────────────────
         cu.findAll(ConstructorDeclaration.class).stream()
             .filter(c -> c.getParameters().size() == 1
                       && c.getParameters().get(0).getTypeAsString().equals("State"))
@@ -287,7 +267,6 @@ public class SmartPruner {
                 }
             });
 
-        // ── resetStateTo: rescue isDecided ───────────────────────────────────
         cu.findAll(MethodDeclaration.class).stream()
             .filter(m -> m.getNameAsString().equals("resetStateTo"))
             .forEach(m -> m.getBody().ifPresent(body -> {
@@ -321,7 +300,7 @@ public class SmartPruner {
                 || line.contains("scoreHash") || line.contains("amountHash")) {
                 insertIdx = i;
             } else if (insertIdx < body.getStatements().size()) {
-                break; // found end of non-hash block
+                break;
             }
         }
 
@@ -357,13 +336,9 @@ public class SmartPruner {
 
     private static void makeAbstract(CompilationUnit cu) {
         cu.findFirst(ClassOrInterfaceDeclaration.class).ifPresent(cls -> {
-            // Make the class abstract
             if (!cls.isAbstract()) {
                 cls.setAbstract(true);
             }
-
-            // Add: public abstract State copy();
-            // Only if it doesn't already exist
             boolean hasCopy = cls.getMethods().stream()
                 .anyMatch(m -> m.getNameAsString().equals("copy")
                             && m.getParameters().isEmpty());
@@ -388,7 +363,7 @@ public class SmartPruner {
             }
         });
 
-        // Also fix constructor names to match
+        //fix constructor names to match
         cu.findAll(ConstructorDeclaration.class).forEach(ctor -> {
             if (!ctor.getNameAsString().equals("State")) {
                 ctor.setName("State");
@@ -398,29 +373,25 @@ public class SmartPruner {
 
     
     private static void adjustFieldVisibility(CompilationUnit cu) {
-        // Hash value fields that should stay private
-        Set<String> keepPrivate = new HashSet<>(Arrays.asList(
-            "stateHash", "moverHash", "nextHash", "prevHash",
-            "activeHash", "checkmatedHash", "stalematedHash",
-            "pendingHash", "scoreHash", "amountHash"
-        ));
-
         cu.findAll(FieldDeclaration.class).forEach(field -> {
+            // serialVersionUID stays private
             String fieldName = field.getVariables().get(0).getNameAsString();
-
-            // Skip constants (static final) and serialVersionUID
-            if (field.isStatic() && field.isFinal()) return;
-
-            if (keepPrivate.contains(fieldName)) {
-                // Hash values: private (use API, not direct access)
-                field.setPublic(false);
-                field.setProtected(false);
-                field.setPrivate(true);
-            } else {
-                // Data fields: protected (subclass access)
-                field.setPublic(false);
-                field.setPrivate(false);
-                field.setProtected(true);
+            if (fieldName.equals("serialVersionUID")) return;
+            
+            field.setPublic(false);
+            field.setPrivate(false);
+            field.setProtected(true);
+        });
+    }
+    private static void makeHashHelpersProtected(CompilationUnit cu) {
+        Set<String> hashHelpers = new HashSet<>(Arrays.asList(
+            "updatePendingHash",
+            "updateAmountHash"
+        ));
+        cu.findAll(MethodDeclaration.class).forEach(method -> {
+            if (hashHelpers.contains(method.getNameAsString())) {
+                method.setPrivate(false);
+                method.setProtected(true);
             }
         });
     }

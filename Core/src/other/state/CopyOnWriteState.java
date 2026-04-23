@@ -36,6 +36,12 @@ public final class CopyOnWriteState extends State
 	{
 		return otherOnTrackIndices == null ? null : new OnTrackIndicesCOW(otherOnTrackIndices);
 	}
+
+	@Override
+	public State copy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	//-------------------------------------------------------------------------
 

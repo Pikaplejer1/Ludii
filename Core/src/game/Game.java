@@ -104,6 +104,7 @@ import other.playout.PlayoutAddToEmpty;
 import other.playout.PlayoutFilter;
 import other.playout.PlayoutMoveSelector;
 import other.playout.PlayoutNoRepetition;
+import other.state.BackgammonState;
 import other.state.FullState;
 import other.state.State;
 import other.state.TicTacToeState;
@@ -2600,7 +2601,7 @@ public class Game extends BaseLudeme implements API, Serializable
 		if ((gameFlags & GameType.UsesSwapRule) != 0L)
 			metaRules.setUsesSwapRule(true);
 
-		stateReference = createInnitialState();
+		stateReference = createInitialState();
 		
 		// No component for the deduction puzzle (for sandbox)
 		if (isDeductionPuzzle())
@@ -4038,13 +4039,18 @@ public class Game extends BaseLudeme implements API, Serializable
 	}
 	
 	
-	protected State createInnitialState() {
-		if(this.name().equals("Tic-Tac-Toe")) {
-			System.out.println("this uses the tictactoe state");
-			return new TicTacToeState(this, StateConstructorLock.INSTANCE);}
-//		if(this.name().equals("Go"))
-//			return new GoState();
-		else return new FullState(this,StateConstructorLock.INSTANCE);
+	protected State createInitialState() {
+	    System.out.println(this.name());
+	    String gameName = this.name();
+	    
+	    if (gameName.equalsIgnoreCase("Tic-Tac-Toe")) {
+	        System.out.println("this uses the tictactoe state");
+	        return new TicTacToeState(this, StateConstructorLock.INSTANCE);
+	    } else if (gameName.equalsIgnoreCase("Backgammon")) {
+	        return new BackgammonState(this, StateConstructorLock.INSTANCE);
+	    }
+	    
+	    return new FullState(this, StateConstructorLock.INSTANCE);
 	}
 
 }
