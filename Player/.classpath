@@ -47,5 +47,6 @@
 	<classpathentry kind="lib" path="lib/asm-9.9.jar" sourcepath="C:/Users/pendy/Desktop/asm-9.9-sources.jar"/>
 	<classpathentry kind="lib" path="lib/asm-tree-9.9.jar" sourcepath="C:/Users/pendy/Desktop/asm-tree-9.9-sources.jar"/>
 	<classpathentry kind="lib" path="lib/javaparser-core-3.28.0.jar"/>
+	<classpathentry kind="lib" path="lib/jol-core-0.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

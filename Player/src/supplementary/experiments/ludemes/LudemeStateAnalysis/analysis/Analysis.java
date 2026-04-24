@@ -6,6 +6,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.openjdk.jol.info.ClassLayout;
+import org.openjdk.jol.info.GraphLayout;
+
 import game.Game;
 import other.GameLoader;
 import other.context.Context;
@@ -75,6 +78,8 @@ public class Analysis {
 			if (DEBUG) {
 				runDebugPlayout(game);
 			}
+			
+			runJolMemory(game, probeCtx.state());
 
 			runPerStateCopyMemory(game, probeCtx.state());
 			runCopyThroughput(game, probeCtx.state());
@@ -299,5 +304,35 @@ public class Analysis {
 
 	private static void debug(String msg) {
 		if (DEBUG) System.out.println("[DEBUG] " + msg);
+	}
+	private static void runJolMemory(Game game, State sourceState) {
+	    System.out.println("--- JOL Memory: " + game.name() + " ---");
+	    
+	    final Trial trial = new Trial(game);
+	    final Context context = new Context(game, trial);
+	    game.start(context);
+	    State warmedState = context.state();
+	    
+	    // Shallow — just the State header + its own fields
+	    long shallowBytes = ClassLayout.parseInstance(warmedState).instanceSize();
+	    
+	    // Deep — but bounded. Stop at Game, Container, and any ludeme classes.
+	    // These are shared singletons, not part of per-state cost.
+	    GraphLayout graph = GraphLayout.parseInstance(warmedState)
+	        .subtract(GraphLayout.parseInstance(game));
+	    long deepBytes = graph.totalSize();
+	    long objectCount = graph.totalCount();
+	    
+	    State copy = warmedState.copy();
+	    GraphLayout copyGraph = GraphLayout.parseInstance(copy)
+	        .subtract(GraphLayout.parseInstance(game));
+	    long copyDeepBytes = copyGraph.totalSize();
+	    long copyObjectCount = copyGraph.totalCount();
+	    
+	    System.out.println("State class:            " + warmedState.getClass().getSimpleName());
+	    System.out.println("Shallow size:           " + shallowBytes + " bytes");
+	    System.out.println("Deep size (state-only): " + deepBytes + " bytes (" + objectCount + " objects)");
+	    System.out.println("Copy deep size:         " + copyDeepBytes + " bytes (" + copyObjectCount + " objects)");
+	    System.out.println();
 	}
 }
