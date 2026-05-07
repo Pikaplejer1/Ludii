@@ -5,13 +5,10 @@ import java.nio.file.Path;
 import java.util.*;
 
 /**
- * SubclassGenerator v2 — 18 field recipes.
+ * SubclassGenerator v3 — 17 field recipes + optional package sharding.
  *
- * Original 9 (bytecode-detected): amount, valuesPlayer, propositions, votes,
- * notes, sitesToRemove, rememberingValues, mapRememberingValues, valueMap.
- *
- * New 9 (flag-detected): sumDice, currentDice, diceAllEqual, visited, teams,
- * remainingDominoes, pendingValues, onTrackIndices, currentPhase.
+ * When subPackage is null, output goes to other.state (legacy layout).
+ * When subPackage is non-null, output goes to other.state.<subPackage>.
  */
 public class SubclassGenerator {
 
@@ -33,34 +30,36 @@ public class SubclassGenerator {
 
         // ═══════════ ORIGINAL 9 (bytecode-detected) ═══════════
 
+     // ═══════════ ORIGINAL 9 (bytecode-detected) ═══════════
+
         m.put("amount", new R(
-        	    "private int[] amount = null;",
-        	    List.of("if (game.requiresBet()) amount = new int[game.players().count() + 1];"),
-        	    List.of("if (other.amount != null) amount = java.util.Arrays.copyOf(other.amount, other.amount.length);"),
-        	    List.of("if (o.amount != null) amount = java.util.Arrays.copyOf(o.amount, o.amount.length);"),
-        	    List.of("if (amount != null) for (int i = 0; i < amount.length; i++) amount[i] = 0;"),
-        	    List.of(
-        	        "@Override public int amount(final int player) { return (amount != null) ? amount[player] : 0; }",
-        	        "@Override public void setAmount(final int player, final int newAmount) {",
-        	        "    if (amount != null && player > 0 && player < amount.length) amount[player] = newAmount;",
-        	        "}",
-        	        "@Override protected void updateAmountHash(final int player) {",
-        	        "    if (lowAmountHashes != null) {",
-        	        "        if (amount[player] <= AMOUNT_MAX_HASH)",
-        	        "            amountHash ^= lowAmountHashes[player][amount[player]];",
-        	        "        else",
-        	        "            amountHash ^= highAmountHashes[player][amount[player] % AMOUNT_MAX_HASH];",
-        	        "    }",
-        	        "}")));
+            "private int[] amount = null;",
+            List.of("if (game.requiresBet()) amount = new int[game.players().count() + 1];"),
+            List.of("if (other.amount != null) amount = java.util.Arrays.copyOf(other.amount, other.amount.length);"),
+            List.of("if (o.amount != null) amount = java.util.Arrays.copyOf(o.amount, o.amount.length);"),
+            List.of("if (amount != null) for (int i = 0; i < amount.length; i++) amount[i] = 0;"),
+            List.of(
+                "@Override public int amount(final int player) { return (amount != null) ? amount[player] : 0; }",
+                "@Override public void setAmount(final int player, final int newAmount) {",
+                "    if (amount != null && player > 0 && player < amount.length) amount[player] = newAmount;",
+                "}",
+                "@Override protected void updateAmountHash(final int player) {",
+                "    if (lowAmountHashes != null) {",
+                "        if (amount[player] <= AMOUNT_MAX_HASH)",
+                "            amountHash ^= lowAmountHashes[player][amount[player]];",
+                "        else",
+                "            amountHash ^= highAmountHashes[player][amount[player] % AMOUNT_MAX_HASH];",
+                "    }",
+                "}")));
 
         m.put("valuesPlayer", new R(
             "private int[] valuesPlayer;",
             List.of("valuesPlayer = new int[game.players().size() + 1];",
-                     "java.util.Arrays.fill(valuesPlayer, main.Constants.UNDEFINED);"),
+                    "java.util.Arrays.fill(valuesPlayer, main.Constants.UNDEFINED);"),
             List.of("valuesPlayer = new int[other.valuesPlayer.length];",
-                     "System.arraycopy(other.valuesPlayer, 0, valuesPlayer, 0, other.valuesPlayer.length);"),
+                    "System.arraycopy(other.valuesPlayer, 0, valuesPlayer, 0, other.valuesPlayer.length);"),
             List.of("valuesPlayer = new int[o.valuesPlayer.length];",
-                     "System.arraycopy(o.valuesPlayer, 0, valuesPlayer, 0, o.valuesPlayer.length);"),
+                    "System.arraycopy(o.valuesPlayer, 0, valuesPlayer, 0, o.valuesPlayer.length);"),
             List.of("java.util.Arrays.fill(valuesPlayer, main.Constants.UNDEFINED);"),
             List.of(
                 "@Override public void setValueForPlayer(final int player, final int value) { valuesPlayer[player] = value; }",
@@ -107,10 +106,10 @@ public class SubclassGenerator {
 
         m.put("sitesToRemove", new R(
             "private gnu.trove.list.array.TIntArrayList sitesToRemove = null;",
-            List.of("if (game.hasSequenceCapture()) sitesToRemove = new gnu.trove.list.array.TIntArrayList();"),
+            List.of("sitesToRemove = new gnu.trove.list.array.TIntArrayList();"), 
             List.of("if (other.sitesToRemove != null) sitesToRemove = new gnu.trove.list.array.TIntArrayList(other.sitesToRemove);"),
             List.of("if (o.sitesToRemove != null) sitesToRemove = new gnu.trove.list.array.TIntArrayList(o.sitesToRemove);"),
-            List.of(),
+            List.of("sitesToRemove = new gnu.trove.list.array.TIntArrayList();"), 
             List.of(
                 "@Override public void reInitCapturedPiece() { if (sitesToRemove != null) sitesToRemove.clear(); }",
                 "@Override public void addSitesToRemove(final int site) { if (sitesToRemove != null) sitesToRemove.add(site); }",
@@ -130,18 +129,18 @@ public class SubclassGenerator {
 
         m.put("mapRememberingValues", new R(
             "private java.util.Map<String, main.collections.FastTIntArrayList> mapRememberingValues = null;",
-            List.of("if (game.usesRememberingValues()) mapRememberingValues = new java.util.HashMap<>();"),
+            List.of("mapRememberingValues = new java.util.HashMap<>();"), 
             List.of("if (other.mapRememberingValues != null) {",
-                     "    mapRememberingValues = new java.util.HashMap<>();",
-                     "    for (var e : other.mapRememberingValues.entrySet())",
-                     "        mapRememberingValues.put(e.getKey(), new main.collections.FastTIntArrayList(e.getValue()));",
-                     "}"),
+                    "    mapRememberingValues = new java.util.HashMap<>();",
+                    "    for (var e : other.mapRememberingValues.entrySet())",
+                    "        mapRememberingValues.put(e.getKey(), new main.collections.FastTIntArrayList(e.getValue()));",
+                    "}"),
             List.of("if (o.mapRememberingValues != null) {",
-                     "    mapRememberingValues = new java.util.HashMap<>();",
-                     "    for (var e : o.mapRememberingValues.entrySet())",
-                     "        mapRememberingValues.put(e.getKey(), new main.collections.FastTIntArrayList(e.getValue()));",
-                     "}"),
-            List.of(),
+                    "    mapRememberingValues = new java.util.HashMap<>();",
+                    "    for (var e : o.mapRememberingValues.entrySet())",
+                    "        mapRememberingValues.put(e.getKey(), new main.collections.FastTIntArrayList(e.getValue()));",
+                    "}"),
+            List.of("mapRememberingValues = new java.util.HashMap<>();"), 
             List.of("@Override public java.util.Map<String, main.collections.FastTIntArrayList> mapRememberingValues() { return mapRememberingValues; }")));
 
         m.put("valueMap", new R(
@@ -149,7 +148,7 @@ public class SubclassGenerator {
             List.of("if (game.usesValueMap()) valueMap = new gnu.trove.map.hash.TObjectIntHashMap<>();"),
             List.of("if (other.valueMap != null) valueMap = new gnu.trove.map.hash.TObjectIntHashMap<>(other.valueMap);"),
             List.of("if (o.valueMap != null) valueMap = new gnu.trove.map.hash.TObjectIntHashMap<>(o.valueMap);"),
-            List.of(),
+            List.of("if (game.usesValueMap()) valueMap = new gnu.trove.map.hash.TObjectIntHashMap<>();"),
             List.of(
                 "@Override public void setValue(final String key, final int value) { if (valueMap != null) valueMap.put(key, value); }",
                 "@Override public void removeKeyValue(final String key) { if (valueMap != null) valueMap.remove(key); }",
@@ -163,7 +162,7 @@ public class SubclassGenerator {
             List.of("if (game.hasHandDice()) sumDice = new int[game.handDice().size()];"),
             List.of("if (other.sumDice != null) sumDice = java.util.Arrays.copyOf(other.sumDice, other.sumDice.length);"),
             List.of("if (o.sumDice != null) sumDice = java.util.Arrays.copyOf(o.sumDice, o.sumDice.length);"),
-            List.of(),
+            List.of("if (game.hasHandDice()) sumDice = new int[game.handDice().size()];"),
             List.of(
                 "@Override public int sumDice(final int index) { return sumDice[index]; }",
                 "@Override public int[] sumDice() { return sumDice; }",
@@ -173,29 +172,35 @@ public class SubclassGenerator {
 
         m.put("currentDice", new R(
             "private int[][] currentDice;",
-            List.of("if (game.hasHandDice()) {",
-                     "    currentDice = new int[game.handDice().size()][];",
-                     "    for (int i = 0; i < game.handDice().size(); i++) {",
-                     "        final game.equipment.container.other.Dice d = game.handDice().get(i);",
-                     "        currentDice[i] = new int[d.numLocs()];",
-                     "    }",
-                     "}"),
+            List.of("if (game.hasHandDice() && game.handDice() != null) {",
+                    "    currentDice = new int[game.handDice().size()][];",
+                    "    for (int i = 0; i < game.handDice().size(); i++) {",
+                    "        final game.equipment.container.other.Dice d = game.handDice().get(i);",
+                    "        currentDice[i] = new int[d.numLocs()];",
+                    "    }",
+                    "} else { currentDice = new int[0][0]; }"), 
             List.of("if (other.currentDice != null) {",
-                     "    currentDice = new int[other.currentDice.length][];",
-                     "    for (int i = 0; i < currentDice.length; ++i)",
-                     "        currentDice[i] = java.util.Arrays.copyOf(other.currentDice[i], other.currentDice[i].length);",
-                     "}"),
+                    "    currentDice = new int[other.currentDice.length][];",
+                    "    for (int i = 0; i < currentDice.length; ++i)",
+                    "        currentDice[i] = java.util.Arrays.copyOf(other.currentDice[i], other.currentDice[i].length);",
+                    "}"),
             List.of("if (o.currentDice != null) {",
-                     "    currentDice = new int[o.currentDice.length][];",
-                     "    for (int i = 0; i < currentDice.length; ++i)",
-                     "        currentDice[i] = java.util.Arrays.copyOf(o.currentDice[i], o.currentDice[i].length);",
-                     "}"),
-            List.of(),
+                    "    currentDice = new int[o.currentDice.length][];",
+                    "    for (int i = 0; i < currentDice.length; ++i)",
+                    "        currentDice[i] = java.util.Arrays.copyOf(o.currentDice[i], o.currentDice[i].length);",
+                    "}"),
+            List.of("if (game.hasHandDice() && game.handDice() != null) {",
+                    "    currentDice = new int[game.handDice().size()][];",
+                    "    for (int i = 0; i < game.handDice().size(); i++) {",
+                    "        final game.equipment.container.other.Dice d = game.handDice().get(i);",
+                    "        currentDice[i] = new int[d.numLocs()];",
+                    "    }",
+                    "} else { currentDice = new int[0][0]; }"), 
             List.of(
                 "@Override public int[] currentDice(final int index) { return currentDice[index]; }",
                 "@Override public int[][] currentDice() { return currentDice; }",
                 "@Override public void setCurrentDice(final int[][] currentDice) { this.currentDice = currentDice; }",
-                "@Override public void reinitCurrentDice() { for (int i = 0; i < currentDice.length; i++) for (int j = 0; j < currentDice[i].length; j++) currentDice[i][j] = 0; }",
+                "@Override public void reinitCurrentDice() { if (currentDice != null) { for (int i = 0; i < currentDice.length; i++) for (int j = 0; j < currentDice[i].length; j++) currentDice[i][j] = 0; } }",
                 "@Override public void updateCurrentDice(final int dieValue, final int dieIndex, final int indexHand) { currentDice[indexHand][dieIndex] = dieValue; }")));
 
         m.put("diceAllEqual", new R(
@@ -213,7 +218,7 @@ public class SubclassGenerator {
             List.of("if (game.requiresVisited()) visited = new java.util.BitSet(game.board().numSites());"),
             List.of("if (other.visited != null) visited = (java.util.BitSet) other.visited.clone();"),
             List.of("if (o.visited != null) visited = (java.util.BitSet) o.visited.clone();"),
-            List.of(),
+            List.of("if (game.requiresVisited()) visited = new java.util.BitSet(game.board().numSites());"),
             List.of(
                 "@Override public void reInitVisited() { if (visited != null) visited.clear(); }",
                 "@Override public boolean isVisited(final int site) { return visited != null && visited.get(site); }",
@@ -241,7 +246,7 @@ public class SubclassGenerator {
             List.of("if (game.hasDominoes()) remainingDominoes = new main.collections.FastTIntArrayList();"),
             List.of("if (other.remainingDominoes != null) remainingDominoes = new main.collections.FastTIntArrayList(other.remainingDominoes);"),
             List.of("if (o.remainingDominoes != null) remainingDominoes = new main.collections.FastTIntArrayList(o.remainingDominoes);"),
-            List.of(),
+            List.of("if (game.hasDominoes()) remainingDominoes = new main.collections.FastTIntArrayList();"),
             List.of("@Override public main.collections.FastTIntArrayList remainingDominoes() { return remainingDominoes; }")));
 
         m.put("pendingValues", new R(
@@ -249,7 +254,7 @@ public class SubclassGenerator {
             List.of("if (game.usesPendingValues()) pendingValues = new gnu.trove.set.hash.TIntHashSet();"),
             List.of("if (other.pendingValues != null) pendingValues = new gnu.trove.set.hash.TIntHashSet(other.pendingValues);"),
             List.of("if (o.pendingValues != null) pendingValues = new gnu.trove.set.hash.TIntHashSet(o.pendingValues);"),
-            List.of(),
+            List.of("if (game.usesPendingValues()) pendingValues = new gnu.trove.set.hash.TIntHashSet();"),
             List.of(
                 "@Override public gnu.trove.set.hash.TIntHashSet pendingValues() { return pendingValues; }",
                 "@Override public void setPending(final int value) {",
@@ -273,17 +278,16 @@ public class SubclassGenerator {
         m.put("onTrackIndices", new R(
             "private transient other.state.track.OnTrackIndices onTrackIndices;",
             List.of("if (game.hasTrack() && game.hasInternalLoopInTrack())",
-                     "    onTrackIndices = new other.state.track.OnTrackIndices(game.board().tracks(), game.equipment().components().length);"),
+                    "    onTrackIndices = new other.state.track.OnTrackIndices(game.board().tracks(), game.equipment().components().length);"),
             List.of("onTrackIndices = copyOnTrackIndices(other.onTrackIndices);"),
             List.of("onTrackIndices = copyOnTrackIndices(o.onTrackIndices);"),
-            List.of(),
+            List.of("if (game.hasTrack() && game.hasInternalLoopInTrack())",
+                    "    onTrackIndices = new other.state.track.OnTrackIndices(game.board().tracks(), game.equipment().components().length);"),
             List.of(
                 "@Override public other.state.track.OnTrackIndices onTrackIndices() { return onTrackIndices; }",
                 "@Override public void setOnTrackIndices(final other.state.track.OnTrackIndices oti) {",
                 "    this.onTrackIndices = (oti == null) ? null : new other.state.track.OnTrackIndices(oti);",
                 "}")));
-
-        
 
         return m;
     }
@@ -292,11 +296,22 @@ public class SubclassGenerator {
     // GENERATE
     // ══════════════════════════════════════════════════════════════════════
 
-    public static void generate(String gameName, Set<String> fields, String outputDir) {
+    /**
+     * Sharded entry point. subPackage is appended to "other.state".
+     * Pass null for legacy (unsharded) layout.
+     */
+    public static void generate(String gameName, Set<String> fields, String outputDir, String subPackage) {
         String cls = gameName + "State";
-        StringBuilder s = new StringBuilder();
+        String pkg = (subPackage == null || subPackage.isEmpty()) ? "other.state" : "other.state." + subPackage;
 
-        s.append("package other.state;\n\nimport game.Game;\nimport game.Game.StateConstructorLock;\n\n");
+        StringBuilder s = new StringBuilder();
+        s.append("package ").append(pkg).append(";\n\n");
+        s.append("import game.Game;\n");
+        s.append("import game.Game.StateConstructorLock;\n");
+        if (subPackage != null && !subPackage.isEmpty()) {
+            s.append("import other.state.State;\n");
+        }
+        s.append("\n");
         s.append("/** Auto-generated State subclass for ").append(gameName).append(". */\n");
         s.append("public class ").append(cls).append(" extends State {\n\n");
         s.append("    private static final long serialVersionUID = 1L;\n\n");
@@ -350,7 +365,11 @@ public class SubclassGenerator {
         s.append("}\n");
 
         try {
-            Path p = Path.of(outputDir, cls + ".java");
+            Path targetDir = (subPackage == null || subPackage.isEmpty())
+                ? Path.of(outputDir)
+                : Path.of(outputDir, subPackage);
+            Files.createDirectories(targetDir);
+            Path p = targetDir.resolve(cls + ".java");
             Files.writeString(p, s.toString());
             System.out.println("  Generated: " + p);
         } catch (Exception e) {
@@ -358,15 +377,23 @@ public class SubclassGenerator {
         }
     }
 
+    // Legacy 3-arg overload — unsharded (other.state.*)
+    public static void generate(String gameName, Set<String> fields, String outputDir) {
+        generate(gameName, fields, outputDir, null);
+    }
+
+    // Legacy 2-arg overload — unsharded, default output dir
     public static void generate(String gameName, Set<String> fields) {
-        generate(gameName, fields, DEFAULT_OUTPUT_DIR);
+        generate(gameName, fields, DEFAULT_OUTPUT_DIR, null);
     }
 
     public static void main(String[] args) {
-        System.out.println("=== SubclassGenerator v2 test ===\n");
-        generate("TicTacToe", Set.of());
-        generate("EnglishDraughts", Set.of("sitesToRemove"));
-        generate("Backgammon", new LinkedHashSet<>(List.of("sumDice", "currentDice", "diceAllEqual")));
+        System.out.println("=== SubclassGenerator v3 test ===\n");
+        // Sharded examples
+        generate("TicTacToe", Set.of(), DEFAULT_OUTPUT_DIR, "t");
+        generate("EnglishDraughts", Set.of("sitesToRemove"), DEFAULT_OUTPUT_DIR, "e");
+        generate("Backgammon", new LinkedHashSet<>(List.of("sumDice", "currentDice", "diceAllEqual")), DEFAULT_OUTPUT_DIR, "b");
+        // Unsharded fallback
         generate("Full", new LinkedHashSet<>(RECIPES.keySet()));
         System.out.println("\nDone.");
     }

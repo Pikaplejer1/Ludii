@@ -1,0 +1,1573 @@
+file,gameName,stateClass,status,moves,durationMs,error
+Adugo,Adugo,AdugoState,TIMEOUT,0,17829,exceeded 10000ms
+Asalto,Asalto,AsaltoState,PLAYOUT_FAIL,0,377,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Bagh Bandi,Bagh Bandi,BaghBandiState,OK,580,396,
+Bagh Batti,Bagh Batti,BaghBattiState,PLAYOUT_FAIL,0,94,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Bagh Guti,Bagh Guti,BaghGutiState,PLAYOUT_FAIL,0,84,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Bagha Guti,Bagha Guti,BaghaGutiState,OK,391,66,
+Baghchal,Baghchal,BaghchalState,OK,358,98,
+Bam Blang Beh Khla,Bam Blang Beh Khla,BamBlangBehKhlaState,OK,19,46,
+Bouge Shodra,Bouge Shodra,BougeShodraState,OK,460,80,
+Cercar La Liebre,Cercar La Liebre,CercarLaLiebreState,OK,26,52,
+Coyote,Coyote,CoyoteState,OK,44,46,
+Demala Diviyan Keliya,Demala Diviyan Keliya,DemalaDiviyanKeliyaState,OK,147,44,
+Diviyan Keliya,Diviyan Keliya,DiviyanKeliyaState,OK,797,74,
+El Cazador,El Cazador,ElCazadorState,OK,2500,78,
+El Perro,El Perro,ElPerroState,OK,2130,106,
+El Zorro,El Zorro,ElZorroState,OK,212,56,
+Fox and Geese,Fox and Geese,FoxAndGeeseState,OK,227,61,
+Gala (Buginese),Gala (Buginese),GalaBugineseState,OK,1528,117,
+Gala,Gala,GalaState,OK,2500,69,
+Gasetavl (Gedved),Gasetavl (Gedved),GasetavlGedvedState,OK,2500,111,
+Gasetavl,Gasetavl,GasetavlState,OK,2500,142,
+Gioco dell'Orso,Gioco dell'Orso,GiocoDellOrsoState,OK,2504,111,
+Go with the Floe,Go with the Floe,GoWithTheFloeState,OK,41,91,
+Haretavl,Haretavl,HaretavlState,OK,230,35,
+Hat Diviyan Keliya,Hat Diviyan Keliya,HatDiviyanKeliyaState,OK,47,29,
+Huli-Mane Ata,Huli-Mane Ata,HuliManeAtaState,OK,10,33,
+Hund efter Hare (Thy),Hund efter Hare (Thy),HundEfterHareThyState,OK,33,54,
+Hund efter Hare (Vendsyssel),Hund efter Hare (Vendsyssel),HundEfterHareVendsysselState,OK,2500,47,
+Hyvn aetter Hare,Hyvn aetter Hare,HyvnAetterHareState,OK,258,63,
+Janes Soppi,Janes Soppi,JanesSoppiState,OK,2500,52,
+Jeu de Renard (Two Foxes),Jeu de Renard (Two Foxes),JeuDeRenardTwoFoxesState,OK,639,105,
+Jeu de Renard,Jeu de Renard,JeuDeRenardState,OK,2500,87,
+Jeu du Renard et de la Poule,Jeu du Renard et de la Poule,JeuDuRenardEtDeLaPouleState,PLAYOUT_FAIL,0,63,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Jeu Militaire,Jeu Militaire,JeuMilitaireState,OK,29,34,
+Juroku Musashi,Juroku Musashi,JurokuMusashiState,OK,610,43,
+Kaooa,Kaooa,KaooaState,PLAYOUT_FAIL,0,39,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Ko-app-paw-na,Ko-app-paw-na,KoAppPawNaState,OK,60,37,
+Komikan,Komikan,KomikanState,PLAYOUT_FAIL,0,74,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Koti Keliya,Koti Keliya,KotiKeliyaState,OK,69,97,
+Kulaochal,Kulaochal,KulaochalState,OK,465,51,
+La Liebre Perseguida,La Liebre Perseguida,LaLiebrePerseguidaState,OK,19,30,
+La Yagua,La Yagua,LaYaguaState,OK,77,42,
+Len Cua Kin Ngoa,Len Cua Kin Ngoa,LenCuaKinNgoaState,OK,19,40,
+Ludus Coriovalli,Ludus Coriovalli,LudusCoriovalliState,OK,217,56,
+Main Tapak Empat,Main Tapak Empat,MainTapakEmpatState,OK,344,35,
+Manu,Manu,ManuState,OK,541,52,
+Mao Naga Tiger Game,Mao Naga Tiger Game,MaoNagaTigerGameState,OK,342,54,
+Merimueng-rimueng-do,Merimueng-rimueng-do,MerimuengRimuengDoState,OK,225,29,
+Merimueng-rimueng,Merimueng-rimueng,MerimuengRimuengState,OK,446,60,
+Musinaykahwhanmetowaywin,Musinaykahwhanmetowaywin,MusinaykahwhanmetowaywinState,PLAYOUT_FAIL,0,58,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Mysore Tiger Game (Three Tigers),Mysore Tiger Game (Three Tigers),MysoreTigerGameThreeTigersState,OK,346,41,
+Mysore Tiger Game (Two Tigers),Mysore Tiger Game (Two Tigers),MysoreTigerGameTwoTigersState,OK,609,50,
+Mysore Tiger Game,Mysore Tiger Game,MysoreTigerGameState,OK,8,28,
+Neg Tugal Tuux,Neg Tugal Tuux,NegTugalTuuxState,OK,4,44,
+Nuktagaq,Nuktagaq,NuktagaqState,OK,667,50,
+Orissa Tiger Game (Four Tigers),Orissa Tiger Game (Four Tigers),OrissaTigerGameFourTigersState,OK,215,50,
+Orissa Tiger Game (One Tiger),Orissa Tiger Game (One Tiger),OrissaTigerGameOneTigerState,OK,535,54,
+Pon Chochotl,Pon Chochotl,PonChochotlState,OK,84,42,
+Pulijudamu,Pulijudamu,PulijudamuState,OK,239,41,
+Refskak,Refskak,RefskakState,OK,236,39,
+Renard et les Poules,Renard et les Poules,RenardEtLesPoulesState,OK,463,69,
+Rimau-Rimau (One Tiger),Rimau-Rimau (One Tiger),RimauRimauOneTigerState,OK,642,67,
+Rimau-Rimau (Two Tigers),Rimau-Rimau (Two Tigers),RimauRimauTwoTigersState,OK,755,57,
+Rimoe,Rimoe,RimoeState,OK,195,36,
+Sher Bakar,Sher Bakar,SherBakarState,PLAYOUT_FAIL,0,55,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Sher Bakr,Sher Bakr,SherBakrState,OK,4,23,
+Shi Liu Kan Tsiang Kun,Shi Liu Kan Tsiang Kun,ShiLiuKanTsiangKunState,OK,12,43,
+Shui Yen Ho-Shang,Shui Yen Ho-Shang,ShuiYenHoShangState,OK,2500,32,
+Sumi Naga Game (Hunt),Sumi Naga Game (Hunt),SumiNagaGameHuntState,PLAYOUT_FAIL,0,46,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Three Musketeers,Three Musketeers,ThreeMusketeersState,OK,35,37,
+To Kinegi tou Lagou,To Kinegi tou Lagou,ToKinegiTouLagouState,OK,2502,187,
+Uxrijn Ever,Uxrijn Ever,UxrijnEverState,OK,103,47,
+Wolf and Sheep,Wolf and Sheep,WolfAndSheepState,OK,90,48,
+Wolf und Schaaf,Wolf und Schaaf,WolfUndSchaafState,OK,31,49,
+Yaguarete Kora,Yaguarete Kora,YaguareteKoraState,OK,245,43,
+Yeung Luk Sz' Kon Tseung Kwan,Yeung Luk Sz' Kon Tseung Kwan,YeungLukSzKonTseungKwanState,OK,700,28,
+20 Squares,20 Squares,?,START_FAIL,0,74,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+58 Holes,58 Holes,?,START_FAIL,0,73,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ashta-kashte,Ashta-kashte,?,START_FAIL,0,57,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ashtapada,Ashtapada,?,START_FAIL,0,51,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Asi Keliya,Asi Keliya,?,START_FAIL,0,77,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Atom,Atom,AtomState,OK,541,38,
+Backgammon,Backgammon,?,START_FAIL,0,56,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Baralie,Baralie,?,START_FAIL,0,35,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Bargese,Bargese,?,START_FAIL,0,97,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Barjis,Barjis,?,START_FAIL,0,73,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Buffa de Baldrac,Buffa de Baldrac,?,START_FAIL,0,32,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Cab e Quinal,Cab e Quinal,?,START_FAIL,0,25,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Chaupar,Chaupar,?,START_FAIL,0,130,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Contrare Puff,Contrare Puff,?,START_FAIL,0,40,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Doblet,Doblet,?,START_FAIL,0,41,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Dodgem,Dodgem,DodgemState,OK,13,28,
+Dubblets,Dubblets,?,START_FAIL,0,42,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+El Mundo,El Mundo,?,START_FAIL,0,29,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Emperador,Emperador,?,START_FAIL,0,22,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Fallas,Fallas,?,START_FAIL,0,42,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Fevga,Fevga,?,START_FAIL,0,37,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Frangieh,Frangieh,?,START_FAIL,0,37,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Garanguet,Garanguet,?,START_FAIL,0,45,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ghingskoot,Ghingskoot,?,START_FAIL,0,49,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Grand Trictrac,Grand Trictrac,?,START_FAIL,0,145,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Had,Had,?,START_FAIL,0,34,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Imperial,Imperial,?,START_FAIL,0,22,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Jacquet de Versailles,Jacquet de Versailles,?,START_FAIL,0,71,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Jacquet,Jacquet,?,START_FAIL,0,24,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Julbahar,Julbahar,?,START_FAIL,0,75,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Kawade Kelia,Kawade Kelia,?,START_FAIL,0,43,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ketch-Dolt,Ketch-Dolt,?,START_FAIL,0,32,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Kints,Kints,?,START_FAIL,0,36,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Kiz Tavlasi,Kiz Tavlasi,?,START_FAIL,0,31,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Knossos Game,Knossos Game,?,START_FAIL,0,93,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Kolica Atarakua,Kolica Atarakua,?,START_FAIL,0,49,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Kotra,Kotra,?,START_FAIL,0,35,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Lange Puff,Lange Puff,?,START_FAIL,0,45,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Laquet,Laquet,?,START_FAIL,0,16,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Len Doat,Len Doat,LenDoatState,OK,2500,82,
+Los Doze Canes,Los Doze Canes,?,START_FAIL,0,26,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ludus Anglicorum,Ludus Anglicorum,?,START_FAIL,0,26,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ludus Lombardorum,Ludus Lombardorum,?,START_FAIL,0,34,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Mahbouseh,Mahbouseh,?,START_FAIL,0,73,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Medio Emperador,Medio Emperador,?,START_FAIL,0,25,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Mughrabieh,Mughrabieh,?,START_FAIL,0,77,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Myles,Myles,?,START_FAIL,0,37,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Nama,Nama,?,START_FAIL,0,144,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Nard,Nard,?,START_FAIL,0,45,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Nyout,Nyout,?,START_FAIL,0,109,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ofanfelling,Ofanfelling,?,START_FAIL,0,30,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pachesi,Pachesi,?,START_FAIL,0,68,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pachih,Pachih,?,START_FAIL,0,60,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pachisi,Pachisi,?,START_FAIL,0,77,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pagade Kayi Ata (Sixteen-handed),Pagade Kayi Ata (Sixteen-handed),?,START_FAIL,0,286,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pahada Keliya,Pahada Keliya,?,START_FAIL,0,115,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pancha Keliya,Pancha Keliya,?,START_FAIL,0,50,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Panchi,Panchi,?,START_FAIL,0,48,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pareia de Entrada,Pareia de Entrada,?,START_FAIL,0,17,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Paumecary,Paumecary,?,START_FAIL,0,17,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Petol,Petol,?,START_FAIL,0,85,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Piprjall,Piprjall,?,START_FAIL,0,201,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Plakoto,Plakoto,?,START_FAIL,0,54,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Portes,Portes,?,START_FAIL,0,58,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Provincial,Provincial,?,START_FAIL,0,20,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Quinze Tablas,Quinze Tablas,?,START_FAIL,0,29,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Romavoa,Romavoa,?,START_FAIL,0,36,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Royal Game of Ur,Royal Game of Ur,?,START_FAIL,0,46,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Schuster,Schuster,?,START_FAIL,0,46,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Senet,Senet,?,START_FAIL,0,312,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Seys Dos y As,Seys Dos y As,?,START_FAIL,0,18,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sokkattan,Sokkattan,?,START_FAIL,0,84,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ssang-Ryouk,Ssang-Ryouk,?,START_FAIL,0,35,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Svensk Bradspel,Svensk Bradspel,?,START_FAIL,0,47,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tables Rabbatuees,Tables Rabbatuees,?,START_FAIL,0,47,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tavli,Tavli,?,START_FAIL,0,121,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tawula,Tawula,?,START_FAIL,0,44,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tayam Sonalu,Tayam Sonalu,?,START_FAIL,0,76,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Thaayam,Thaayam,?,START_FAIL,0,81,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Todas Tablas,Todas Tablas,?,START_FAIL,0,33,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tokkadille,Tokkadille,?,START_FAIL,0,79,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tsun K'i,Tsun K'i,?,START_FAIL,0,88,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tugi-Epfe,Tugi-Epfe,?,START_FAIL,0,53,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Uturu Uturu Kaida,Uturu Uturu Kaida,?,START_FAIL,0,68,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Verquere,Verquere,?,START_FAIL,0,29,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+XII Scripta,XII Scripta,?,START_FAIL,0,34,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Yahoudieh,Yahoudieh,?,START_FAIL,0,33,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Agon,Agon,AgonState,OK,295,223,
+Aralzaa,Aralzaa,AralzaaState,OK,71,41,
+Bajr,Bajr,BajrState,OK,77,41,
+Barca,Barca,BarcaState,OK,2500,293,
+Camelot,Camelot,CamelotState,OK,95,200,
+Cascades,Cascades,CascadesState,OK,98,132,
+Chinese Checkers,Chinese Checkers,ChineseCheckersState,MOVE_LIMIT,5000,288,exceeded 5000 moves
+Conspirateurs,Conspirateurs,ConspirateursState,OK,2695,257,
+Gadis,Gadis,GadisState,OK,139,159,
+Grasshopper,Grasshopper,GrasshopperState,OK,1062,87,
+Halma,Halma,HalmaState,OK,2746,258,
+Lelac,Lelac,?,START_FAIL,0,37,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+O-Pat-Kono,O-Pat-Kono,OPatKonoState,OK,2500,40,
+Salta,Salta,SaltaState,OK,3097,108,
+Shanzak Kammar,Shanzak Kammar,ShanzakKammarState,OK,2500,49,
+Suffragetto,Suffragetto,?,START_FAIL,0,606,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Tablan,Tablan,?,START_FAIL,0,69,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tandems,Tandems,TandemsState,OK,4992,230,
+Aboyne,Aboyne,AboyneState,OK,222,99,
+Aime,Aime,AimeState,OK,52,85,
+Archimedes,Archimedes,ArchimedesState,OK,348,69,
+Arimaa,Arimaa,ArimaaState,OK,303,193,
+Ashere,Ashere,AshereState,OK,56,51,
+Bison,Bison,BisonState,OK,81,52,
+Bombardment,Bombardment,BombardmentState,OK,30,53,
+BreakBeer,BreakBeer,BreakBeerState,OK,57,47,
+Breakthrough,Breakthrough,BreakthroughState,OK,33,49,
+Celticator,Celticator,CelticatorState,OK,74,400,
+Center,Center,CenterState,OK,22,65,
+Chong (Sakhalin),Chong (Sakhalin),?,START_FAIL,0,67,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Chonpa,Chonpa,?,START_FAIL,0,411,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Diaballik,Diaballik,DiaballikState,OK,2,80,
+EinStein Wurfelt Nicht,EinStein Wurfelt Nicht,EinSteinWurfeltNichtState,PLAYOUT_FAIL,11,49,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Es-Sig,Es-Sig,?,START_FAIL,0,65,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Fianco,Fianco,FiancoState,OK,190,51,
+Football Chess,Football Chess,FootballChessState,OK,2549,982,
+Gauntlet,Gauntlet,GauntletState,PLAYOUT_FAIL,0,67,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Gavalata,Gavalata,?,START_FAIL,0,21,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Geister,Geister,GeisterState,OK,163,71,
+Gyan Chaupar,Gyan Chaupar,?,START_FAIL,0,66,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+India,India,IndiaState,OK,92,78,
+Ishighan,Ishighan,?,START_FAIL,0,126,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Jeson Mor,Jeson Mor,JesonMorState,OK,45,47,
+Jungle,Jungle,JungleState,OK,220,87,
+Kawasukuts,Kawasukuts,KawasukutsState,PLAYOUT_FAIL,1,75,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+King's Valley,King's Valley,KingSValleyState,OK,322,48,
+Knightthrough,Knightthrough,KnightthroughState,OK,41,44,
+Kos,Kos,KosState,OK,251,60,
+Li'b el-Merafib,Li'b el-Merafib,?,START_FAIL,0,169,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Main Pacheh,Main Pacheh,?,START_FAIL,0,26,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Murus Gallicus,Murus Gallicus,MurusGallicusState,OK,60,127,
+Nebakuthana,Nebakuthana,?,START_FAIL,0,44,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Neutron,Neutron,NeutronState,OK,10,60,
+Owasokotz,Owasokotz,?,START_FAIL,0,55,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Paradis,Paradis,?,START_FAIL,0,41,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pasit,Pasit,?,START_FAIL,0,84,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Patol,Patol,PatolState,PLAYOUT_FAIL,1,74,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pente Grammai,Pente Grammai,?,START_FAIL,0,14,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pylos,Pylos,PylosState,OK,37,73,
+Quoridor,Quoridor,QuoridorState,OK,80,2551,
+Reach Chess,Reach Chess,ReachChessState,OK,71,188,
+Santorini,Santorini,SantoriniState,OK,105,42,
+Saturankam,Saturankam,?,START_FAIL,0,77,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Set Dilth',Set Dilth',?,START_FAIL,0,49,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Setichch,Setichch,?,START_FAIL,0,43,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Shing Quon Tu,Shing Quon Tu,?,START_FAIL,0,194,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig (El Oued),Sig (El Oued),?,START_FAIL,0,88,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig wa Duqqan (Houmt al-Arbah),Sig wa Duqqan (Houmt al-Arbah),?,START_FAIL,0,52,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig wa Duqqan (Houmt Taourit),Sig wa Duqqan (Houmt Taourit),?,START_FAIL,0,76,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Siga (Sri Lanka),Siga (Sri Lanka),?,START_FAIL,0,48,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sik,Sik,?,START_FAIL,0,70,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Siryu (Race),Siryu (Race),?,START_FAIL,0,93,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sneakthrough,Sneakthrough,SneakthroughState,OK,90,67,
+Spinimax,Spinimax,SpinimaxState,OK,19,92,
+Squadro,Squadro,SquadroState,OK,88,138,
+Stairs,Stairs,StairsState,OK,31,125,
+Tamman,Tamman,?,START_FAIL,0,37,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tasholiwe,Tasholiwe,?,START_FAIL,0,52,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Thales,Thales,ThalesState,PLAYOUT_FAIL,0,56,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+The Pawn Game,The Pawn Game,ThePawnGameState,OK,30,44,
+There and Back,There and Back,ThereAndBackState,OK,54,93,
+Tourne-Case,Tourne-Case,?,START_FAIL,0,32,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tri EinStein Wurfelt Nicht,Tri EinStein Wurfelt Nicht,TriEinSteinWurfeltNichtState,PLAYOUT_FAIL,15,75,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tsaydithl,Tsaydithl,?,START_FAIL,0,53,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Zohn Ahl,Zohn Ahl,?,START_FAIL,0,87,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Zonesh,Zonesh,ZoneshState,OK,25,53,
+Competitive 2048,Competitive 2048,Competitive2048State,OK,84,186,
+Diagonals,Diagonals,DiagonalsState,OK,64,60,
+Los Escaques,Los Escaques,?,START_FAIL,0,1052,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Momentum,Momentum,MomentumState,OK,21,240,
+Pasa,Pasa,?,START_FAIL,0,28,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Splastwo,Splastwo,SplastwoState,PLAYOUT_FAIL,0,352,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Bao Ki Arabu (Zanzibar 1),Bao Ki Arabu (Zanzibar 1),BaoKiArabuZanzibar1State,OK,213,79,
+Bao Ki Arabu (Zanzibar 2),Bao Ki Arabu (Zanzibar 2),BaoKiArabuZanzibar2State,OK,128,54,
+Bao Kiswahili (DR Congo),Bao Kiswahili (DR Congo),BaoKiswahiliDRCongoState,OK,4304,153,
+Bao Kiswahili (East Africa),Bao Kiswahili (East Africa),BaoKiswahiliEastAfricaState,OK,44,2196,
+Bao,Bao,BaoState,OK,2,2139,
+Chiana wa Bwalo,Chiana wa Bwalo,ChianaWaBwaloState,OK,413,47,
+Chiana wa Kunja,Chiana wa Kunja,ChianaWaKunjaState,OK,2500,71,
+Chisolo,Chisolo,ChisoloState,OK,7,91,
+Choro (Acholi),Choro (Acholi),ChoroAcholiState,OK,3,88,
+Choro (Lango),Choro (Lango),ChoroLangoState,OK,9,190,
+Dongjintian (Four Players),Dongjintian (Four Players),DongjintianFourPlayersState,PLAYOUT_FAIL,0,80,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Hawalis,Hawalis,HawalisState,OK,326,52,
+Hus (Damara),Hus (Damara),HusDamaraState,OK,2698,80,
+Hus (Nama),Hus (Nama),HusNamaState,OK,11,82,
+Ikibuguzo (Opening 1),Ikibuguzo (Opening 1),IkibuguzoOpening1State,OK,7,59,
+Ikibuguzo (Opening 2),Ikibuguzo (Opening 2),IkibuguzoOpening2State,OK,3,62,
+Isolo,Isolo,IsoloState,OK,294,272,
+Katra Boaoaka,Katra Boaoaka,KatraBoaoakaState,OK,4,69,
+Katra,Katra,KatraState,OK,3,60,
+Katro Bevohoka,Katro Bevohoka,KatroBevohokaState,OK,197,39,
+Kisolo (Lali),Kisolo (Lali),KisoloLaliState,MOVE_LIMIT,5000,108,exceeded 5000 moves
+Kisolo,Kisolo,KisoloState,OK,284,81,
+Kubuguza,Kubuguza,KubuguzaState,OK,3,82,
+Lisolo,Lisolo,LisoloState,OK,2500,104,
+Lobudok,Lobudok,LobudokState,OK,531,289,
+Makonn,Makonn,MakonnState,OK,548,70,
+Mangola,Mangola,MangolaState,OK,18,115,
+Mefuvha,Mefuvha,MefuvhaState,OK,149,196,
+Misoro Tsoro (Additional Capture),Misoro Tsoro (Additional Capture),MisoroTsoroAdditionalCaptureState,OK,119,47,
+Misoro Tsoro,Misoro Tsoro,MisoroTsoroState,OK,100,46,
+Moruba,Moruba,MorubaState,OK,196,41,
+Msuwa wa Kunja,Msuwa wa Kunja,MsuwaWaKunjaState,OK,71,44,
+Msuwa,Msuwa,MsuwaState,OK,222,59,
+Musoro Tsoro,Musoro Tsoro,MusoroTsoroState,OK,87,49,
+Muvalavala (Luena),Muvalavala (Luena),MuvalavalaLuenaState,OK,153,54,
+Muvalavala (Quioco),Muvalavala (Quioco),MuvalavalaQuiocoState,OK,63,55,
+Mwambulula,Mwambulula,MwambululaState,OK,763,61,
+Mweiso,Mweiso,MweisoState,OK,23,73,
+Mwendo,Mwendo,MwendoState,OK,33,58,
+Mweso,Mweso,MwesoState,OK,4261,151,
+Namudilakunze,Namudilakunze,NamudilakunzeState,OK,368,67,
+Nchayo,Nchayo,NchayoState,OK,116,37,
+Nchuwa,Nchuwa,NchuwaState,OK,2500,59,
+Ngolo,Ngolo,NgoloState,OK,34,53,
+Ngulungu,Ngulungu,NgulunguState,OK,18,32,
+Njombwa (One Counter),Njombwa (One Counter),NjombwaOneCounterState,OK,569,82,
+Njombwa (Two Counters),Njombwa (Two Counters),NjombwaTwoCountersState,MOVE_LIMIT,5000,104,exceeded 5000 moves
+Njombwa,Njombwa,NjombwaState,OK,805,66,
+Nsolo,Nsolo,NsoloState,OK,812,55,
+Nsumbi,Nsumbi,NsumbiState,OK,220,72,
+Otep,Otep,OtepState,OK,305,56,
+Owela (Benguela),Owela (Benguela),OwelaBenguelaState,OK,62,54,
+Pereauni,Pereauni,PereauniState,OK,7,108,
+Quela,Quela,QuelaState,OK,2500,108,
+Quendo,Quendo,QuendoState,OK,57,34,
+Quiela,Quiela,QuielaState,OK,2500,84,
+Ryakati,Ryakati,RyakatiState,OK,3610,159,
+Spreta,Spreta,SpretaState,OK,100,61,
+Sute,Sute,SuteState,OK,388,40,
+Tchela,Tchela,TchelaState,OK,128,64,
+Tshuba,Tshuba,TshubaState,OK,65,43,
+Tsoro (Additional Capture),Tsoro (Additional Capture),TsoroAdditionalCaptureState,OK,47,43,
+Tsoro (Baia),Tsoro (Baia),TsoroBaiaState,OK,519,112,
+Tsoro (Reentered Captures),Tsoro (Reentered Captures),TsoroReenteredCapturesState,MOVE_LIMIT,5000,124,exceeded 5000 moves
+Tsoro,Tsoro,TsoroState,OK,91,44,
+Cirgol,Cirgol,CirgolState,OK,23,23,
+Katro,Katro,KatroState,OK,212,140,
+Mbelele,Mbelele,MbeleleState,OK,288,90,
+Okwe (Achalla),Okwe (Achalla),OkweAchallaState,OK,27,35,
+Pic,Pic,PicState,OK,163,34,
+Sat Gol,Sat Gol,SatGolState,OK,40,32,
+Sowing,Sowing,SowingState,OK,3,17,
+Abalala'e,Abalala'e,AbalalaEState,OK,188,91,
+Gabata (Adowa),Gabata (Adowa),?,START_FAIL,0,48,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Gabata (Aksum),Gabata (Aksum),?,START_FAIL,0,56,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Rab'e,Rab'e,RabEState,MOVE_LIMIT,5000,219,exceeded 5000 moves
+Selus (Massawa),Selus (Massawa),?,START_FAIL,0,103,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Selus,Selus,SelusState,OK,2,149,
+The Concentration Game,The Concentration Game,?,START_FAIL,0,95,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Adi,Adi,?,START_FAIL,0,56,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Adidada,Adidada,AdidadaState,OK,91,43,
+Adjiboto,Adjiboto,AdjibotoState,PLAYOUT_FAIL,0,45,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Ako Okwe,Ako Okwe,AkoOkweState,OK,2500,85,
+Altiev,Altiev,AltievState,OK,131,38,
+Andada,Andada,AndadaState,OK,145,43,
+Andot,Andot,AndotState,OK,90,47,
+Aw-li On-nam Ot-tjin,Aw-li On-nam Ot-tjin,AwLiOnNamOtTjinState,OK,69,23,
+Awagagae,Awagagae,?,START_FAIL,0,73,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Awari,Awari,AwariState,OK,66,81,
+Azigo,Azigo,AzigoState,OK,2500,120,
+Baqura,Baqura,BaquraState,OK,301,77,
+Bay Khom,Bay Khom,?,START_FAIL,0,64,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Bechi,Bechi,BechiState,PLAYOUT_FAIL,0,98,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Bosh,Bosh,?,START_FAIL,0,42,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Boukerourou,Boukerourou,BoukerourouState,MOVE_LIMIT,5000,73,exceeded 5000 moves
+Buqruru,Buqruru,?,START_FAIL,0,149,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Ceelkoqyuqkoqiji,Ceelkoqyuqkoqiji,?,START_FAIL,0,204,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Chongka',Chongka',ChongkaState,OK,135,41,
+Chonka,Chonka,ChonkaState,OK,80,40,
+Chungcajon,Chungcajon,ChungcajonState,OK,240,43,
+Dabuda,Dabuda,DabudaState,OK,114,53,
+Daramuti,Daramuti,?,START_FAIL,0,215,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Das Bohnenspiel,Das Bohnenspiel,DasBohnenspielState,OK,61,47,
+Deka,Deka,DekaState,OK,4,52,
+Dongjintian,Dongjintian,DongjintianState,OK,74,78,
+Duene,Duene,DueneState,OK,231,55,
+En Gehe,En Gehe,EnGeheState,OK,521,60,
+English Wari (St. Lucia),English Wari (St. Lucia),EnglishWariStLuciaState,OK,64,36,
+Enindji,Enindji,EnindjiState,PLAYOUT_FAIL,0,42,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Erherhe,Erherhe,?,START_FAIL,0,42,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+FairKalah,FairKalah,FairKalahState,OK,43,53,
+Fergen Gobale,Fergen Gobale,?,START_FAIL,0,94,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Foji,Foji,FojiState,PLAYOUT_FAIL,0,37,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Fondji,Fondji,FondjiState,PLAYOUT_FAIL,0,91,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+French Wari,French Wari,FrenchWariState,OK,47,38,
+Gabata (Adegrat),Gabata (Adegrat),?,START_FAIL,0,40,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Gabata (Ansaba),Gabata (Ansaba),GabataAnsabaState,OK,295,44,
+Gabata (Ghinda),Gabata (Ghinda),?,START_FAIL,0,50,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Gabata (Oromo),Gabata (Oromo),GabataOromoState,MOVE_LIMIT,5000,111,exceeded 5000 moves
+Gabata (Shoa and Adegrat),Gabata (Shoa and Adegrat),?,START_FAIL,0,69,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Gabata (Shoa I),Gabata (Shoa I),?,START_FAIL,0,60,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Gabata (Wuqro),Gabata (Wuqro),?,START_FAIL,0,55,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Galatjang,Galatjang,?,START_FAIL,0,72,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Gamacha (Nobility),Gamacha (Nobility),GamachaNobilityState,OK,133,41,
+Gamacha,Gamacha,GamachaState,OK,74,38,
+Gifia,Gifia,GifiaState,OK,2500,107,
+Halusa,Halusa,HalusaState,OK,2500,83,
+Hoyito,Hoyito,HoyitoState,OK,92,25,
+Hufesay,Hufesay,?,START_FAIL,0,67,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+I Pere,I Pere,IPereState,OK,35,29,
+I,I,IState,OK,23,21,
+Intotoi,Intotoi,IntotoiState,OK,61,152,
+Iyogh,Iyogh,IyoghState,OK,1923,257,
+J'erin,J'erin,?,START_FAIL,0,57,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+J'odu,J'odu,JOduState,OK,173,51,
+Jimafesosh,Jimafesosh,?,START_FAIL,0,69,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Kalah,Kalah,KalahState,OK,43,40,
+Kanji Guti,Kanji Guti,KanjiGutiState,OK,158,40,
+Kapana Bona,Kapana Bona,KapanaBonaState,OK,18,29,
+Kara,Kara,KaraState,OK,48,33,
+Katrayo,Katrayo,KatrayoState,OK,21,47,
+Kay,Kay,KayState,OK,68,26,
+Khrour,Khrour,?,START_FAIL,0,42,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Khutka Boia,Khutka Boia,?,START_FAIL,0,58,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Kiuthi,Kiuthi,?,START_FAIL,0,157,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Koro,Koro,KoroState,OK,700,37,
+Kotu Baendum,Kotu Baendum,?,START_FAIL,0,227,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Kpo,Kpo,KpoState,OK,40,32,
+La'b Akila,La'b Akila,LaBAkilaState,OK,81,40,
+Lam Waladach,Lam Waladach,?,START_FAIL,0,39,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Lamosh,Lamosh,?,START_FAIL,0,53,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Laomuzhu,Laomuzhu,LaomuzhuState,OK,3710,149,
+Leyla Gobale (Gabradarre),Leyla Gobale (Gabradarre),?,START_FAIL,0,75,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Leyla Gobale (Somaliland),Leyla Gobale (Somaliland),LeylaGobaleSomalilandState,OK,140,46,
+Leyla,Leyla,LeylaState,OK,278,46,
+Li'b al-'Aqil,Li'b al-'Aqil,LiBAlAqilState,OK,2883,89,
+Li'b al-Ghashim,Li'b al-Ghashim,LiBAlGhashimState,MOVE_LIMIT,5000,125,exceeded 5000 moves
+Lontu-Holo,Lontu-Holo,LontuHoloState,OK,2752,63,
+Luuth,Luuth,LuuthState,OK,29,37,
+Main Chongkak,Main Chongkak,?,START_FAIL,0,41,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Mangala (Bedouin),Mangala (Bedouin),MangalaBedouinState,OK,27,30,
+Mangala (Suez),Mangala (Suez),MangalaSuezState,OK,7,24,
+Mangala (Turkey),Mangala (Turkey),MangalaTurkeyState,OK,50,24,
+Mank,Mank,MankState,OK,94,36,
+Mankala,Mankala,MankalaState,OK,146,30,
+Mawkar Katiya,Mawkar Katiya,?,START_FAIL,0,75,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Meusueb,Meusueb,MeusuebState,OK,376,41,
+Mewegae,Mewegae,?,START_FAIL,0,53,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Mewelad,Mewelad,?,START_FAIL,0,38,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Motiq,Motiq,?,START_FAIL,0,62,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Ntyenge,Ntyenge,NtyengeState,OK,117,24,
+O An Quan,O An Quan,?,START_FAIL,0,170,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Obridje,Obridje,ObridjeState,OK,1,38,
+Okwe (Nigeria),Okwe (Nigeria),OkweNigeriaState,OK,2500,61,
+Omangunta Peeta,Omangunta Peeta,?,START_FAIL,0,67,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Oure Ngat,Oure Ngat,OureNgatState,OK,2500,32,
+Ovalhu,Ovalhu,?,START_FAIL,0,52,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Oware,Oware,OwareState,PLAYOUT_FAIL,0,89,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Pachgarhwa,Pachgarhwa,PachgarhwaState,OK,14,28,
+Pallankuli,Pallankuli,?,START_FAIL,0,49,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Papan Dakon,Papan Dakon,?,START_FAIL,0,40,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Puhulmutu,Puhulmutu,?,START_FAIL,0,161,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Qelat (Beni Amir-Mensa),Qelat (Beni Amir-Mensa),QelatBeniAmirMensaState,OK,2500,39,
+Qelat,Qelat,?,START_FAIL,0,48,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Raja Pasu Mandiri,Raja Pasu Mandiri,?,START_FAIL,0,83,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Rio Kadalis,Rio Kadalis,?,START_FAIL,0,44,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Shono,Shono,ShonoState,OK,129,55,
+Sonka,Sonka,SonkaState,MOVE_LIMIT,5000,67,exceeded 5000 moves
+Sungka,Sungka,SungkaState,MOVE_LIMIT,5000,85,exceeded 5000 moves
+Tap Urdy,Tap Urdy,TapUrdyState,OK,128,37,
+Tapata,Tapata,TapataState,OK,107,40,
+Ti,Ti,TiState,OK,2,43,
+Toguz Kumalak,Toguz Kumalak,ToguzKumalakState,OK,276,51,
+Tuz,Tuz,?,START_FAIL,0,60,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Um el Banat,Um el Banat,?,START_FAIL,0,49,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Um el Tuweisat,Um el Tuweisat,UmElTuweisatState,OK,69,67,
+Um el-Bagara,Um el-Bagara,UmElBagaraState,OK,105,68,
+Um el-Bil,Um el-Bil,UmElBilState,OK,127,28,
+Unnee Tugalluulax,Unnee Tugalluulax,UnneeTugalluulaxState,OK,214,29,
+Uril,Uril,UrilState,OK,106,88,
+Uthi,Uthi,UthiState,MOVE_LIMIT,5000,176,exceeded 5000 moves
+Vai Lung Thlan,Vai Lung Thlan,VaiLungThlanState,OK,206,31,
+Wa'ache Waledat,Wa'ache Waledat,WaAcheWaledatState,OK,12,40,
+Walak-Pussa,Walak-Pussa,?,START_FAIL,0,189,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Wari,Wari,WariState,OK,200,18,
+Waurie,Waurie,WaurieState,OK,115,27,
+Whyo,Whyo,WhyoState,OK,223,73,
+Woli,Woli,WoliState,PLAYOUT_FAIL,0,79,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Wore,Wore,WoreState,OK,60,26,
+Wouri,Wouri,WouriState,OK,693,59,
+Yovodi,Yovodi,YovodiState,OK,54,31,
+Yovodji,Yovodji,YovodjiState,PLAYOUT_FAIL,0,49,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Yucebao,Yucebao,YucebaoState,OK,3597,107,
+4 Squared,4 Squared,G4SquaredState,OK,83,131,
+Agapi,Agapi,AgapiState,OK,63,33,
+Amazons,Amazons,AmazonsState,OK,136,56,
+Bamboo,Bamboo,BambooState,OK,52,81,
+Banqi,Banqi,BanqiState,OK,359,82,
+Blue Nile,Blue Nile,BlueNileState,OK,19,42,
+Claustro,Claustro,ClaustroState,OK,17,42,
+Co Chan Cho,Co Chan Cho,CoChanChoState,OK,28,26,
+Col,Col,ColState,OK,29,45,
+Cram,Cram,CramState,OK,15,36,
+Do Guti,Do Guti,DoGutiState,OK,6,18,
+Dodo,Dodo,DodoState,OK,65,36,
+Domineering,Domineering,DomineeringState,OK,16,22,
+Dorvon Cag,Dorvon Cag,DorvonCagState,OK,8,8,
+Duidoku,Duidoku,DuidokuState,OK,64,213,
+Epoxy,Epoxy,EpoxyState,OK,375,202,
+Ex Nihilo,Ex Nihilo,ExNihiloState,PLAYOUT_FAIL,0,1484,NullPointerException: Cannot invoke "java.util.Map.keySet()" because the return value of "other.state.State.mapRememberingValues()" is null
+First Attack,First Attack,FirstAttackState,OK,7,43,
+Forge,Forge,ForgeState,OK,89,42,
+Game of Dwarfs,Game of Dwarfs,GameOfDwarfsState,OK,9,33,
+Garrisons,Garrisons,GarrisonsState,PLAYOUT_FAIL,0,601,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Gopher,Gopher,GopherState,OK,46,76,
+Gurvan Xudag,Gurvan Xudag,GurvanXudagState,OK,223,24,
+Hex Amazons,Hex Amazons,HexAmazonsState,OK,167,105,
+Ho-Bag Gonu,Ho-Bag Gonu,HoBagGonuState,OK,46,26,
+Isolation,Isolation,IsolationState,OK,56,22,
+Janes Soppi (Symmetrical),Janes Soppi (Symmetrical),JanesSoppiSymmetricalState,OK,1469,14,
+Jostle,Jostle,JostleState,OK,31,58,
+L Game,L Game,LGameState,OK,818,76,
+Lewthwaite's Game,Lewthwaite's Game,LewthwaiteSGameState,OK,24,29,
+Madelinette,Madelinette,MadelinetteState,OK,121,15,
+Migration,Migration,MigrationState,OK,134,28,
+Mu Torere,Mu Torere,MuTorereState,OK,17,29,
+NoGo,NoGo,NoGoState,OK,74,53,
+Orthokon,Orthokon,OrthokonState,OK,753,23,
+Oumoul Kono,Oumoul Kono,OumoulKonoState,OK,39,24,
+Overflow,Overflow,OverflowState,OK,52,283,
+Pathway,Pathway,PathwayState,OK,29,31,
+Pentomino,Pentomino,PentominoState,OK,8,88,
+Pong Hau K'i,Pong Hau K'i,PongHauKIState,OK,13,8,
+Quantum Leap,Quantum Leap,QuantumLeapState,OK,37,68,
+Ratio,Ratio,RatioState,OK,18,40,
+Root,Root,RootState,OK,30,38,
+Roots,Roots,RootsState,OK,61,68,
+Shred,Shred,ShredState,OK,144,493,
+Shut Off His Lights,Shut Off His Lights,ShutOffHisLightsState,OK,252,32,
+Slimetrail,Slimetrail,SlimetrailState,OK,22,87,
+Snailtrail,Snailtrail,SnailtrailState,OK,72,33,
+Snort,Snort,SnortState,OK,41,55,
+Snowpaque,Snowpaque,SnowpaqueState,OK,31,94,
+Spots,Spots,SpotsState,OK,14,61,
+Susan,Susan,SusanState,OK,67,48,
+T'uk T'uk,T'uk T'uk,TUkTUkState,OK,2500,35,
+TacTix,TacTix,TacTixState,OK,18,45,
+Temeen Tavag,Temeen Tavag,TemeenTavagState,OK,8,25,
+Toads and Frogs,Toads and Frogs,ToadsAndFrogsState,OK,5,21,
+Tron,Tron,TronState,OK,8,55,
+Tugul Shodra,Tugul Shodra,TugulShodraState,OK,23,26,
+Un,Un,UnState,OK,15,51,
+Wong,Wong,WongState,OK,82,48,
+00'Y',00'Y',G00YState,OK,53,82,
+Abak,Abak,AbakState,OK,2500,732,
+Atoll,Atoll,AtollState,OK,106,110,
+Bide,Bide,BideState,PLAYOUT_FAIL,0,506,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Bipartisan Y,Bipartisan Y,BipartisanYState,OK,44,54,
+Bipod,Bipod,BipodState,OK,42,87,
+Chameleon,Chameleon,ChameleonState,OK,104,92,
+Coil,Coil,CoilState,OK,87,102,
+ConHex,ConHex,ConHexState,OK,52,152,
+Cross,Cross,CrossState,OK,60,59,
+Crossway,Crossway,CrosswayState,OK,336,368,
+Defector Y,Defector Y,DefectorYState,OK,47,80,
+Diagonal Hex,Diagonal Hex,DiagonalHexState,OK,93,85,
+DuploHex,DuploHex,DuploHexState,OK,66,50,
+Esa Hex,Esa Hex,EsaHexState,OK,118,73,
+Fractal,Fractal,FractalState,OK,126,581,
+Gale,Gale,GaleState,OK,72,96,
+Gonnect,Gonnect,GonnectState,OK,228,140,
+Gyre,Gyre,GyreState,OK,120,1750,
+Havannah,Havannah,HavannahState,OK,127,126,
+Hex,Hex,HexState,OK,108,78,
+Madrod,Madrod,MadrodState,PLAYOUT_FAIL,0,325,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Master Y,Master Y,MasterYState,OK,79,62,
+Nex,Nex,NexState,OK,213,97,
+Onyx,Onyx,OnyxState,OK,165,1318,
+Pippinzip (Zipline variant),Pippinzip (Zipline variant),PippinzipZiplineVariantState,OK,79,87,
+Pippinzip,Pippinzip,PippinzipState,OK,73,91,
+Resolve,Resolve,ResolveState,MOVE_LIMIT,5000,1103,exceeded 5000 moves
+Scaffold,Scaffold,ScaffoldState,OK,146,274,
+Spaji,Spaji,SpajiState,OK,31,46,
+Span,Span,SpanState,OK,18,30,
+Spire,Spire,SpireState,OK,27,119,
+Sponnect,Sponnect,SponnectState,OK,28,41,
+Spought,Spought,SpoughtState,OK,14,63,
+Tabu Y,Tabu Y,TabuYState,OK,64,67,
+Tara,Tara,TaraState,OK,21,69,
+Three-Player Hex,Three-Player Hex,ThreePlayerHexState,OK,28,42,
+Trax,Trax,TraxState,OK,6,2421,
+Troll,Troll,TrollState,OK,44,66,
+Unlur,Unlur,UnlurState,OK,55,109,
+Weave,Weave,WeaveState,OK,100,69,
+Y (Hex),Y (Hex),YHexState,OK,124,131,
+Y,Y,YState,OK,65,66,
+Abande,Abande,AbandeState,OK,56,181,
+Abrobad,Abrobad,AbrobadState,PLAYOUT_FAIL,0,33,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Adere,Adere,AdereState,OK,45,45,
+Bounce,Bounce,BounceState,OK,29,102,
+Brain Coral,Brain Coral,BrainCoralState,OK,31,85,
+Brood,Brood,BroodState,PLAYOUT_FAIL,0,266,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Catchup,Catchup,CatchupState,OK,63,54,
+Elea,Elea,EleaState,OK,61,52,
+Feed the Ducks,Feed the Ducks,FeedTheDucksState,OK,26,53,
+Groups,Groups,GroupsState,OK,2500,54,
+Gygoreg,Gygoreg,GygoregState,OK,151,109,
+Hermit,Hermit,HermitState,OK,48,91,
+Lines of Action,Lines of Action,LinesOfActionState,OK,184,56,
+Make Muster,Make Muster,MakeMusterState,OK,105,47,
+Manalath,Manalath,ManalathState,OK,55,77,
+Manifold,Manifold,ManifoldState,PLAYOUT_FAIL,0,234,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Meridians,Meridians,MeridiansState,OK,108,184,
+Mono,Mono,MonoState,OK,61,62,
+Odd,Odd,OddState,OK,61,52,
+Omega,Omega,OmegaState,OK,60,50,
+Omny,Omny,OmnyState,OK,109,1751,
+Product,Product,ProductState,OK,61,38,
+RootZone,RootZone,RootZoneState,OK,39,106,
+Sibling,Sibling,SiblingState,OK,58,50,
+Signum,Signum,SignumState,OK,91,65,
+Spaiji,Spaiji,SpaijiState,OK,30,50,
+Spao,Spao,SpaoState,OK,30,34,
+Speedo,Speedo,SpeedoState,PLAYOUT_FAIL,1,67,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Spice,Spice,SpiceState,PLAYOUT_FAIL,0,91,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Symple,Symple,SympleState,TIMEOUT,169,10086,exceeded 10000ms
+Taiji,Taiji,TaijiState,OK,72,55,
+Vigilance,Vigilance,VigilanceState,PLAYOUT_FAIL,3,648,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.toArray()" because the return value of "other.state.State.rememberingValues()" is null
+Yoin,Yoin,YoinState,OK,127,84,
+3 6 9,3 6 9,G369State,OK,81,71,
+3D Tic-Tac-Toe,3D Tic-Tac-Toe,G3DTicTacToeState,OK,9,36,
+A Simple Game,A Simple Game,ASimpleGameState,OK,13,31,
+Achi,Achi,AchiState,OK,113,29,
+Agilidade,Agilidade,AgilidadeState,OK,9,9,
+Akidada,Akidada,AkidadaState,OK,20,23,
+All Queens Chess,All Queens Chess,AllQueensChessState,OK,56,34,
+Alquerque de Tres,Alquerque de Tres,AlquerqueDeTresState,OK,8,13,
+Altan Xaraacaj,Altan Xaraacaj,AltanXaraacajState,OK,222,37,
+Andantino,Andantino,AndantinoState,OK,31,2284,
+Aqrad,Aqrad,AqradState,OK,344,37,
+Bolotudu,Bolotudu,BolotuduState,OK,79,34,
+Boop,Boop,BoopState,OK,162,63,
+Bravalath,Bravalath,BravalathState,OK,3,2420,
+Broken Line,Broken Line,BrokenLineState,OK,45,84,
+Callanish,Callanish,CallanishState,OK,10,86,
+Centrifugal Force,Centrifugal Force,CentrifugalForceState,OK,58,182,
+Centripetal Force,Centripetal Force,CentripetalForceState,OK,54,143,
+Complica,Complica,ComplicaState,OK,20,21,
+Connect Four,Connect Four,ConnectFourState,OK,16,23,
+Connect6,Connect6,Connect6State,OK,231,225,
+CustAndantino,CustAndantino,CustAndantinoState,OK,54,2268,
+Dai Hasami Shogi,Dai Hasami Shogi,DaiHasamiShogiState,OK,138,53,
+Dala,Dala,DalaState,OK,81,47,
+Dara,Dara,DaraState,OK,130,54,
+Dig Dig,Dig Dig,DigDigState,OK,60,35,
+Djara-Badakh,Djara-Badakh,DjaraBadakhState,OK,33,24,
+Dra,Dra,DraState,OK,166,28,
+Driesticken,Driesticken,DriestickenState,OK,17,26,
+Dris at-Talata,Dris at-Talata,DrisAtTalataState,OK,21,19,
+Engijn Zirge,Engijn Zirge,EngijnZirgeState,OK,23,10,
+Epelle,Epelle,EpelleState,OK,8,17,
+Fanorona Telo,Fanorona Telo,FanoronaTeloState,OK,16,23,
+Fart (5x5),Fart (5x5),Fart5x5State,OK,57,41,
+Fart (7x7),Fart (7x7),Fart7x7State,OK,205,42,
+Fettas,Fettas,FettasState,OK,109,16,
+Fivalath,Fivalath,FivalathState,OK,37,46,
+Five Men's Morris,Five Men's Morris,FiveMenSMorrisState,OK,141,28,
+Gekitai,Gekitai,GekitaiState,OK,22,60,
+Gobblet Gobblers,Gobblet Gobblers,GobbletGobblersState,OK,13,28,
+Gomoku,Gomoku,GomokuState,OK,129,117,
+Gurgaldaj,Gurgaldaj,GurgaldajState,OK,79,26,
+Jeson Zam,Jeson Zam,JesonZamState,OK,85,44,
+Kassle,Kassle,KassleState,OK,51,73,
+Katsela,Katsela,KatselaState,OK,12,31,
+Keryo-Pente,Keryo-Pente,KeryoPenteState,OK,136,390,
+Ketatu,Ketatu,KetatuState,OK,51,62,
+La Chascona,La Chascona,LaChasconaState,OK,87,33,
+Les Pendus,Les Pendus,LesPendusState,OK,25,23,
+Liu Tsi,Liu Tsi,LiuTsiState,OK,14,24,
+Marelle Quadruple,Marelle Quadruple,MarelleQuadrupleState,OK,2500,36,
+Marelle Triple,Marelle Triple,MarelleTripleState,OK,171,34,
+Mbenga Alignment Game,Mbenga Alignment Game,MbengaAlignmentGameState,OK,8,15,
+Millieu,Millieu,MillieuState,OK,3,164,
+Minefield,Minefield,MinefieldState,OK,27,49,
+Mlabalaba,Mlabalaba,MlabalabaState,OK,200,30,
+Morabaraba,Morabaraba,MorabarabaState,OK,67,26,
+Moxie,Moxie,MoxieState,OK,26,35,
+Mulabalaba,Mulabalaba,MulabalabaState,OK,181,15,
+Mylna,Mylna,MylnaState,OK,87,21,
+Nao Guti,Nao Guti,NaoGutiState,OK,121,19,
+Nerenchi Keliya,Nerenchi Keliya,NerenchiKeliyaState,OK,146,20,
+Neutreeko,Neutreeko,NeutreekoState,OK,10,22,
+Ngre E E,Ngre E E,NgreEEState,OK,6,21,
+Ngrin,Ngrin,NgrinState,OK,7,22,
+Nine Holes,Nine Holes,NineHolesState,OK,20,17,
+Nine Men's Morris,Nine Men's Morris,NineMenSMorrisState,OK,160,28,
+Niranchy,Niranchy,NiranchyState,OK,22,19,
+Notakto,Notakto,NotaktoState,OK,105,58,
+Nzengue (Small),Nzengue (Small),NzengueSmallState,OK,8,22,
+Order and Chaos,Order and Chaos,OrderAndChaosState,OK,32,19,
+Pentago,Pentago,PentagoState,OK,74,108,
+Pentalath,Pentalath,PentalathState,OK,53,63,
+Pente,Pente,PenteState,OK,159,385,
+Picaria,Picaria,PicariaState,OK,7,24,
+Plotto,Plotto,PlottoState,OK,5,2962,
+Pushing Me XO,Pushing Me XO,PushingMeXOState,OK,230,57,
+Quarto,Quarto,QuartoState,OK,18,48,
+Queen's Four,Queen's Four,QueenSFourState,OK,2500,120,
+Quixo,Quixo,QuixoState,OK,132,65,
+Ring,Ring,RingState,OK,11,34,
+Ringo,Ringo,RingoState,OK,54,2554,
+Roll-Ing to Four,Roll-Ing to Four,RollIngToFourState,OK,60,39,
+Round Merels,Round Merels,RoundMerelsState,OK,132,25,
+Sam K'i,Sam K'i,SamKIState,OK,25,23,
+San-Noku-Narabe,San-Noku-Narabe,SanNokuNarabeState,OK,21,15,
+Score Four,Score Four,ScoreFourState,OK,38,12,
+Selbia,Selbia,SelbiaState,OK,8,21,
+Shah,Shah,ShahState,OK,1343,64,
+Shisima,Shisima,ShisimaState,OK,8,25,
+Shiva,Shiva,ShivaState,OK,2500,77,
+Six Insect Game,Six Insect Game,SixInsectGameState,OK,223,43,
+Six Men's Morris,Six Men's Morris,SixMenSMorrisState,OK,306,23,
+Six-Penny Madell,Six-Penny Madell,SixPennyMadellState,OK,166,28,
+Spaniel,Spaniel,SpanielState,OK,14,72,
+Sparro,Sparro,SparroState,PLAYOUT_FAIL,14,204,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Spava,Spava,SpavaState,OK,16,47,
+Splade,Splade,SpladeState,OK,17,77,
+Splice,Splice,SpliceState,OK,8,83,
+Spline+,Spline+,SplineState,OK,56,105,
+Spline,Spline,Spline_0000State,OK,24,46,
+Spree,Spree,SpreeState,OK,20,85,
+Squava,Squava,SquavaState,OK,15,28,
+Sujjua,Sujjua,SujjuaState,OK,21,28,
+Symbol S.2,Symbol S.2,SymbolS2State,OK,42,18,
+T'mbl,T'mbl,TMblState,OK,79,29,
+Taktik,Taktik,TaktikState,OK,474,98,
+Tant Fant,Tant Fant,TantFantState,OK,47,29,
+Tapatan,Tapatan,TapatanState,OK,21,28,
+Tauru,Tauru,TauruState,OK,54,46,
+Tavan Tal,Tavan Tal,TavanTalState,OK,158,43,
+Teeko,Teeko,TeekoState,OK,9,19,
+Three Men's Morris,Three Men's Morris,ThreeMenSMorrisState,OK,27,26,
+Tic Tactics,Tic Tactics,TicTacticsState,OK,39,47,
+Tic-Tac-Chess,Tic-Tac-Chess,TicTacChessState,OK,7,30,
+Tic-Tac-Die,Tic-Tac-Die,?,START_FAIL,0,24,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tic-Tac-Four,Tic-Tac-Four,TicTacFourState,OK,29,14,
+Tic-Tac-Mo,Tic-Tac-Mo,TicTacMoState,OK,18,23,
+Tic-Tac-Toe Misere,Tic-Tac-Toe Misere,TicTacToeMisereState,OK,7,16,
+Tic-Tac-Toe,Tic-Tac-Toe,TicTacToeState,OK,9,22,
+Traffic Lights,Traffic Lights,TrafficLightsState,OK,10,27,
+Trianon,Trianon,TrianonState,OK,9,30,
+Triodi (Chios),Triodi (Chios),TriodiChiosState,OK,31,23,
+Triodi (Diagonal),Triodi (Diagonal),TriodiDiagonalState,OK,162,28,
+Triodi,Triodi,TriodiState,OK,181,21,
+Tsoro Yemutatu (Triangle),Tsoro Yemutatu (Triangle),TsoroYemutatuTriangleState,OK,6,24,
+Tsoro Yemutatu,Tsoro Yemutatu,TsoroYemutatuState,OK,6,24,
+Tsoro Yemutwelve,Tsoro Yemutwelve,TsoroYemutwelveState,OK,253,39,
+Tuk Tak,Tuk Tak,TukTakState,OK,39,26,
+Tule Paid,Tule Paid,TulePaidState,OK,79,15,
+Twelve Men's Morris,Twelve Men's Morris,TwelveMenSMorrisState,OK,142,28,
+Ultimate Tic-Tac-Toe,Ultimate Tic-Tac-Toe,UltimateTicTacToeState,OK,64,91,
+Unfair,Unfair,UnfairState,OK,90,49,
+Vertiges,Vertiges,VertigesState,OK,2500,76,
+Wali,Wali,WaliState,OK,119,28,
+Wari (Alignment),Wari (Alignment),WariAlignmentState,OK,354,34,
+Winkers,Winkers,WinkersState,OK,21,18,
+Wure Dune,Wure Dune,WureDuneState,OK,13,21,
+Xanan Zirge,Xanan Zirge,XananZirgeState,OK,274,50,
+Xonin Shatar (Complex),Xonin Shatar (Complex),XoninShatarComplexState,OK,248,65,
+Xonin Shatar (Simple),Xonin Shatar (Simple),XoninShatarSimpleState,OK,208,34,
+Yavalade,Yavalade,YavaladeState,OK,37,62,
+Yavalanchor,Yavalanchor,YavalanchorState,OK,24,52,
+Yavalath,Yavalath,YavalathState,OK,18,42,
+Yavalax,Yavalax,YavalaxState,OK,149,117,
+Zurgaan Tal,Zurgaan Tal,ZurgaanTalState,OK,195,27,
+Archworm,Archworm,ArchwormState,OK,159,85,
+Azteka,Azteka,AztekaState,PLAYOUT_FAIL,68,187,ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10
+Diamond,Diamond,DiamondState,OK,171,57,
+Hexade,Hexade,HexadeState,OK,81,237,
+Kensington,Kensington,KensingtonState,OK,2598,118,
+Quantik,Quantik,QuantikState,OK,11,58,
+Spyramid,Spyramid,SpyramidState,OK,73,43,
+Upper Hand,Upper Hand,UpperHandState,OK,30,145,
+Atari Go,Atari Go,AtariGoState,OK,213,331,
+Ataxx,Ataxx,AtaxxState,OK,113,40,
+BlooGo,BlooGo,BlooGoState,OK,63,89,
+Bug,Bug,BugState,PLAYOUT_FAIL,1,308,NullPointerException: Cannot invoke "java.util.Map.keySet()" because the return value of "other.state.State.mapRememberingValues()" is null
+Can The Sardines,Can The Sardines,CanTheSardinesState,OK,125,45,
+Cavity,Cavity,CavityState,OK,136,116,
+Chucka,Chucka,ChuckaState,OK,163,32,
+Compart,Compart,CompartState,PLAYOUT_FAIL,0,67,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.toArray()" because the return value of "other.state.State.rememberingValues()" is null
+Dorvolz,Dorvolz,DorvolzState,OK,291,160,
+Flower Shop,Flower Shop,FlowerShopState,OK,73,543,
+Flume,Flume,FlumeState,OK,49,51,
+Go,Go,GoState,OK,586,486,
+Goats Wintering,Goats Wintering,GoatsWinteringState,OK,8,77,
+HexGo,HexGo,HexGoState,OK,224,107,
+HexTrike,HexTrike,HexTrikeState,OK,49,101,
+Infuse,Infuse,InfuseState,OK,67,120,
+Inkblots,Inkblots,InkblotsState,OK,18,173,
+Lava,Lava,LavaState,OK,132,48,
+Lifeline,Lifeline,LifelineState,OK,142,296,
+Lotus,Lotus,LotusState,OK,74,60,
+MacBeth,MacBeth,MacBethState,OK,77,82,
+Mig Mang,Mig Mang,MigMangState,OK,357,231,
+Mity,Mity,MityState,OK,51,132,
+One-Eyed Go,One-Eyed Go,OneEyedGoState,OK,492,243,
+Paintbucket,Paintbucket,PaintbucketState,OK,10,44,
+Paintscape,Paintscape,?,START_FAIL,0,78,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.toArray()" because the return value of "other.state.State.rememberingValues()" is null
+Patok,Patok,PatokState,OK,640,463,
+Phantom Go,Phantom Go,PhantomGoState,MOVE_LIMIT,5000,97,exceeded 5000 moves
+Pula,Pula,PulaState,OK,80,52,
+Pyrga,Pyrga,PyrgaState,PLAYOUT_FAIL,0,223,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.toArray()" because the return value of "other.state.State.rememberingValues()" is null
+Quathaxx,Quathaxx,QuathaxxState,OK,206,58,
+Redstone,Redstone,RedstoneState,OK,267,301,
+Refugia,Refugia,RefugiaState,OK,34,107,
+Residuel,Residuel,ResiduelState,OK,39,158,
+Reversi,Reversi,ReversiState,OK,62,51,
+Rolit,Rolit,RolitState,OK,64,49,
+Spargo,Spargo,SpargoState,OK,60,240,
+Spirit,Spirit,SpiritState,OK,18,47,
+Spodd,Spodd,SpoddState,OK,31,101,
+Sprite,Sprite,SpriteState,OK,30,105,
+Stargazers,Stargazers,StargazersState,PLAYOUT_FAIL,0,4570,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+SupplierSabotage,SupplierSabotage,SupplierSabotageState,OK,40,703,
+SupplyChains,SupplyChains,SupplyChainsState,OK,37,260,
+Trike,Trike,TrikeState,OK,49,64,
+Tumbleweed,Tumbleweed,TumbleweedState,OK,373,442,
+Verge,Verge,VergeState,OK,62,61,
+Virus,Virus,VirusState,OK,62,37,
+Walking Dots,Walking Dots,WalkingDotsState,OK,87,36,
+Weiqi,Weiqi,WeiqiState,OK,478,331,
+Alea Evangelii,Alea Evangelii,AleaEvangeliiState,OK,262,232,
+AlmaTafl,AlmaTafl,AlmaTaflState,OK,202,132,
+ArdRi,ArdRi,ArdRiState,OK,218,39,
+Awithlaknakwe,Awithlaknakwe,AwithlaknakweState,OK,5000,606,
+Bizingo,Bizingo,BizingoState,OK,2500,157,
+Boseog Gonu,Boseog Gonu,BoseogGonuState,OK,133,21,
+Brandub,Brandub,BrandubState,OK,186,46,
+Breakthru,Breakthru,BreakthruState,OK,86,80,
+Castello,Castello,CastelloState,OK,2730,277,
+El-Mthaltha,El-Mthaltha,ElMthalthaState,OK,43,16,
+Gundru,Gundru,GundruState,OK,1243,60,
+HeXentafl,HeXentafl,HeXentaflState,OK,140,63,
+Hnefatafl,Hnefatafl,HnefataflState,OK,582,91,
+Khamousiyya,Khamousiyya,KhamousiyyaState,OK,2531,91,
+Kharebga (5x5),Kharebga (5x5),Kharebga5x5State,OK,345,36,
+Kharebga (7x7),Kharebga (7x7),Kharebga7x7State,OK,2156,58,
+Ludus Latrunculorum,Ludus Latrunculorum,LudusLatrunculorumState,OK,2751,1007,
+Maak Yek,Maak Yek,MaakYekState,OK,2500,52,
+Poprad Game,Poprad Game,PopradGameState,OK,2644,9185,
+Sabou'iyya,Sabou'iyya,SabouIyyaState,OK,584,83,
+Seega,Seega,SeegaState,OK,452,29,
+Shantarad,Shantarad,ShantaradState,OK,2525,116,
+Tablut,Tablut,TablutState,OK,91,51,
+Tawlbwrdd,Tawlbwrdd,TawlbwrddState,OK,300,84,
+Fanorona,Fanorona,FanoronaState,OK,41,221,
+Vela,Vela,VelaState,OK,45,147,
+Shobu,Shobu,ShobuState,OK,328,116,
+Alquerkonane,Alquerkonane,AlquerkonaneState,OK,14,26,
+American Pool Checkers,American Pool Checkers,AmericanPoolCheckersState,PLAYOUT_FAIL,0,99,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Bashni,Bashni,BashniState,OK,48,139,
+Brazilian Draughts,Brazilian Draughts,BrazilianDraughtsState,PLAYOUT_FAIL,0,99,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Canadian Draughts,Canadian Draughts,CanadianDraughtsState,PLAYOUT_FAIL,0,124,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Coc-Inbert,Coc-Inbert,CocInbertState,PLAYOUT_FAIL,0,72,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Dam,Dam,DamState,PLAYOUT_FAIL,0,120,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Dama (Italy),Dama (Italy),DamaItalyState,PLAYOUT_FAIL,0,70,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Dama (Philippines),Dama (Philippines),DamaPhilippinesState,OK,159,74,
+Damas,Damas,DamasState,OK,69,161,
+Damenspiel,Damenspiel,DamenspielState,OK,49,75,
+Damspel,Damspel,DamspelState,OK,117,70,
+Diagonal Draughts,Diagonal Draughts,DiagonalDraughtsState,PLAYOUT_FAIL,0,114,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Doov,Doov,DoovState,OK,304,59,
+Dum Blas,Dum Blas,DumBlasState,PLAYOUT_FAIL,0,102,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+English Draughts,English Draughts,EnglishDraughtsState,PLAYOUT_FAIL,0,68,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Frisian Draughts,Frisian Draughts,FrisianDraughtsState,PLAYOUT_FAIL,0,327,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Guerrilla Checkers,Guerrilla Checkers,GuerrillaCheckersState,OK,136,110,
+International Draughts,International Draughts,InternationalDraughtsState,PLAYOUT_FAIL,0,115,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Jekab,Jekab,JekabState,PLAYOUT_FAIL,0,131,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Lasca,Lasca,LascaState,OK,71,120,
+Main Dam,Main Dam,MainDamState,PLAYOUT_FAIL,0,86,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Makvoer,Makvoer,MakvoerState,OK,329,54,
+Maleys,Maleys,MaleysState,OK,110,200,
+Moo,Moo,MooState,PLAYOUT_FAIL,0,94,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Pleasant Draughts,Pleasant Draughts,PleasantDraughtsState,PLAYOUT_FAIL,0,64,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Seesaw Draughts,Seesaw Draughts,SeesawDraughtsState,PLAYOUT_FAIL,2,319,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.toArray()" because the return value of "other.state.State.rememberingValues()" is null
+Shashki,Shashki,ShashkiState,PLAYOUT_FAIL,0,116,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+The Babylonian,The Babylonian,TheBabylonianState,OK,639,124,
+Unnamed Dutch Draughts Game,Unnamed Dutch Draughts Game,UnnamedDutchDraughtsGameState,PLAYOUT_FAIL,0,132,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Ahtarah Guti,Ahtarah Guti,AhtarahGutiState,PLAYOUT_FAIL,0,44,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Alquerque,Alquerque,AlquerqueState,OK,2500,41,
+Awithlaknan Mosona,Awithlaknan Mosona,AwithlaknanMosonaState,OK,2500,39,
+Bara Guti (Bihar),Bara Guti (Bihar),BaraGutiBiharState,OK,142,32,
+Bara Guti,Bara Guti,BaraGutiState,OK,233,36,
+Bis Gutiya,Bis Gutiya,BisGutiyaState,OK,598,36,
+Buudal,Buudal,BuudalState,OK,38,25,
+Challis Ghutia (Titagarh),Challis Ghutia (Titagarh),ChallisGhutiaTitagarhState,OK,1354,80,
+Claim Jumpers,Claim Jumpers,ClaimJumpersState,PLAYOUT_FAIL,0,66,NullPointerException: Cannot invoke "java.util.Map.keySet()" because the return value of "other.state.State.mapRememberingValues()" is null
+Crand,Crand,CrandState,OK,11,48,
+Dablot Prejjesne,Dablot Prejjesne,DablotPrejjesneState,OK,954,136,
+Dam (Singapore),Dam (Singapore),DamSingaporeState,OK,346,40,
+Dam Hariman,Dam Hariman,DamHarimanState,PLAYOUT_FAIL,0,36,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Dama (Alquerque),Dama (Alquerque),DamaAlquerqueState,OK,90,60,
+Dash Guti,Dash Guti,DashGutiState,OK,2500,25,
+Egara Guti,Egara Guti,EgaraGutiState,OK,2500,25,
+Ethiopian Capture Game,Ethiopian Capture Game,EthiopianCaptureGameState,OK,70,31,
+Felli,Felli,FelliState,OK,2500,44,
+Fetach,Fetach,FetachState,OK,153,34,
+Game of Solomon,Game of Solomon,GameOfSolomonState,OK,53,54,
+Gol Ekuish,Gol Ekuish,GolEkuishState,OK,2500,29,
+Hewakam Keliya,Hewakam Keliya,HewakamKeliyaState,PLAYOUT_FAIL,0,52,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Kaua Dorki,Kaua Dorki,KauaDorkiState,OK,97,32,
+Kharbaga,Kharbaga,KharbagaState,OK,10,40,
+Kharberg,Kharberg,KharbergState,OK,2500,71,
+Kolowis Awithlaknannai,Kolowis Awithlaknannai,KolowisAwithlaknannaiState,OK,2500,45,
+Kotu Ellima,Kotu Ellima,KotuEllimaState,OK,2500,46,
+La Dama,La Dama,LaDamaState,OK,180,57,
+Lam Pusri,Lam Pusri,LamPusriState,PLAYOUT_FAIL,0,48,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Lau Kata Kati,Lau Kata Kati,LauKataKatiState,OK,197,23,
+Meurimueng-rimueng Peuet Ploh,Meurimueng-rimueng Peuet Ploh,MeurimuengRimuengPeuetPlohState,PLAYOUT_FAIL,0,86,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Mogul Putt'han,Mogul Putt'han,MogulPuttHanState,PLAYOUT_FAIL,0,42,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Mughal Pathan,Mughal Pathan,MughalPathanState,PLAYOUT_FAIL,0,52,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Nei-Pat-Kono,Nei-Pat-Kono,NeiPatKonoState,OK,57,26,
+Padaivettu,Padaivettu,PadaivettuState,OK,976,43,
+Pam Pait,Pam Pait,PamPaitState,OK,324,42,
+Pasang,Pasang,PasangState,OK,119,83,
+Peralikatuma,Peralikatuma,PeralikatumaState,PLAYOUT_FAIL,0,59,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Permainan-Tabal,Permainan-Tabal,PermainanTabalState,PLAYOUT_FAIL,0,74,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Pretwa,Pretwa,PretwaState,PLAYOUT_FAIL,0,40,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Ram Tir,Ram Tir,RamTirState,OK,1076,69,
+Ratti-Chitti-Bakri,Ratti-Chitti-Bakri,RattiChittiBakriState,OK,1537,92,
+Satoel,Satoel,SatoelState,PLAYOUT_FAIL,0,93,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Spoing,Spoing,SpoingState,OK,11,1224,
+Sumi Naga Game (War),Sumi Naga Game (War),SumiNagaGameWarState,PLAYOUT_FAIL,0,38,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Tavelspel,Tavelspel,TavelspelState,PLAYOUT_FAIL,0,89,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Terhuchu (Small),Terhuchu (Small),TerhuchuSmallState,OK,422,31,
+Terhuchu,Terhuchu,TerhuchuState,OK,2500,66,
+Throngs,Throngs,ThrongsState,OK,2,2456,
+Tsukkalavde,Tsukkalavde,TsukkalavdeState,PLAYOUT_FAIL,0,39,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Tuknanavuhpi,Tuknanavuhpi,TuknanavuhpiState,OK,2500,58,
+Zamma,Zamma,ZammaState,OK,10,95,
+Cage,Cage,CageState,OK,158,129,
+Caturvimsatikosthakatmiki Krida,Caturvimsatikosthakatmiki Krida,CaturvimsatikosthakatmikiKridaState,OK,108,28,
+Challis Ghutia,Challis Ghutia,ChallisGhutiaState,PLAYOUT_FAIL,0,56,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Chameleons,Chameleons,ChameleonsState,PLAYOUT_FAIL,0,52,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Choko,Choko,ChokoState,OK,242,36,
+Dama (Comoros),Dama (Comoros),DamaComorosState,PLAYOUT_FAIL,0,83,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Dama (Kenya),Dama (Kenya),DamaKenyaState,PLAYOUT_FAIL,0,83,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Dama,Dama,DamaState,PLAYOUT_FAIL,0,82,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Fenix,Fenix,FenixState,PLAYOUT_FAIL,0,97,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+HexDame,HexDame,HexDameState,PLAYOUT_FAIL,0,89,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Jumping Beans,Jumping Beans,JumpingBeansState,OK,101,42,
+Kanguruh,Kanguruh,KanguruhState,PLAYOUT_FAIL,0,51,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Konane,Konane,KonaneState,OK,86,58,
+Koruboddo,Koruboddo,KoruboddoState,PLAYOUT_FAIL,0,38,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Laram Wali,Laram Wali,LaramWaliState,OK,351,37,
+Leap Frog,Leap Frog,LeapFrogState,OK,2500,44,
+Louis XVI,Louis XVI,LouisXVIState,OK,926,77,
+Mraha wa Bwe,Mraha wa Bwe,MrahaWaBweState,OK,242,32,
+Natt Klab ash-Shawk,Natt Klab ash-Shawk,NattKlabAshShawkState,OK,151,28,
+Omnidirectional Draughts,Omnidirectional Draughts,OmnidirectionalDraughtsState,PLAYOUT_FAIL,0,83,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Queah Game,Queah Game,QueahGameState,OK,136,27,
+Seesaw,Seesaw,SeesawState,OK,72,464,
+T'oki,T'oki,TOkiState,OK,207,27,
+Tablo,Tablo,TabloState,OK,2510,49,
+Tama,Tama,TamaState,OK,102,67,
+Tides,Tides,TidesState,PLAYOUT_FAIL,0,43,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Tre Guti,Tre Guti,TreGutiState,OK,31,29,
+Xarajlt,Xarajlt,XarajltState,OK,2500,38,
+Yote,Yote,YoteState,OK,116,27,
+Zuz Mel (5x5),Zuz Mel (5x5),ZuzMel5x5State,PLAYOUT_FAIL,0,48,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Zuz Mel (7x7),Zuz Mel (7x7),ZuzMel7x7State,PLAYOUT_FAIL,0,42,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Chandaraki,Chandaraki,ChandarakiState,OK,455,159,
+Chatrang,Chatrang,ChatrangState,OK,218,141,
+Chatur,Chatur,ChaturState,OK,207,115,
+Chaturanga (12x12),Chaturanga (12x12),Chaturanga12x12State,OK,575,445,
+Chaturanga (14x14),Chaturanga (14x14),Chaturanga14x14State,OK,2500,2890,
+Chaturanga (al-Adli),Chaturanga (al-Adli),ChaturangaAlAdliState,OK,391,99,
+Chaturanga (Kridakausalya 14x14),Chaturanga (Kridakausalya 14x14),ChaturangaKridakausalya14x14State,OK,1082,1052,
+Chaturanga (Kridakausalya),Chaturanga (Kridakausalya),ChaturangaKridakausalyaState,OK,194,93,
+Chaturanga,Chaturanga,ChaturangaState,OK,872,125,
+Cittabhramanrpasya Khelanam,Cittabhramanrpasya Khelanam,CittabhramanrpasyaKhelanamState,OK,161,144,
+Hindustani Chess,Hindustani Chess,HindustaniChessState,OK,314,361,
+Krida Buddhibalasrita,Krida Buddhibalasrita,KridaBuddhibalasritaState,OK,468,124,
+Main Chator (Batak),Main Chator (Batak),MainChatorBatakState,OK,2500,206,
+Main Chator (Selangor),Main Chator (Selangor),MainChatorSelangorState,OK,343,143,
+Main Chator,Main Chator,MainChatorState,OK,179,96,
+Mak Ruk,Mak Ruk,MakRukState,OK,2500,160,
+Ouk Chatrang,Ouk Chatrang,OukChatrangState,OK,2500,221,
+Parsi Chess,Parsi Chess,ParsiChessState,OK,348,849,
+Persian Chess with a Queen,Persian Chess with a Queen,PersianChessWithAQueenState,OK,2500,190,
+Qatranj,Qatranj,QatranjState,OK,2500,589,
+Rumi Shatranj,Rumi Shatranj,RumiShatranjState,OK,2503,216,
+Santaraj,Santaraj,SantarajState,OK,536,110,
+Sarvatobhadra,Sarvatobhadra,?,START_FAIL,0,58,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Saxun,Saxun,SaxunState,OK,2500,156,
+Shataranja,Shataranja,ShataranjaState,OK,344,318,
+Shatr ikh Padan,Shatr ikh Padan,ShatrIkhPadanState,OK,2500,117,
+Shatranj (12x12),Shatranj (12x12),Shatranj12x12State,OK,125,160,
+Shatranj (14x14),Shatranj (14x14),Shatranj14x14State,OK,2500,932,
+Shatranj (Algeria),Shatranj (Algeria),ShatranjAlgeriaState,OK,398,157,
+Shatranj (Iraq),Shatranj (Iraq),ShatranjIraqState,OK,240,100,
+Shatranj (Turkey),Shatranj (Turkey),ShatranjTurkeyState,OK,2500,164,
+Shatranj al-Husun,Shatranj al-Husun,ShatranjAlHusunState,OK,576,250,
+Shatranj al-Kabir,Shatranj al-Kabir,ShatranjAlKabirState,OK,460,8003,
+Shatranj al-Mustatila,Shatranj al-Mustatila,?,START_FAIL,0,57,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Shatranj ar-Rumiya,Shatranj ar-Rumiya,ShatranjArRumiyaState,OK,2500,351,
+Shatranj at-Tamma,Shatranj at-Tamma,ShatranjAtTammaState,OK,2500,307,
+Shatranj Diwana Shah,Shatranj Diwana Shah,ShatranjDiwanaShahState,OK,101,108,
+Shatranj,Shatranj,ShatranjState,OK,638,130,
+Shatren,Shatren,ShatrenState,OK,201,163,
+Shodra,Shodra,ShodraState,OK,286,121,
+Sittuyin,Sittuyin,SittuyinState,OK,2510,314,
+Tepong,Tepong,TepongState,OK,94,96,
+Tsatsarandi,Tsatsarandi,TsatsarandiState,OK,2500,151,
+1D Chess,1D Chess,G1DChessState,OK,15,23,
+Acedrex (Alfonso),Acedrex (Alfonso),AcedrexAlfonsoState,OK,2500,164,
+Acedrex de los Cuatros Tiempos,Acedrex de los Cuatros Tiempos,AcedrexDeLosCuatrosTiemposState,OK,5000,513,
+Alice Chess,Alice Chess,AliceChessState,OK,22,118,
+Amazon Chess,Amazon Chess,AmazonChessState,OK,372,152,
+Atomic Chess,Atomic Chess,AtomicChessState,OK,99,238,
+Beirut Chess,Beirut Chess,BeirutChessState,OK,423,170,
+Brusky Chess,Brusky Chess,BruskyChessState,OK,448,270,
+Chess,Chess,ChessState,OK,475,143,
+Chessence,Chessence,ChessenceState,OK,25,68,
+Chex,Chex,ChexState,OK,84,3729,
+Currierspiel,Currierspiel,CurrierspielState,OK,2500,430,
+Cylinder Chess,Cylinder Chess,CylinderChessState,OK,302,341,
+De Vasa Chess,De Vasa Chess,DeVasaChessState,OK,542,321,
+Dice Chess,Dice Chess,?,START_FAIL,0,65,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Double Chess,Double Chess,DoubleChessState,PLAYOUT_FAIL,0,142,NullPointerException: Cannot invoke "gnu.trove.set.hash.TIntHashSet.contains(int)" because the return value of "other.state.State.pendingValues()" is null
+Dragonchess,Dragonchess,DragonchessState,OK,607,113,
+Fischer Random Chess,Fischer Random Chess,FischerRandomChessState,OK,374,188,
+Forcado,Forcado,ForcadoState,OK,2500,224,
+Four-Player Chess,Four-Player Chess,FourPlayerChessState,OK,515,164,
+Glinski Chess,Glinski Chess,GlinskiChessState,OK,603,85,
+Grande Acedrex,Grande Acedrex,GrandeAcedrexState,OK,2500,138,
+Half Chess,Half Chess,HalfChessState,OK,175,37,
+Horde Chess,Horde Chess,HordeChessState,OK,575,89,
+Korkserschach,Korkserschach,KorkserschachState,PLAYOUT_FAIL,0,87,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Kriegspiel (Chess),Kriegspiel (Chess),KriegspielChessState,MOVE_LIMIT,5000,5695,exceeded 5000 moves
+Level Chess,Level Chess,LevelChessState,OK,821,272,
+Lombard Chess,Lombard Chess,LombardChessState,OK,2500,53,
+Long Assize,Long Assize,LongAssizeState,OK,348,48,
+Loop Chess,Loop Chess,LoopChessState,OK,2516,152,
+Los Alamos Chess,Los Alamos Chess,LosAlamosChessState,OK,180,41,
+Maharajah Chess,Maharajah Chess,MaharajahChessState,OK,29,93,
+McCooey Chess,McCooey Chess,McCooeyChessState,OK,450,88,
+Medieval Chess,Medieval Chess,MedievalChessState,OK,298,46,
+Mini Hexchess,Mini Hexchess,MiniHexchessState,OK,68,47,
+Nodal Chess,Nodal Chess,NodalChessState,OK,316,170,
+Official Football Chess,Official Football Chess,OfficialFootballChessState,OK,279,70,
+Omega Chess,Omega Chess,OmegaChessState,OK,728,125,
+Phase Chess,Phase Chess,PhaseChessState,OK,110,160,
+Promotion Chess,Promotion Chess,PromotionChessState,OK,152,65,
+Quick Chess,Quick Chess,QuickChessState,PLAYOUT_FAIL,5,51,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Russian Fortress Chess,Russian Fortress Chess,RussianFortressChessState,OK,1582,599,
+Scachs,Scachs,ScachsState,OK,376,80,
+Schachzabel,Schachzabel,SchachzabelState,OK,2500,58,
+Shafran Chess,Shafran Chess,ShafranChessState,OK,330,116,
+Shakhmaty,Shakhmaty,ShakhmatyState,OK,2504,72,
+Shatera,Shatera,ShateraState,MOVE_LIMIT,5000,126,exceeded 5000 moves
+Short Assize,Short Assize,ShortAssizeState,OK,233,54,
+Social Distance Chess,Social Distance Chess,SocialDistanceChessState,OK,680,97,
+Spartan Chess,Spartan Chess,SpartanChessState,OK,228,114,
+Starchess,Starchess,StarchessState,OK,180,58,
+Stratomic,Stratomic,StratomicState,OK,663,192,
+Symmetric Chess,Symmetric Chess,SymmetricChessState,OK,297,88,
+Ultimate Chess,Ultimate Chess,UltimateChessState,OK,454,169,
+Unachess,Unachess,UnachessState,OK,236,75,
+Viking Chess,Viking Chess,VikingChessState,OK,250,53,
+Wellisch Chess,Wellisch Chess,WellischChessState,OK,252,104,
+Welschschach,Welschschach,WelschschachState,OK,2500,74,
+Chu Seireigi,Chu Seireigi,ChuSeireigiState,OK,2703,797,
+Dai Seireigi,Dai Seireigi,DaiSeireigiState,OK,2693,3109,
+Dice Shogi,Dice Shogi,?,START_FAIL,0,180,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Hasami Shogi,Hasami Shogi,HasamiShogiState,OK,536,65,
+Hexshogi,Hexshogi,HexshogiState,OK,2639,463,
+Kyoto Shogi,Kyoto Shogi,KyotoShogiState,OK,2514,80,
+Minishogi,Minishogi,MinishogiState,OK,2642,189,
+Seireigi,Seireigi,SeireigiState,OK,2676,326,
+Shogi,Shogi,ShogiState,OK,2663,284,
+Tai Shogi,Tai Shogi,TaiShogiState,OK,2072,1707,
+Taikyoku Shogi,Taikyoku Shogi,TaikyokuShogiState,OK,2576,3480,
+Tenjiku Shogi,Tenjiku Shogi,TenjikuShogiState,OK,987,455,
+Tobi Shogi,Tobi Shogi,TobiShogiState,OK,2500,68,
+Unashogi,Unashogi,UnashogiState,OK,2552,479,
+Yonin Seireigi,Yonin Seireigi,YoninSeireigiState,OK,422,6931,
+Janggi,Janggi,JanggiState,OK,340,107,
+Loop Xiangqi,Loop Xiangqi,LoopXiangqiState,OK,2500,404,
+Manzhouqi,Manzhouqi,ManzhouqiState,OK,2500,115,
+MiniXiangqi,MiniXiangqi,MiniXiangqiState,OK,2500,89,
+Qi Guo Xiangxi,Qi Guo Xiangxi,QiGuoXiangxiState,OK,296,359,
+Xiang Hex,Xiang Hex,XiangHexState,OK,2500,143,
+Xiangqi,Xiangqi,XiangqiState,OK,2500,126,
+A K'aak'il,A K'aak'il,?,START_FAIL,0,81,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ad elta stelpur,Ad elta stelpur,?,START_FAIL,0,101,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Addi Kul,Addi Kul,AddiKulState,OK,2500,50,
+Aj Sakakil,Aj Sakakil,?,START_FAIL,0,53,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Aj Sayil,Aj Sayil,?,START_FAIL,0,53,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Aj Sina'anil,Aj Sina'anil,?,START_FAIL,0,59,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Aj T'iwil,Aj T'iwil,?,START_FAIL,0,38,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Annuvin,Annuvin,AnnuvinState,OK,2,53,
+Apocalypse,Apocalypse,ApocalypseState,OK,34,32,
+At-Tab wa-d-Dukk,At-Tab wa-d-Dukk,?,START_FAIL,0,56,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Awangdu,Awangdu,?,START_FAIL,0,34,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Barbarian,Barbarian,BarbarianState,OK,79,50,
+Battleships,Battleships,BattleshipsState,PLAYOUT_FAIL,0,159,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Bheri Bakhri,Bheri Bakhri,?,START_FAIL,0,53,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Boolik,Boolik,?,START_FAIL,0,49,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Boxijn Barildaan,Boxijn Barildaan,BoxijnBarildaanState,OK,79,35,
+Bul,Bul,?,START_FAIL,0,239,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Catapult,Catapult,CatapultState,OK,107,53,
+Chaturaji,Chaturaji,?,START_FAIL,0,68,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Chukaray,Chukaray,?,START_FAIL,0,64,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Crusade,Crusade,CrusadeState,OK,38,34,
+Daldos,Daldos,?,START_FAIL,0,27,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Daldosa,Daldosa,?,START_FAIL,0,30,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Deleb,Deleb,?,START_FAIL,0,232,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Diagonals (2002),Diagonals (2002),Diagonals2002State,OK,62,51,
+Fang,Fang,FangState,OK,568,42,
+Fission,Fission,FissionState,OK,27,39,
+Four-Player Chaturanga (al-Biruni),Four-Player Chaturanga (al-Biruni),?,START_FAIL,0,70,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Icebreaker,Icebreaker,IcebreakerState,OK,72,98,
+Issiren,Issiren,?,START_FAIL,0,40,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ja-Jeon-Geo-Gonu,Ja-Jeon-Geo-Gonu,JaJeonGeoGonuState,OK,24,26,
+KiKiBunBun,KiKiBunBun,KiKiBunBunState,PLAYOUT_FAIL,0,88,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Kioz,Kioz,?,START_FAIL,0,112,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Kiust Oyun,Kiust Oyun,?,START_FAIL,0,44,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Los Palos,Los Palos,?,START_FAIL,0,44,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Mapuche Game,Mapuche Game,?,START_FAIL,0,34,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Mehen,Mehen,?,START_FAIL,0,45,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+MensaSpiel,MensaSpiel,MensaSpielState,OK,95,1798,
+NotChess,NotChess,NotChessState,OK,187,39,
+Oust,Oust,OustState,OK,64,125,
+Puluc,Puluc,?,START_FAIL,0,24,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Quad Wrangle,Quad Wrangle,QuadWrangleState,OK,160,43,
+Rampart,Rampart,RampartState,OK,140,100,
+Sahkku,Sahkku,?,START_FAIL,0,76,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig (El Oued Capture),Sig (El Oued Capture),?,START_FAIL,0,45,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig (Mauritania),Sig (Mauritania),?,START_FAIL,0,134,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig (Mzab),Sig (Mzab),?,START_FAIL,0,54,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig (Tidikelt),Sig (Tidikelt),?,START_FAIL,0,68,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig (Tozeur),Sig (Tozeur),?,START_FAIL,0,45,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sig (Western Sahara),Sig (Western Sahara),?,START_FAIL,0,76,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Sijat El Taba,Sijat El Taba,?,START_FAIL,0,59,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Siryu (War),Siryu (War),?,START_FAIL,0,46,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Skirmish (GDL),Skirmish (GDL),SkirmishGDLState,OK,100,66,
+Surakarta,Surakarta,SurakartaState,PLAYOUT_FAIL,0,29,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Sweep Burrow,Sweep Burrow,SweepBurrowState,OK,62,1115,
+Tab,Tab,?,START_FAIL,0,51,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tablas Astronomias,Tablas Astronomias,?,START_FAIL,0,38,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tank Tactics,Tank Tactics,TankTacticsState,OK,143,51,
+Tibetan Jiuqi,Tibetan Jiuqi,TibetanJiuqiState,PLAYOUT_FAIL,0,433,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Toono,Toono,ToonoState,OK,43,28,
+Triad,Triad,TriadState,OK,45,56,
+Triple Tangle,Triple Tangle,TripleTangleState,OK,480,115,
+Udat Pagada,Udat Pagada,?,START_FAIL,0,76,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Zola,Zola,ZolaState,OK,50,133,
+Cannon,Cannon,CannonState,OK,145,76,
+Capture the Queen,Capture the Queen,CaptureTheQueenState,OK,21,67,
+King And Courtesan,King And Courtesan,KingAndCourtesanState,OK,64,35,
+Kriegsspiel,Kriegsspiel,KriegsspielState,PLAYOUT_FAIL,281,4436,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+L'attaque,L'attaque,LAttaqueState,OK,150,134,
+Let's Catch the Lion,Let's Catch the Lion,LetSCatchTheLionState,OK,8,32,
+Lielow,Lielow,LielowState,OK,75,221,
+Mini Wars,Mini Wars,MiniWarsState,OK,1707,3705,
+Monkey Queen,Monkey Queen,MonkeyQueenState,OK,41,129,
+Ploy,Ploy,PloyState,OK,329,76,
+Rithmomachia,Rithmomachia,RithmomachiaState,OK,1580,1049,
+Shogun,Shogun,ShogunState,OK,50,94,
+Vanguard,Vanguard,VanguardState,OK,59,3060,
+Clobber,Clobber,ClobberState,OK,63,41,
+Press Ups,Press Ups,PressUpsState,OK,13,39,
+Workers and Soldiers,Workers and Soldiers,WorkersAndSoldiersState,OK,1008,139,
+Block,Block,BlockState,OK,15,2225,
+Adhesion,Adhesion,AdhesionState,OK,555,340,
+Affinage,Affinage,AffinageState,OK,23,1174,
+Allemande,Allemande,AllemandeState,PLAYOUT_FAIL,0,200,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Astralesce and Constellation,Astralesce and Constellation,AstralesceAndConstellationState,OK,45,111,
+Branching Coral,Branching Coral,BranchingCoralState,OK,35,70,
+Breakback,Breakback,BreakbackState,OK,2500,59,
+Breakthrough Checkers,Breakthrough Checkers,BreakthroughCheckersState,OK,26,46,
+Breakthrough Chess,Breakthrough Chess,BreakthroughChessState,OK,175,53,
+Chains of Thought,Chains of Thought,ChainsOfThoughtState,OK,37,198,
+Conflagration and Keep-a-riding,Conflagration and Keep-a-riding,ConflagrationAndKeepARidingState,OK,2500,91,
+Dogtown Clans,Dogtown Clans,DogtownClansState,OK,36,99,
+Don't Mosey and The Last Scavenger,Don't Mosey and The Last Scavenger,DonTMoseyAndTheLastScavengerState,OK,42,130,
+Double-Move Situ,Double-Move Situ,DoubleMoveSituState,OK,21,86,
+Double-Run Stone,Double-Run Stone,DoubleRunStoneState,OK,16,265,
+Ecosys,Ecosys,EcosysState,OK,63,48,
+Equi Game System,Equi Game System,EquiGameSystemState,PLAYOUT_FAIL,0,286,NullPointerException: Cannot invoke "java.util.Map.keySet()" because the return value of "other.state.State.mapRememberingValues()" is null
+Faraday,Faraday,FaradayState,PLAYOUT_FAIL,0,95,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Flowers,Flowers,FlowersState,OK,53,67,
+Freeze Frenzy,Freeze Frenzy,FreezeFrenzyState,OK,50,29,
+Goldilocks Stones,Goldilocks Stones,GoldilocksStonesState,OK,40,48,
+Ciri Amber,Ciri Amber,CiriAmberState,OK,21,48,
+CrossGeo,CrossGeo,CrossGeoState,OK,25,22,
+Ilpion,Ilpion,IlpionState,OK,23,22,
+LastEdge,LastEdge,LastEdgeState,OK,21,27,
+Line and Cross,Line and Cross,LineAndCrossState,OK,25,19,
+Nedilmarth,Nedilmarth,NedilmarthState,OK,17,22,
+Nein Ari,Nein Ari,NeinAriState,OK,15,24,
+OddEvenTree,OddEvenTree,OddEvenTreeState,OK,8,16,
+Onek Rong,Onek Rong,OnekRongState,OK,33,29,
+Oriath,Oriath,OriathState,OK,21,22,
+Radran,Radran,RadranState,OK,34,36,
+SpanRups,SpanRups,SpanRupsState,OK,57,35,
+Windir,Windir,WindirState,OK,28,19,
+Greater Even Loss,Greater Even Loss,GreaterEvenLossState,OK,1,30,
+Greater Loss,Greater Loss,GreaterLossState,OK,8,34,
+Greater,Greater,GreaterState,OK,18,34,
+Greatest Loss,Greatest Loss,GreatestLossState,OK,4,26,
+Havabu,Havabu,HavabuState,OK,27,39,
+Hexifact,Hexifact,HexifactState,PLAYOUT_FAIL,0,56,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Hops-a-Daisy Generalized,Hops-a-Daisy Generalized,HopsADaisyGeneralizedState,PLAYOUT_FAIL,0,220,NullPointerException: Cannot invoke "java.util.Map.keySet()" because the return value of "other.state.State.mapRememberingValues()" is null
+HopThrough,HopThrough,HopThroughState,OK,57,32,
+Hordes Realm,Hordes Realm,?,START_FAIL,0,322,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Morpharaoh,Morpharaoh,MorpharaohState,OK,50,89,
+Mutant Y^3,Mutant Y^3,MutantY3State,OK,29,409,
+N-Mesh,N-Mesh,NMeshState,OK,14,242,
+Netted,Netted,NettedState,PLAYOUT_FAIL,0,1012,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+OffShore,OffShore,OffShoreState,PLAYOUT_FAIL,0,111,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Or Thella,Or Thella,OrThellaState,OK,62,70,
+Parry,Parry,ParryState,OK,39,401,
+Polypods,Polypods,PolypodsState,PLAYOUT_FAIL,0,358,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Rabbit Warrens,Rabbit Warrens,RabbitWarrensState,TIMEOUT,2180,10001,exceeded 10000ms
+Rascals,Rascals,RascalsState,PLAYOUT_FAIL,0,141,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.toArray()" because the return value of "other.state.State.rememberingValues()" is null
+Skirt,Skirt,SkirtState,TIMEOUT,29,10216,exceeded 10000ms
+SnipSnip,SnipSnip,SnipSnipState,OK,14,79,
+Sprout-R-Out,Sprout-R-Out,SproutROutState,PLAYOUT_FAIL,0,812,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Squish,Squish,SquishState,OK,31,70,
+Tennessee Waltz,Tennessee Waltz,TennesseeWaltzState,OK,27,141,
+The SmallHolder,The SmallHolder,TheSmallHolderState,PLAYOUT_FAIL,0,115,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Tri-It-Out,Tri-It-Out,TriItOutState,OK,18,1342,
+Unlace,Unlace,UnlaceState,OK,507,54,
+Veloop (Hex),Veloop (Hex),VeloopHexState,PLAYOUT_FAIL,0,75,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Veloop (Square),Veloop (Square),VeloopSquareState,PLAYOUT_FAIL,0,89,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Watershed,Watershed,WatershedState,OK,60,106,
+Wild Draughts,Wild Draughts,WildDraughtsState,PLAYOUT_FAIL,0,94,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Windflowers,Windflowers,WindflowersState,PLAYOUT_FAIL,29,39,NullPointerException: Cannot invoke "java.util.Map.get(Object)" because the return value of "other.state.State.mapRememberingValues()" is null
+Wrigglers Squared,Wrigglers Squared,WrigglersSquaredState,PLAYOUT_FAIL,0,62,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+Wrigglers,Wrigglers,WrigglersState,PLAYOUT_FAIL,0,68,NullPointerException: Cannot invoke "main.collections.FastTIntArrayList.add(int)" because the return value of "other.state.State.rememberingValues()" is null
+YavaGo,YavaGo,YavaGoState,OK,37,48,
+Zombego,Zombego,ZombegoState,OK,18,1330,
+Aksadyuta,Aksadyuta,AksadyutaState,OK,2,25,
+CoDi,CoDi,CoDiState,OK,80,19,
+Contagion,Contagion,ContagionState,OK,73,45,
+Crossline,Crossline,CrosslineState,OK,13,62,
+DisPath,DisPath,DisPathState,OK,38,25,
+Dots and Boxes,Dots and Boxes,DotsAndBoxesState,OK,129,43,
+Hackenbush,Hackenbush,HackenbushState,OK,6,20,
+Hamiltonian Maze,Hamiltonian Maze,HamiltonianMazeState,OK,16,36,
+Icosian,Icosian,IcosianState,OK,20,35,
+MaxMatch,MaxMatch,MaxMatchState,OK,30,24,
+Sim,Sim,SimState,OK,14,21,
+Two-Colour,Two-Colour,TwoColourState,OK,17,29,
+Wagner,Wagner,WagnerState,OK,5,23,
+Chopsticks,Chopsticks,ChopsticksState,OK,2500,69,
+Morra,Morra,MorraState,OK,47,44,
+Rock-Paper-Scissors,Rock-Paper-Scissors,RockPaperScissorsState,OK,3,30,
+Iterated Prisoners Dilemma,Iterated Prisoners Dilemma,IteratedPrisonersDilemmaState,OK,10,20,
+Mastermind,Mastermind,MastermindState,OK,52,65,
+Chomp,Chomp,ChompState,OK,5,23,
+Fibonacci Nim,Fibonacci Nim,FibonacciNimState,OK,79,24,
+Nim,Nim,NimState,OK,28,26,
+So Long Sucker,So Long Sucker,SoLongSuckerState,OK,5000,79,
+Anti-Knight Sudoku,Anti-Knight Sudoku,AntiKnightSudokuState,TIMEOUT,375,10014,exceeded 10000ms
+Fill A Pix,Fill A Pix,FillAPixState,MOVE_LIMIT,5000,9924,exceeded 5000 moves
+Futoshiki,Futoshiki,FutoshikiState,MOVE_LIMIT,5000,4938,exceeded 5000 moves
+Hoshi,Hoshi,HoshiState,TIMEOUT,4108,10004,exceeded 10000ms
+Kakuro,Kakuro,KakuroState,TIMEOUT,1543,10003,exceeded 10000ms
+Killer Sudoku,Killer Sudoku,KillerSudokuState,TIMEOUT,1801,10008,exceeded 10000ms
+Latin Square,Latin Square,LatinSquareState,MOVE_LIMIT,5000,4801,exceeded 5000 moves
+Magic Hexagon,Magic Hexagon,MagicHexagonState,TIMEOUT,4167,10001,exceeded 10000ms
+Magic Square,Magic Square,MagicSquareState,MOVE_LIMIT,5000,3074,exceeded 5000 moves
+N Queens,N Queens,NQueensState,MOVE_LIMIT,5000,5332,exceeded 5000 moves
+Samurai Sudoku,Samurai Sudoku,SamuraiSudokuState,TIMEOUT,270,10010,exceeded 10000ms
+Slitherlink,Slitherlink,SlitherlinkState,MOVE_LIMIT,5000,9080,exceeded 5000 moves
+Squaro,Squaro,SquaroState,MOVE_LIMIT,5000,2774,exceeded 5000 moves
+Sudoku Mine,Sudoku Mine,SudokuMineState,MOVE_LIMIT,5000,9318,exceeded 5000 moves
+Sudoku X,Sudoku X,SudokuXState,TIMEOUT,2322,10005,exceeded 10000ms
+Sudoku,Sudoku,SudokuState,TIMEOUT,2414,10003,exceeded 10000ms
+Sujiken,Sujiken,SujikenState,TIMEOUT,4891,10002,exceeded 10000ms
+Takuzu,Takuzu,TakuzuState,MOVE_LIMIT,5000,9960,exceeded 5000 moves
+Tridoku,Tridoku,TridokuState,TIMEOUT,2524,10001,exceeded 10000ms
+2048,2048,G2048State,OK,129,169,
+BoxOff,BoxOff,BoxOffState,OK,21,64,
+Buttons And Lights,Buttons And Lights,ButtonsAndLightsState,OK,6,31,
+Chase,Chase,ChaseState,OK,1,238,
+Chess Puzzle,Chess Puzzle,ChessPuzzleState,OK,1,78,
+Chuka,Chuka,ChukaState,OK,2,31,
+Insanity,Insanity,InsanityState,OK,7,26,
+Jiu Zi Xian Qi,Jiu Zi Xian Qi,JiuZiXianQiState,OK,9,21,
+Knight's Tour,Knight's Tour,KnightSTourState,OK,41,32,
+Labirintus,Labirintus,LabirintusState,MOVE_LIMIT,5000,239,exceeded 5000 moves
+Lam Turki,Lam Turki,LamTurkiState,OK,12,25,
+Lights Out,Lights Out,LightsOutState,OK,100,30,
+Mawryngkneng Solitaire Game,Mawryngkneng Solitaire Game,MawryngknengSolitaireGameState,OK,591,28,
+Maze,Maze,MazeState,OK,3,224,
+Minesweeper,Minesweeper,MinesweeperState,OK,41,49,
+Monty Hall Problem,Monty Hall Problem,MontyHallProblemState,OK,2,14,
+Morpion Solitaire,Morpion Solitaire,MorpionSolitaireState,OK,26,1978,
+N Puzzles,N Puzzles,NPuzzlesState,MOVE_LIMIT,5000,32,exceeded 5000 moves
+Nao Gutiya Baithaneka,Nao Gutiya Baithaneka,NaoGutiyaBaithanekaState,OK,12,29,
+Peg Solitaire,Peg Solitaire,PegSolitaireState,OK,23,24,
+Pentalpha,Pentalpha,PentalphaState,OK,12,27,
+Safe Passage,Safe Passage,SafePassageState,OK,2504,91,
+Shisen-Sho,Shisen-Sho,ShisenShoState,OK,84,3102,
+Shogi Puzzle,Shogi Puzzle,ShogiPuzzleState,OK,1,106,
+Spalone,Spalone,SpaloneState,OK,21,54,
+Spuzzle,Spuzzle,SpuzzleState,OK,21,64,
+Tchoukaillon,Tchoukaillon,TchoukaillonState,OK,5,25,
+Theseus and the Minotaur,Theseus and the Minotaur,TheseusAndTheMinotaurState,OK,4,54,
+Tower of Hanoi,Tower of Hanoi,TowerOfHanoiState,OK,7,12,
+Wumpus World,Wumpus World,WumpusWorldState,PLAYOUT_FAIL,0,25,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Comina,Comina,CominaState,OK,111,37,
+Cumi,Cumi,CumiState,OK,217,34,
+Fortresse,Fortresse,FortresseState,OK,455,36,
+Haretavl (Horsens),Haretavl (Horsens),HaretavlHorsensState,OK,118,59,
+Ijil Buga,Ijil Buga,IjilBugaState,OK,1231,78,
+Ikh Buga,Ikh Buga,IkhBugaState,OK,2045,115,
+Kuang,Kuang,KuangState,OK,2500,32,
+Lay Gwet Kyah,Lay Gwet Kyah,LayGwetKyahState,OK,271,24,
+Puma,Puma,PumaState,OK,195,33,
+Raquithue,Raquithue,RaquithueState,OK,2,36,
+Solitario,Solitario,SolitarioState,OK,21,27,
+Talyn Buga,Talyn Buga,TalynBugaState,OK,771,52,
+Barail,Barail,?,START_FAIL,0,51,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Los Romanos Rencontrat,Los Romanos Rencontrat,?,START_FAIL,0,33,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Nardshir,Nardshir,?,START_FAIL,0,50,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pasakakrida (Type 1),Pasakakrida (Type 1),?,START_FAIL,0,44,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pasakakrida (Type 2),Pasakakrida (Type 2),?,START_FAIL,0,47,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pasakakrida (Type 3),Pasakakrida (Type 3),?,START_FAIL,0,54,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pasakakrida (Type 4),Pasakakrida (Type 4),?,START_FAIL,0,45,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pasakakrida (Type 5),Pasakakrida (Type 5),?,START_FAIL,0,46,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Pasakakrida (Type 6),Pasakakrida (Type 6),?,START_FAIL,0,42,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Tavlej,Tavlej,?,START_FAIL,0,49,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Bakkis,Bakkis,?,START_FAIL,0,83,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+A-i-u,A-i-u,AIUState,OK,341,94,
+Abanga,Abanga,AbangaState,OK,58,27,
+Mak Khom,Mak Khom,MakKhomState,OK,295,31,
+Manddiare,Manddiare,ManddiareState,OK,258,96,
+Mandinka Game,Mandinka Game,MandinkaGameState,PLAYOUT_FAIL,0,109,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Mandoli,Mandoli,MandoliState,OK,128,43,
+Owana,Owana,OwanaState,PLAYOUT_FAIL,0,54,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.propositions()" is null
+Adzua (Children),Adzua (Children),AdzuaChildrenState,OK,23,35,
+Adzua,Adzua,AdzuaState,OK,171,39,
+Al-Qirq,Al-Qirq,AlQirqState,OK,113,29,
+Ancient Merels,Ancient Merels,AncientMerelsState,OK,140,34,
+Ashanti Alignment Game,Ashanti Alignment Game,AshantiAlignmentGameState,OK,32,35,
+Atidada,Atidada,AtidadaState,OK,408,27,
+Banyarwanda Mill Game,Banyarwanda Mill Game,BanyarwandaMillGameState,OK,11,18,
+Cashlan Gherra,Cashlan Gherra,CashlanGherraState,OK,21,20,
+Che Lo,Che Lo,CheLoState,PLAYOUT_FAIL,0,34,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Davxar Zirge (Type 1),Davxar Zirge (Type 1),DavxarZirgeType1State,OK,663,148,
+Davxar Zirge (Type 2),Davxar Zirge (Type 2),DavxarZirgeType2State,OK,317,155,
+Dimraw,Dimraw,DimrawState,OK,51,58,
+Diris,Diris,DirisState,OK,17,24,
+Dris et-Tessa (Diagonals),Dris et-Tessa (Diagonals),DrisEtTessaDiagonalsState,OK,203,28,
+Dris et-Tessa,Dris et-Tessa,DrisEtTessaState,OK,72,26,
+Duqurjin,Duqurjin,DuqurjinState,OK,26,29,
+Feldja,Feldja,FeldjaState,OK,354,28,
+Hujura,Hujura,HujuraState,OK,17,28,
+Li'b al-Sidr,Li'b al-Sidr,LiBAlSidrState,OK,78,30,
+Lian Qi (A-Type),Lian Qi (A-Type),LianQiATypeState,OK,2841,61,
+Lian Qi (Bohai),Lian Qi (Bohai),LianQiBohaiState,OK,22,31,
+Malomjatek,Malomjatek,MalomjatekState,OK,289,30,
+Nzengue (Large),Nzengue (Large),NzengueLargeState,OK,20,28,
+Paitariya,Paitariya,PaitariyaState,OK,16,24,
+Picaria (Large),Picaria (Large),PicariaLargeState,OK,395,31,
+Qirq,Qirq,QirqState,OK,17,26,
+Riga Game,Riga Game,RigaGameState,OK,114,41,
+Roman Merels,Roman Merels,RomanMerelsState,OK,149,37,
+Roman Small Merels,Roman Small Merels,RomanSmallMerelsState,OK,69,22,
+Rongmei Naga Alignment Game,Rongmei Naga Alignment Game,RongmeiNagaAlignmentGameState,OK,158,35,
+Rwandan Alignment Game,Rwandan Alignment Game,RwandanAlignmentGameState,OK,133,58,
+Sgjough,Sgjough,SgjoughState,OK,89,46,
+Trique,Trique,TriqueState,OK,2500,51,
+Yakamaido,Yakamaido,YakamaidoState,OK,130,38,
+Yi,Yi,YiState,OK,464,144,
+Apit,Apit,ApitState,OK,2500,55,
+Ashanti Draughts,Ashanti Draughts,AshantiDraughtsState,OK,2500,75,
+Atlanbagj,Atlanbagj,AtlanbagjState,PLAYOUT_FAIL,0,87,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Damat,Damat,DamatState,PLAYOUT_FAIL,0,101,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Damdaman,Damdaman,DamdamanState,PLAYOUT_FAIL,0,49,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Dame,Dame,DameState,OK,198,52,
+Draughts (12x12),Draughts (12x12),Draughts12x12State,PLAYOUT_FAIL,0,121,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Ferses,Ferses,FersesState,PLAYOUT_FAIL,0,69,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Nin Adnai Kit Adnat,Nin Adnai Kit Adnat,NinAdnaiKitAdnatState,PLAYOUT_FAIL,0,188,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Sahkku (Lujavv'r),Sahkku (Lujavv'r),SahkkuLujavvRState,PLAYOUT_FAIL,0,115,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Wakanpamungthae,Wakanpamungthae,WakanpamungthaeState,PLAYOUT_FAIL,0,99,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.contains(int)" because the return value of "other.state.State.sitesToRemove()" is null
+Yup'ik Checkers,Yup'ik Checkers,YupIkCheckersState,PLAYOUT_FAIL,0,72,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Aiyawatstani,Aiyawatstani,AiyawatstaniState,OK,2500,51,
+Alquerque de Doze (Portugal),Alquerque de Doze (Portugal),AlquerqueDeDozePortugalState,OK,307,44,
+Guettal,Guettal,GuettalState,OK,2503,99,
+Lu Qi,Lu Qi,LuQiState,OK,46,36,
+Manipur Capturing Game,Manipur Capturing Game,ManipurCapturingGameState,OK,211,26,
+Qirkat,Qirkat,QirkatState,OK,2500,36,
+Riga,Riga,RigaState,OK,116,74,
+Smasandyutakankarikrida (Allahabad),Smasandyutakankarikrida (Allahabad),SmasandyutakankarikridaAllahabadState,PLAYOUT_FAIL,0,44,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Smasandyutakankarikrida,Smasandyutakankarikrida,SmasandyutakankarikridaState,OK,900,38,
+Taptana,Taptana,TaptanaState,OK,13,28,
+Totolospi (War),Totolospi (War),TotolospiWarState,OK,2500,85,
+Wan Fu Cave Game,Wan Fu Cave Game,WanFuCaveGameState,PLAYOUT_FAIL,0,32,NullPointerException: Cannot invoke "gnu.trove.list.array.TIntArrayList.size()" because "sitesToRemove" is null
+Andarraya,Andarraya,AndarrayaState,OK,202,86,
+Cheng Fang Cheng Long,Cheng Fang Cheng Long,ChengFangChengLongState,OK,27,42,
+Cumisitha,Cumisitha,CumisithaState,OK,77,46,
+Eleven-Fang,Eleven-Fang,ElevenFangState,OK,2500,103,
+Four-Fang,Four-Fang,FourFangState,OK,18,41,
+Gwyddbwyll,Gwyddbwyll,GwyddbwyllState,OK,280,67,
+Len Sake,Len Sake,?,START_FAIL,0,29,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Ludus Rebellionis (Asymmetric),Ludus Rebellionis (Asymmetric),LudusRebellionisAsymmetricState,OK,2500,52,
+Ludus Rebellionis 1,Ludus Rebellionis 1,LudusRebellionis1State,OK,101,57,
+Ludus Rebellionis 2,Ludus Rebellionis 2,LudusRebellionis2State,OK,2500,76,
+Macheng,Macheng,MachengState,OK,2544,49,
+Rongmei Naga Capturing Game,Rongmei Naga Capturing Game,RongmeiNagaCapturingGameState,OK,464,43,
+Sahmatloudi,Sahmatloudi,SahmatloudiState,OK,54,91,
+Samoan Game,Samoan Game,SamoanGameState,OK,2500,50,
+Selayar Game,Selayar Game,SelayarGameState,OK,562,47,
+Seven-Fang,Seven-Fang,SevenFangState,OK,1221,58,
+Ufuba wa Hulana,Ufuba wa Hulana,UfubaWaHulanaState,OK,318,28,
+Chatrang (Sassanian),Chatrang (Sassanian),ChatrangSassanianState,OK,186,60,
+Chaturanga (Payagunda),Chaturanga (Payagunda),ChaturangaPayagundaState,OK,9,60,
+Chess (Siberia),Chess (Siberia),ChessSiberiaState,MOVE_LIMIT,5000,144,exceeded 5000 moves
+Samantsy,Samantsy,SamantsyState,OK,101,59,
+Sfenj,Sfenj,SfenjState,OK,2500,83,
+Shakhmaty (Early Modern),Shakhmaty (Early Modern),ShakhmatyEarlyModernState,MOVE_LIMIT,5000,477,exceeded 5000 moves
+Shakhmaty (Medieval),Shakhmaty (Medieval),ShakhmatyMedievalState,OK,235,78,
+Shatranj al-Jawarhiya,Shatranj al-Jawarhiya,ShatranjAlJawarhiyaState,OK,226,57,
+Shatranj al-Kabir (Constantinople),Shatranj al-Kabir (Constantinople),ShatranjAlKabirConstantinopleState,OK,2500,141,
+Skak,Skak,SkakState,OK,334,108,
+Two-Player Chaturanga (al-Biruni),Two-Player Chaturanga (al-Biruni),TwoPlayerChaturangaAlBiruniState,OK,298,78,
+Bagh Bukree,Bagh Bukree,,LOAD_FAIL,0,4,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Buga Nokhoi,Buga Nokhoi,,LOAD_FAIL,0,14,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Dintja le Nmutla,Dintja le Nmutla,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? Empty substring from '[#] (result P2 Win)'. Maybe a wrong bracket type '}'? 
+Double Fox and Geese,Double Fox and Geese,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#] use:Vertex'. Maybe a wrong bracket type '}'? Empty substring from '"Fox" [#]'. Maybe a wrong bracket type '}'? Empty substring from '"Geese" [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Ix Buga,Ix Buga,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Len Choa,Len Choa,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Leoncito,Leoncito,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Lupo e Pecore,Lupo e Pecore,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Machanan,Machanan,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Mamatjang-Matjang,Mamatjang-Matjang,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Moo (Hunt),Moo (Hunt),,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? Empty substring from '"Marker1" [#]'. Maybe a wrong bracket type '}'? 
+Mudrunggum,Mudrunggum,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? Empty substring from '"Tiger1" [#]'. Maybe a wrong bracket type '}'? Empty substring from '"Sheep2" [#]'. Maybe a wrong bracket type '}'? 
+Pulijudamu (Four Tigers),Pulijudamu (Four Tigers),,LOAD_FAIL,0,13,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Pulijudamu (Three Tigers),Pulijudamu (Three Tigers),,LOAD_FAIL,0,3,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Riga Game (Small),Riga Game (Small),,LOAD_FAIL,0,13,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Rongmei Naga Hunt Game,Rongmei Naga Hunt Game,,LOAD_FAIL,0,13,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Rwandan Hunt Game,Rwandan Hunt Game,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Shatranj Shir Bakri,Shatranj Shir Bakri,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Smasandyutakankarikrida (Large Triangles),Smasandyutakankarikrida (Large Triangles),,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Sua Ghin Gnua,Sua Ghin Gnua,,LOAD_FAIL,0,3,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Treble Fox and Geese,Treble Fox and Geese,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#] use:Vertex'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Uulyn Buga,Uulyn Buga,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Vignone Game,Vignone Game,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Vijayanagara Game,Vijayanagara Game,,LOAD_FAIL,0,14,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Yasasukari Musashi,Yasasukari Musashi,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Aasha,Aasha,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Bhubaneswar Game,Bhubaneswar Game,,LOAD_FAIL,0,3,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Pancha (Mahabalipuram with Double Loop),Pancha (Mahabalipuram with Double Loop),,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Pancha (Mahabalipuram with Loop),Pancha (Mahabalipuram with Loop),,LOAD_FAIL,0,13,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Pancha (Mahabalipuram),Pancha (Mahabalipuram),,LOAD_FAIL,0,14,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Pancha Keliya (Complex),Pancha Keliya (Complex),,LOAD_FAIL,0,13,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Patolli (Aztec),Patolli (Aztec),,LOAD_FAIL,0,10,CompilerException: Empty substring from '[2 | 4]'. Maybe a wrong bracket type '}'? 
+Shuanglu,Shuanglu,,LOAD_FAIL,0,6066,CompilerException: Couldn't close clause '(game "Shuanglu" ...'. Expander can't tokenise the game description. 
+Sugoroku,Sugoroku,,LOAD_FAIL,0,17,CompilerException: Empty substring from '[ (board (merge {...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tabal,Tabal,,LOAD_FAIL,0,15,CompilerException: Empty substring from '[ (board (merge {...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tabulae,Tabulae,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tacanaco,Tacanaco,,LOAD_FAIL,0,14,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? 
+Tavla (Ottoman),Tavla (Ottoman),,LOAD_FAIL,0,13,CompilerException: Empty substring from '(rectangle 2 13) ...'. Maybe a wrong bracket type '}'? Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tavli (Zenon),Tavli (Zenon),,LOAD_FAIL,0,13,CompilerException: Empty substring from '"Marker" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+10-Ring,10-Ring,,LOAD_FAIL,0,12,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+12-Ring,12-Ring,,LOAD_FAIL,0,12,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+33 Circles,33 Circles,,LOAD_FAIL,0,3,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+3x14 Game,3x14 Game,,LOAD_FAIL,0,11,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Ancestral Apache Game,Ancestral Apache Game,,LOAD_FAIL,0,13,CompilerException: Empty substring from '[2..16]'. Maybe a wrong bracket type '}'? Empty substring from '"Marker" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Badami Game,Badami Game,,LOAD_FAIL,0,13,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Borobodur Game,Borobodur Game,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Cai Xuan,Cai Xuan,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Chantuto Game,Chantuto Game,,LOAD_FAIL,0,12,CompilerException: Empty substring from '"Marker" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Chungani,Chungani,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Coptic Game,Coptic Game,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Dasapada,Dasapada,,LOAD_FAIL,0,10,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Edris a Jin,Edris a Jin,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+El-Mahasna Game,El-Mahasna Game,,LOAD_FAIL,0,13,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '"Marker" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Jodo Sugoroku,Jodo Sugoroku,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Lothal Game,Lothal Game,,LOAD_FAIL,0,11,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Mn,Mn,,LOAD_FAIL,0,9,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Nagarjunakonda Game,Nagarjunakonda Game,,LOAD_FAIL,0,2,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Pisca,Pisca,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Quechucague,Quechucague,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Saqqara Game,Saqqara Game,,LOAD_FAIL,0,11,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Serup,Serup,,LOAD_FAIL,0,10,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Settilth,Settilth,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[2..16]'. Maybe a wrong bracket type '}'? Empty substring from '"Stick" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Sig (Dguache),Sig (Dguache),,LOAD_FAIL,0,2,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Sitih,Sitih,,LOAD_FAIL,0,13,CompilerException: Empty substring from '[2..16]'. Maybe a wrong bracket type '}'? Empty substring from '"Marker" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tsi-Di'l,Tsi-Di'l,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[2..16]'. Maybe a wrong bracket type '}'? Empty substring from '1 [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#] 1'. Maybe a wrong bracket type '}'? Empty substring from '"Stick" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tsiheki,Tsiheki,,LOAD_FAIL,0,2,CompilerException: Empty substring from '"Stick" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Udat Pagada (Historical),Udat Pagada (Historical),,LOAD_FAIL,0,10,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Wo Shuo,Wo Shuo,,LOAD_FAIL,0,3,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Barjiss,Barjiss,,LOAD_FAIL,0,10,CompilerException: Empty substring from '"Pawn" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Dhola,Dhola,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '"Pawn" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Hopi Game,Hopi Game,,LOAD_FAIL,0,10,CompilerException: Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Hue-Ta-Quee-Che-Ka,Hue-Ta-Quee-Che-Ka,,LOAD_FAIL,0,3,CompilerException: Empty substring from '"Stick" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Hulu Wen,Hulu Wen,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[2..16]'. Maybe a wrong bracket type '}'? 
+Owasakut,Owasakut,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[2..16]'. Maybe a wrong bracket type '}'? Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '"Stick" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Phanjika,Phanjika,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[5 | 6 | 7 | 8 | ...'. Maybe a wrong bracket type '}'? Empty substring from '"Disc" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Sig (Rehamna),Sig (Rehamna),,LOAD_FAIL,0,11,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '"Stick" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tatsungin,Tatsungin,,LOAD_FAIL,0,2,CompilerException: Empty substring from '"Stick" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tawfa,Tawfa,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '"Marker" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Totolospi (Cross-Shaped),Totolospi (Cross-Shaped),,LOAD_FAIL,0,3,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '"Marker" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Isafuba,Isafuba,,LOAD_FAIL,0,2,CompilerException: Empty substring from '4 [6..15] store:N...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Morahha,Morahha,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tswana Game,Tswana Game,,LOAD_FAIL,0,10,CompilerException: Empty substring from '4 4 store:None [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Benin Mancala Game,Benin Mancala Game,,LOAD_FAIL,0,9,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Ga,Ga,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[2..16]'. Maybe a wrong bracket type '}'? Empty substring from '[1..16] [2..16]'. Maybe a wrong bracket type '}'? Empty substring from '[#] loop:True'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Manqalah,Manqalah,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Ngaya,Ngaya,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[2..16]'. Maybe a wrong bracket type '}'? Empty substring from '5 [2..16]'. Maybe a wrong bracket type '}'? Empty substring from '[#] loop:True'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Qarqis,Qarqis,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[2 | 4] [2..40] s...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tami,Tami,,LOAD_FAIL,0,1,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Arb'ata 'Ashara,Arb'ata 'Ashara,,LOAD_FAIL,0,2,CompilerException: Empty substring from '3 [3..30]'. Maybe a wrong bracket type '}'? Empty substring from 'P1 [#]'. Maybe a wrong bracket type '}'? Empty substring from 'P2 [#]'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Gabata (Gondar),Gabata (Gondar),,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Gabatta,Gabatta,,LOAD_FAIL,0,3,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Kuba Game,Kuba Game,,LOAD_FAIL,0,11,CompilerException: Empty substring from '3 [3 | #] {(track...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Al-Andalus Game,Al-Andalus Game,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Kanga,Kanga,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Mangala (Greek),Mangala (Greek),,LOAD_FAIL,0,11,CompilerException: Empty substring from '2 [3..40] store:N...'. Maybe a wrong bracket type '}'? Empty substring from 'Count [2..16] to:...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Matara Game,Matara Game,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Mbangbi,Mbangbi,,LOAD_FAIL,0,2,CompilerException: Empty substring from '"Track" ["1;E;N;W...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Medieval Gabata,Medieval Gabata,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Okwe (Igbo),Okwe (Igbo),,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Ottoman Mancala,Ottoman Mancala,,LOAD_FAIL,0,11,CompilerException: Empty substring from 'Count [2..16] to:...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Ouri,Ouri,,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? Empty substring from '(if (no Moves Nex...'. Maybe a wrong bracket type '}'? 
+Tsjoncka,Tsjoncka,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Warra,Warra,,LOAD_FAIL,0,11,CompilerException: Empty substring from '2 [3..40] store:N...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Worra,Worra,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Le Jeu de Gendarmes et de Voleur,Le Jeu de Gendarmes et de Voleur,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Lievre,Lievre,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Alkarhat,Alkarhat,,LOAD_FAIL,0,9,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Alquerque de Nueve,Alquerque de Nueve,,LOAD_FAIL,0,9,CompilerException: Could not expand. Check that bracket pairs '(..)' and '{..}' match. 
+Kokonag'n,Kokonag'n,,LOAD_FAIL,0,9,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Aucai,Aucai,,LOAD_FAIL,0,9,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Bazi Qamish,Bazi Qamish,,LOAD_FAIL,0,9,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Bukharan Shatranj,Bukharan Shatranj,,LOAD_FAIL,0,2,CompilerException: Empty substring from '(board (square 8)...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Cerne Abbey Game,Cerne Abbey Game,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Chang Xing,Chang Xing,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Chuki (Java),Chuki (Java),,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Chuki,Chuki,,LOAD_FAIL,0,10,CompilerException: Could not expand. Check that bracket pairs '(..)' and '{..}' match. 
+Fidchell,Fidchell,,LOAD_FAIL,0,11,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Halancola,Halancola,,LOAD_FAIL,0,9,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Khreibga,Khreibga,,LOAD_FAIL,0,9,CompilerException: Empty substring from '[#] use:Vertex'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Liubo,Liubo,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Mak Yep,Mak Yep,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Maling'an,Maling'an,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Manmadoangn,Manmadoangn,,LOAD_FAIL,0,8,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Ohohla,Ohohla,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? Empty substring from '(board (splitCros...'. Maybe a wrong bracket type '}'? 
+Panjikent Game,Panjikent Game,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Polis,Polis,,LOAD_FAIL,0,13,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Qamish Uyuni,Qamish Uyuni,,LOAD_FAIL,0,9,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Sakko (Siberia),Sakko (Siberia),,LOAD_FAIL,0,12,CompilerException: Empty substring from '[?]'. Maybe a wrong bracket type '}'? Empty substring from '"Marker" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '"King" Each [#]'. Maybe a wrong bracket type '}'? Empty substring from '(place "King0" (c...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Sitta,Sitta,,LOAD_FAIL,0,10,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tiddas,Tiddas,,LOAD_FAIL,0,8,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Tjyong Kyeng To,Tjyong Kyeng To,,LOAD_FAIL,0,3,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Xiangqi (Song),Xiangqi (Song),,LOAD_FAIL,0,10,CompilerException: Empty substring from '(board (square 11...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Four-Handed Chaturanga,Four-Handed Chaturanga,,LOAD_FAIL,0,2,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Shatranj (Egypt),Shatranj (Egypt),,LOAD_FAIL,0,9,CompilerException: Empty substring from '(board (square 8)...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Chu-Shogi,Chu-Shogi,,LOAD_FAIL,0,18,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Dai Dai Shogi,Dai Dai Shogi,,LOAD_FAIL,0,37,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Dai Shogi,Dai Shogi,,LOAD_FAIL,0,22,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Heian Dai Shogi,Heian Dai Shogi,,LOAD_FAIL,0,14,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Heian Sho Shogi,Heian Sho Shogi,,LOAD_FAIL,0,13,CompilerException: Empty substring from '[(square 8) | (re...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? Empty substring from '(board [(square 8...'. Maybe a wrong bracket type '}'? 
+Maka Dai Dai Shogi,Maka Dai Dai Shogi,,LOAD_FAIL,0,33,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+O Shogi (Futsu Shodo-Shu),O Shogi (Futsu Shodo-Shu),,LOAD_FAIL,0,11,CompilerException: Empty substring from '(board (square 15...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+O-Shogi,O-Shogi,,LOAD_FAIL,0,2,CompilerException: Empty substring from '(board (square 13...'. Maybe a wrong bracket type '}'? Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Wa Shogi,Wa Shogi,,LOAD_FAIL,0,17,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Gwangsanghui,Gwangsanghui,,LOAD_FAIL,0,13,CompilerException: Could not expand. Check that bracket pairs '(..)' and '{..}' match. 
+Xiangqi (Trigault),Xiangqi (Trigault),,LOAD_FAIL,0,12,CompilerException: Empty substring from '[#]'. Maybe a wrong bracket type '}'? 
+Game of Life,Game of Life,GameOfLifeState,OK,45,80,
+GrandTrictracSubgame,GrandTrictracSubgame,?,START_FAIL,0,42,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+JulbaharSubgame,JulbaharSubgame,?,START_FAIL,0,30,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+MahbousehSubgame,MahbousehSubgame,?,START_FAIL,0,20,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+MughrabiehSubgame,MughrabiehSubgame,?,START_FAIL,0,20,NullPointerException: Cannot load from object array because the return value of "other.state.State.currentDice()" is null
+Aringari,Aringari,,LOAD_FAIL,0,1,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Caixuan Baiguan Duo,Caixuan Baiguan Duo,,LOAD_FAIL,0,2,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Chollo,Chollo,,LOAD_FAIL,0,1,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Da Ma (Song),Da Ma (Song),,LOAD_FAIL,0,1,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+E-Sugoroku,E-Sugoroku,,LOAD_FAIL,0,2,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Han Guan Yi,Han Guan Yi,,LOAD_FAIL,0,1,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Sanguo Xiangxi,Sanguo Xiangxi,,LOAD_FAIL,0,1,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Shatranj al-Falakiya,Shatranj al-Falakiya,,LOAD_FAIL,0,1,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Sheng Guan Tu,Sheng Guan Tu,,LOAD_FAIL,0,1,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Shing Kun T’o (Qing Dynasty),Shing Kun T’o (Qing Dynasty),,LOAD_FAIL,0,2,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Yijing Ma,Yijing Ma,,LOAD_FAIL,0,1,NullPointerException: Cannot invoke "String.replaceAll(String; String)" because "bestMatchFilepath" is null
+Game of the Goose,Game of the Goose,GameOfTheGooseState,OK,3,35,
+San-Kwo-K'i,San-Kwo-K'i,SanKwoKIState,OK,3,90,
+Sanyou Qi,Sanyou Qi,SanyouQiState,OK,3,95,
