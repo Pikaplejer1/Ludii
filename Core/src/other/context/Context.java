@@ -36,7 +36,6 @@ import other.action.Action;
 import other.model.MatchModel;
 import other.model.Model;
 import other.move.Move;
-import other.state.BackgammonState;
 import other.state.FullState;
 import other.state.State;
 import other.state.TicTacToeState;
@@ -199,16 +198,8 @@ public class Context
 		{
 			// This is a Context for just a single Game
 			// TODO make this to look for the concrete game state class dynamically. 
-			// Assuming this is inside your instantiation logic:
 			if (game.stateReference() != null) {
-			    String gameName = game.name();
-			    if (gameName.equalsIgnoreCase("Tic-Tac-Toe")) {
-			        state = new TicTacToeState((TicTacToeState) game.stateReference());
-			    } else if (gameName.equalsIgnoreCase("Backgammon")) {
-			        state = new BackgammonState((BackgammonState) game.stateReference());
-			    } else {
-			        state = new FullState((FullState) game.stateReference());
-			    }
+				state = (game.stateReference() != null) ? game.stateReference().copy() : null;
 			} else 
 				state = null;
 //			state = game.stateReference() != null ? new FullState(game.stateReference()) : null;
@@ -359,12 +350,9 @@ public class Context
 	 * @return Copy of given game state.
 	 */
 	@SuppressWarnings("static-method")
-	protected State copyState(final State otherState)
-	{
-		//TODO fix this. 
-		return otherState == null ? null : new TicTacToeState((TicTacToeState) otherState);
+	protected State copyState(final State otherState) {
+	    return otherState == null ? null : otherState.copy();
 	}
-	
 	/**
 	 * Method for copying Trials. NOTE: we override this in TempContext
 	 * for Trial copies with MoveSequences that are allowed to be
@@ -1748,34 +1736,7 @@ public class Context
 		for(int pid = 1; pid < players().size(); pid++)
 			phases[pid] = state().currentPhase(pid);
 		
-		final UndoData endData = new UndoData(
-				trial.ranking(),
-				trial.status(), 
-				winners, 
-				losers, 
-				active, 
-				scores, 
-				payoffs, 
-				numLossesDecided, 
-				numWinsDecided, 
-				phases, 
-				state.pendingValues(), 
-				state.counter(), 
-				trial.previousStateWithinATurn(), 
-				trial.previousState(),
-				state.prev(),
-				state.mover(),
-				state.next(),
-				state.numTurn(),
-				state.numTurnSamePlayer(),
-				state.numConsecutivesPasses(),
-				state.remainingDominoes(),
-				state.visited(),
-				state.sitesToRemove(),
-				state.onTrackIndices(),
-				state.owned(),
-				state.isDecided()
-		);
+		final UndoData endData = game.createUndoData(this, active, phases);
 		
 		trial.addUndoData(endData);
 	}

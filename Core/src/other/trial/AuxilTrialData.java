@@ -77,7 +77,7 @@ public class AuxilTrialData
 	{
 		if (storeStates)
 		{
-			states.add(new State(state));
+			states.add(state.copy());
 		}
 	}
 

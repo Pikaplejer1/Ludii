@@ -10,8 +10,7 @@ import java.util.Set;
 
 public class BatchScanner {
     public static void main(String[] args) {
-        // 1. Point this to the 'bin' folder where Eclipse puts your .class files.
-        // You might need to adjust this path based on your project structure.
+       
         File binFolder = new File("C:\\Users\\pendy\\Desktop\\wszystko\\studia\\thesis\\ludii\\Ludii\\Ludiiiiii\\Core\\bin\\game"); 
 
         Set<String> masterMethodList = new HashSet<>();
@@ -32,13 +31,10 @@ public class BatchScanner {
             if (file.isDirectory()) {
                 scanFolder(file, masterList); // Keep digging
             } else if (file.getName().endsWith(".class")) {
-                // Convert the file path back to the "slash notation" your scanner likes
                 String path = file.getPath();
-                // This logic trims the "bin/" part and the ".class" part
                 String internalName = path.substring(path.indexOf("game"), path.lastIndexOf(".class"))
                                           .replace(File.separatorChar, '/');
                 
-                // CALL YOUR CODE WITHOUT MODIFYING IT
                 Set<String> methodsFound = LudemeMethodScanner.findStateMethodCalls(internalName);
                 masterList.addAll(methodsFound);
             }

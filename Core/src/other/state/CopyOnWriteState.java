@@ -26,7 +26,8 @@ public final class CopyOnWriteState extends State
 	 */
 	public CopyOnWriteState(final State other)
 	{
-		super(other);
+//		super(other);
+		super(other.copy());
 	}
 	
 	//-------------------------------------------------------------------------

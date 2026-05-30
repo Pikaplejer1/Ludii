@@ -33,7 +33,7 @@ public final class TempContext extends Context
 	@Override
 	protected State copyState(final State otherState)
 	{
-		return otherState == null ? null : new CopyOnWriteState(otherState);
+		return otherState == null ? null : otherState.copy();	
 	}
 	
 	@Override

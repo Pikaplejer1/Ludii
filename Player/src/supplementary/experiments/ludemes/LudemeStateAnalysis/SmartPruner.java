@@ -15,13 +15,13 @@ import java.util.*;
 
 public class SmartPruner {
 
+	// somethimes ai is that good and makes a good class, sometimes it is not 
     private static final String STATE_INPUT_PATH =
         "C:\\Users\\pendy\\Desktop\\wszystko\\studia\\thesis\\ludii\\Ludii\\Ludiiiiii\\Core\\src\\other\\state\\State.java";
 
     private static final String STATE_OUTPUT_PATH =
         "C:\\Users\\pendy\\Desktop\\wszystko\\studia\\thesis\\ludii\\Ludii\\Ludiiiiii\\Core\\src\\other\\state\\StateNew.java";
 
-    // i cant remember ts 
     private static final Set<String> REMOVE_FIELDS = new HashSet<>(Arrays.asList(
     	    "amount", "valuesPlayer", "propositions", "votes", "notes",
     	    "sitesToRemove", "rememberingValues", "mapRememberingValues", "valueMap",
@@ -278,9 +278,7 @@ public class SmartPruner {
             }));
     }
 
-    /**
-     * Check if a block body already contains an assignment to the given field.
-     */
+   
     private static boolean bodyContainsAssignment(BlockStmt body, String fieldName) {
         return body.toString().contains(fieldName + " =")
             || body.toString().contains(fieldName + "=");
@@ -288,9 +286,7 @@ public class SmartPruner {
 
 
     private static void addBeforeHashCopies(BlockStmt body, String statementStr) {
-        int insertIdx = body.getStatements().size(); // default: end
-
-        // Walk backwards to find first hash copy line
+        int insertIdx = body.getStatements().size(); 
         for (int i = body.getStatements().size() - 1; i >= 0; i--) {
             String line = body.getStatements().get(i).toString();
             if (line.contains("stateHash") || line.contains("moverHash")
@@ -363,7 +359,6 @@ public class SmartPruner {
             }
         });
 
-        //fix constructor names to match
         cu.findAll(ConstructorDeclaration.class).forEach(ctor -> {
             if (!ctor.getNameAsString().equals("State")) {
                 ctor.setName("State");
@@ -374,7 +369,6 @@ public class SmartPruner {
     
     private static void adjustFieldVisibility(CompilationUnit cu) {
         cu.findAll(FieldDeclaration.class).forEach(field -> {
-            // serialVersionUID stays private
             String fieldName = field.getVariables().get(0).getNameAsString();
             if (fieldName.equals("serialVersionUID")) return;
             

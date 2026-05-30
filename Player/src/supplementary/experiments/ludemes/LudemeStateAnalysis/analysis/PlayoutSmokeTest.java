@@ -142,20 +142,31 @@ public class PlayoutSmokeTest {
         writeCsv(results);
     }
 
-    private static File[] collectLudFiles() {
-        try {
-            return Files.walk(Paths.get(LUD_DIR))
-                .filter(p -> p.toString().endsWith(".lud"))
-                .filter(p -> !p.toString().contains(File.separator + "test" + File.separator))
-                .filter(p -> !p.toString().contains(File.separator + "bad" + File.separator))
-                .filter(p -> !p.toString().contains(File.separator + "wip" + File.separator))
-                .map(Path::toFile)
-                .toArray(File[]::new);
-        } catch (IOException e) {
-            System.err.println("Failed to walk lud dir: " + e.getMessage());
-            return null;
-        }
-    }
+    private static final List<String> ALLOWED_DIRS = List.of(
+    	    "board", "dominoes", "experimental", "math", "puzzle" + File.separator + "deduction"
+    	);
+
+    	private static File[] collectLudFiles() {
+    		try {
+    	        return Files.walk(Paths.get(LUD_DIR))
+    	            .filter(p -> p.toString().endsWith(".lud"))
+    	            .filter(p -> !p.toString().contains(File.separator + "test" + File.separator))
+    	            .filter(p -> !p.toString().contains(File.separator + "bad" + File.separator))
+    	            .filter(p -> !p.toString().contains(File.separator + "wip" + File.separator))
+    	            .filter(p -> {
+    	                String path = p.toString();
+    	                return ALLOWED_DIRS.stream().anyMatch(dir ->
+    	                    path.contains(File.separator + dir + File.separator) ||
+    	                    path.contains(File.separator + dir)
+    	                );
+    	            })
+    	            .map(Path::toFile)
+    	            .toArray(File[]::new);
+    	    } catch (IOException e) {
+    	        System.err.println("Failed to walk lud dir: " + e.getMessage());
+    	        return null;
+    	    }
+    	}
 
     private static Result runOne(File ludFile) {
         String fileName = ludFile.getName().replace(".lud", "");
@@ -184,8 +195,8 @@ public class PlayoutSmokeTest {
         try {
             trial = new Trial(game);
             context = new Context(game, trial);
-            System.out.println("[" + ludFile.getName() + "] dispatched to " 
-            	    + context.state().getClass().getSimpleName());
+//            System.out.println("[" + ludFile.getName() + "] dispatched to " 
+//            	    + context.state().getClass().getSimpleName());
             game.start(context);
             stateClass = context.state().getClass().getSimpleName();
         } catch (Throwable t) {

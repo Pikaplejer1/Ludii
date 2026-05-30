@@ -17,25 +17,18 @@ public class DynamicStateGenerator {
         try {
             CompilationUnit cu = new CompilationUnit("other.state"); // Use your actual package
 
-            // Create: public class GoState extends State
             String className = gameName + "State";
             ClassOrInterfaceDeclaration subclass = cu.addClass(className).addExtendedType("State");
 
-            // Add the fields dynamically
             for (Map.Entry<String, String> entry : gameSpecificVariables.entrySet()) {
                 subclass.addField(entry.getValue(), entry.getKey(), Modifier.Keyword.PUBLIC); // Or protected
             }
 
-            // Create the proper child constructor
             ConstructorDeclaration constructor = subclass.addConstructor(Modifier.Keyword.PUBLIC);
             
-            // If your abstract State() constructor takes parameters (e.g. game reference), 
-            // you need to add them here. Assuming default for now:
+       
             BlockStmt constructorBody = new BlockStmt();
-            constructorBody.addStatement("super();"); // Calls the abstract class constructor
-            
-            // You can initialize arrays or objects here if necessary
-            // constructorBody.addStatement("this.pendingValues = new TIntHashSet();");
+            constructorBody.addStatement("super();");
 
             constructor.setBody(constructorBody);
 

@@ -1,0 +1,12 @@
+package other.state.undo.f;
+
+import other.UndoData;
+import other.context.Context;
+
+/** Auto-generated UndoData subclass for FoxAndGeese. Prunable fields: (none). */
+public final class FoxAndGeeseUndoData extends UndoData {
+
+    public FoxAndGeeseUndoData(final Context context, final int active, final int[] phases) {
+        super(context, active, phases);
+    }
+}

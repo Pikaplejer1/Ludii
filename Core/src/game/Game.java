@@ -104,10 +104,8 @@ import other.playout.PlayoutAddToEmpty;
 import other.playout.PlayoutFilter;
 import other.playout.PlayoutMoveSelector;
 import other.playout.PlayoutNoRepetition;
-import other.state.BackgammonState;
-import other.state.FullState;
 import other.state.State;
-import other.state.TicTacToeState;
+import other.state.StateRegistry;
 import other.state.container.ContainerState;
 import other.topology.SiteFinder;
 import other.topology.Topology;
@@ -201,6 +199,13 @@ public class Game extends BaseLudeme implements API, Serializable
 	
 	/** All variables constraint by the puzzle.*/
 	private final TIntArrayList constraintVariables = new TIntArrayList();
+	
+
+	
+	//----------------------Factory for Specialised undo Data------------------------
+	
+	private transient other.state.undo.UndoDataRegistry.UndoDataFactory undoDataFactory;
+
 
 	//-----------------------Metadata-------------------------------------------
 
@@ -4040,17 +4045,18 @@ public class Game extends BaseLudeme implements API, Serializable
 	
 	
 	protected State createInitialState() {
-	    System.out.println(this.name());
-	    String gameName = this.name();
-	    
-	    if (gameName.equalsIgnoreCase("Tic-Tac-Toe")) {
-	        System.out.println("this uses the tictactoe state");
-	        return new TicTacToeState(this, StateConstructorLock.INSTANCE);
-	    } else if (gameName.equalsIgnoreCase("Backgammon")) {
-	        return new BackgammonState(this, StateConstructorLock.INSTANCE);
-	    }
-	    
-	    return new FullState(this, StateConstructorLock.INSTANCE);
+	    return other.state.StateRegistry.create(this, StateConstructorLock.INSTANCE);
 	}
+
+	/** Build this game's specialized UndoData snapshot of the given context. */
+	public other.UndoData createUndoData(final other.context.Context context, final int active, final int[] phases)
+	{
+	    if (other.state.undo.UndoDataRegistry.useFullUndoDataOnly)
+	        return new other.FullUndoData(context, active, phases);
+	    if (undoDataFactory == null)
+	        undoDataFactory = other.state.undo.UndoDataRegistry.factoryFor(name());
+	    return undoDataFactory.create(context, active, phases);
+	}
+	
 
 }

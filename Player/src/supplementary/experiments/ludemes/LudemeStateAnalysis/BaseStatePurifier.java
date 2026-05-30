@@ -18,15 +18,14 @@ public class BaseStatePurifier {
 
     public static void main(String[] args) {
         try {
-            // ONLY the variables that belong to the abstract engine state
             Set<String> coreEngineVariables = new HashSet<>(Arrays.asList(
-                "mover" // Add your actual core variables here
+                "mover" 
             ));
 
             Set<String> deletedFields = new HashSet<>();
             CompilationUnit cu = StaticJavaParser.parse(new File("State_Master.java"));
 
-            // 1. Delete all game-specific fields
+           
             List<FieldDeclaration> fields = cu.findAll(FieldDeclaration.class);
             for (FieldDeclaration field : fields) {
                 for (VariableDeclarator var : field.getVariables()) {
@@ -39,10 +38,8 @@ public class BaseStatePurifier {
                 }
             }
 
-            // 2. Delete methods that reference dead fields
             List<MethodDeclaration> methods = cu.findAll(MethodDeclaration.class);
             for (MethodDeclaration method : methods) {
-                // Protect lifecycle methods from total deletion
                 if (method.getNameAsString().matches("initialise|resetStateTo|copy")) {
                     List<Statement> stmtsToRemove = new ArrayList<>();
                     method.findAll(Statement.class).forEach(stmt -> {
@@ -55,7 +52,6 @@ public class BaseStatePurifier {
                     });
                     stmtsToRemove.forEach(Statement::remove);
                 } else {
-                    // It's a game-specific getter/setter. Axe it.
                     boolean isTainted = false;
                     for (NameExpr ref : method.findAll(NameExpr.class)) {
                         if (deletedFields.contains(ref.getNameAsString())) {
@@ -66,7 +62,6 @@ public class BaseStatePurifier {
                 }
             }
 
-            // 3. Clean the Abstract Constructor
             List<ConstructorDeclaration> constructors = cu.findAll(ConstructorDeclaration.class);
             for (ConstructorDeclaration constructor : constructors) {
                 List<Statement> stmtsToRemove = new ArrayList<>();

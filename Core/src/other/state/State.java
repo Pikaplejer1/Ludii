@@ -3,6 +3,7 @@ package other.state;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.BitSet;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -893,7 +894,7 @@ public abstract class State implements Serializable {
      * @return To get the value map.
      */
     public TObjectIntMap<String> getValueMap() {
-        return null;
+        return new TObjectIntHashMap<>();
     }
 
     /**
@@ -1061,14 +1062,14 @@ public abstract class State implements Serializable {
      * @return The pending values.
      */
     public TIntHashSet pendingValues() {
-        return null;
+        return new TIntHashSet();
     }
 
     /**
      * @return The propositions.
      */
     public TIntArrayList propositions() {
-        return null;
+        return new TIntArrayList();
     }
 
     /**
@@ -1087,7 +1088,7 @@ public abstract class State implements Serializable {
      * @return The votes (represented as ints).
      */
     public TIntArrayList votes() {
-        return null;
+        return new TIntArrayList();
     }
 
     /**
@@ -1186,8 +1187,8 @@ public abstract class State implements Serializable {
      * @return Sum of dice array
      */
     public int[] sumDice() {
-        return null;
-    }
+        return new int[0];    
+        }
 
     /**
      * @param sumDice
@@ -1208,7 +1209,7 @@ public abstract class State implements Serializable {
      * @return Current dice for (container?) index
      */
     public int[] currentDice(final int index) {
-        return null;
+        return new int[0];
     }
 
     /**
@@ -1231,8 +1232,9 @@ public abstract class State implements Serializable {
      *
      * @return All current dice
      */
+ // in Core/src/other/state/State.java, line 1234-ish
     public int[][] currentDice() {
-        return null;
+        return new int[0][];
     }
 
     /**
@@ -1315,7 +1317,7 @@ public abstract class State implements Serializable {
      * @return visited sites.
      */
     public BitSet visited() {
-        return null;
+        return new BitSet();
     }
 
     /**
@@ -1345,7 +1347,7 @@ public abstract class State implements Serializable {
      * 	capturing hops in International Draughts)
      */
     public TIntArrayList sitesToRemove() {
-        return null;
+        return new TIntArrayList();
     }
 
     /**
@@ -1558,14 +1560,14 @@ public abstract class State implements Serializable {
      * @return The values stored in previous states.
      */
     public FastTIntArrayList rememberingValues() {
-        return null;
+        return new FastTIntArrayList();
     }
 
     /**
      * @return The values stored in previous states and associated to a name.
      */
     public Map<String, FastTIntArrayList> mapRememberingValues() {
-        return null;
+    	return Collections.emptyMap();
     }
 
     //-------------------------------------------------------------------------

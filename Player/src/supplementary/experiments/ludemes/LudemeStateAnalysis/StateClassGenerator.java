@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 import game.Game;
@@ -23,6 +22,7 @@ public class StateClassGenerator {
         "sitesToRemove", "rememberingValues", "mapRememberingValues", "valueMap"
     );
 
+    @SuppressWarnings("unused")
     private static final Set<String> FLAG_FIELDS = Set.of(
         "sumDice", "currentDice", "diceAllEqual", "visited", "teams",
         "remainingDominoes", "pendingValues", "onTrackIndices"
@@ -30,7 +30,6 @@ public class StateClassGenerator {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            // default: scan whole corpus
             generateAllFromDirectory(LUD_DIR, -1);
             return;
         }
@@ -50,12 +49,17 @@ public class StateClassGenerator {
                 }
                 analyseAndGenerate(args[1]);
                 break;
+            case "--debug":
+                if (args.length < 2) {
+                    System.err.println("Usage: --debug <gameName>");
+                    return;
+                }
+                debugAnalysis(args[1]);
+                break;
             default:
                 analyseAndGenerate(args[0]);
         }
     }
-
-    /** Walks LUD_DIR, generates a subclass per game, then writes the registry. */
     public static void generateAllFromDirectory(String ludDirPath, int limit) {
         File ludDir = new File(ludDirPath);
         File[] ludFiles;
@@ -83,9 +87,8 @@ public class StateClassGenerator {
             ludFiles = Arrays.copyOf(ludFiles, limit);
         }
 
-        generateFullState();  // stays at other.state.FullState (unsharded)
+        generateFullState();
 
-        // gameName -> "t.TicTacToe"  (subpackage + "." + classPrefix)
         Map<String, String> registered = new LinkedHashMap<>();
         Map<String, String> usedClassNames = new HashMap<>();
 
@@ -124,7 +127,7 @@ public class StateClassGenerator {
                 usedClassNames.put(classPrefix, gameName);
 
                 String subPackage = computeSubPackage(classPrefix);
-                Set<String> needed = analyseFields(ludFile.getName(), game);
+                Set<String> needed = analyseFields(ludFile, game);
                 SubclassGenerator.generate(classPrefix, needed, OUTPUT_DIR, subPackage);
 
                 registered.put(gameName, subPackage + "." + classPrefix);
@@ -160,11 +163,6 @@ public class StateClassGenerator {
         }
     }
 
-    /**
-     * First letter of class prefix, lowercased, used as the subpackage segment.
-     * Defensive against non-letter first chars even though sanitizeClassName
-     * already guarantees a letter.
-     */
     private static String computeSubPackage(String classPrefix) {
         char c = Character.toLowerCase(classPrefix.charAt(0));
         return Character.isLetter(c) ? String.valueOf(c) : "x";
@@ -178,10 +176,10 @@ public class StateClassGenerator {
         System.out.println("Generated FullState (" + all.size() + " fields)");
     }
 
-    /** Backwards-compatible single-game entry point. */
     public static Set<String> analyseAndGenerate(String gameName) {
-        String ludFile = gameName.endsWith(".lud") ? gameName : gameName + ".lud";
-        Game game = GameLoader.loadGameFromName(ludFile);
+        String ludFileName = gameName.endsWith(".lud") ? gameName : gameName + ".lud";
+        Game game = GameLoader.loadGameFromName(ludFileName);
+        File ludFile = findLudFile(ludFileName);
         Set<String> needed = analyseFields(ludFile, game);
         String classPrefix = sanitizeClassName(game.name());
         String subPackage = computeSubPackage(classPrefix);
@@ -189,43 +187,108 @@ public class StateClassGenerator {
         return needed;
     }
 
-    private static Set<String> analyseFields(String ludFileName, Game game) {
+    public static void debugAnalysis(String gameName) {
+        String ludFileName = gameName.endsWith(".lud") ? gameName : gameName + ".lud";
+        Game game = GameLoader.loadGameFromName(ludFileName);
+        File ludFile = findLudFile(ludFileName);
+
+        System.out.println("=== Debug analysis: " + gameName + " ===");
+        System.out.println("  game.name()                  = " + game.name());
+        System.out.println("  lud file path                = " + (ludFile != null ? ludFile.getAbsolutePath() : "NOT FOUND"));
+        System.out.println();
+        System.out.println("  Flag values:");
+        System.out.println("    hasHandDice()              = " + game.hasHandDice());
+        System.out.println("    hasSequenceCapture()       = " + game.hasSequenceCapture());
+        System.out.println("    usesVote()                 = " + game.usesVote());
+        System.out.println("    usesNote()                 = " + game.usesNote());
+        System.out.println("    requiresBet()              = " + game.requiresBet());
+        System.out.println("    requiresVisited()          = " + game.requiresVisited());
+        System.out.println("    requiresTeams()            = " + game.requiresTeams());
+        System.out.println("    hasDominoes()              = " + game.hasDominoes());
+        System.out.println("    usesPendingValues()        = " + game.usesPendingValues());
+        System.out.println("    usesValueMap()             = " + game.usesValueMap());
+        System.out.println("    hasTrack()                 = " + game.hasTrack());
+        System.out.println("    hasInternalLoopInTrack()   = " + game.hasInternalLoopInTrack());
+        System.out.println();
+
         Map<String, String> bytecodeVars = DynamicMemoryMapper.analyseGame(ludFileName);
+        System.out.println("  Bytecode-detected fields: " + bytecodeVars.keySet());
+        System.out.println();
+
+        Set<String> needed = analyseFields(ludFile, game);
+        System.out.println("  FINAL field set (" + needed.size() + "): " + needed);
+    }
+
+    private static File findLudFile(String ludFileName) {
+        try {
+            return Files.walk(Path.of(LUD_DIR))
+                .filter(p -> p.getFileName().toString().equalsIgnoreCase(ludFileName))
+                .findFirst()
+                .map(Path::toFile)
+                .orElse(null);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    private static Set<String> analyseFields(File ludFile, Game game) {
+        String ludFileName = (ludFile != null) ? ludFile.getName() : null;
+        Map<String, String> bytecodeVars = (ludFileName != null)
+            ? DynamicMemoryMapper.analyseGame(ludFileName)
+            : Collections.emptyMap();
         Set<String> needed = new LinkedHashSet<>();
 
-        // Add what the currently deficient bytecode mapper actually manages to find
         for (String f : BYTECODE_FIELDS) {
             if (bytecodeVars.containsKey(f)) needed.add(f);
         }
 
-        // --- FORCED INCLUSIONS (THE ANTI-NPE PROTOCOL) ---
-        
-        // The bytecode analyzer consistently misses these, causing runtime crashes. 
-        // Force them into the subclass.
-        needed.add("sitesToRemove");
-        needed.add("mapRememberingValues");
-        
-        // game.hasHandDice() is a liar for Backgammon, Chonpa, and half your list.
-        // Force include the dice fields so SubclassGenerator can initialize them safely.
-        needed.add("sumDice");
-        needed.add("currentDice");
-        needed.add("diceAllEqual");
-
-        // --- ORIGINAL FLAGS ---
-        if (game.requiresVisited())    needed.add("visited");
-        if (game.requiresTeams())      needed.add("teams");
-        if (game.hasDominoes())        needed.add("remainingDominoes");
-        if (game.usesPendingValues())  needed.add("pendingValues");
+        if (game.hasHandDice()) {
+            needed.add("sumDice");
+            needed.add("currentDice");
+            needed.add("diceAllEqual");
+        }
+        if (game.usesVote()) {
+            needed.add("propositions");
+            needed.add("votes");
+        }
+        if (game.usesNote())            needed.add("notes");
+        if (game.requiresBet())         needed.add("amount");
+        if (game.requiresVisited())     needed.add("visited");
+        if (game.requiresTeams())       needed.add("teams");
+        if (game.hasDominoes())         needed.add("remainingDominoes");
+        if (game.usesPendingValues())   needed.add("pendingValues");
+        if (game.usesValueMap())        needed.add("valueMap");
+        if (game.hasSequenceCapture())  needed.add("sitesToRemove");
         if (game.hasTrack() && game.hasInternalLoopInTrack()) needed.add("onTrackIndices");
+
+        if (ludFile != null && ludFile.exists()) {
+            try {
+                String ludText = Files.readString(ludFile.toPath());
+
+                if (ludText.contains("(dice") || ludText.contains("\"Dice\"")) {
+                    needed.add("sumDice");
+                    needed.add("currentDice");
+                    needed.add("diceAllEqual");
+                }
+
+                if (ludText.contains("(remove ") || ludText.contains("(capture") || ludText.contains("Hop ")) {
+                    needed.add("sitesToRemove");
+                }
+
+                if (ludText.contains("remember Value") || ludText.contains("(set Value")
+                    || ludText.contains("(forget Value")) {
+                    needed.add("mapRememberingValues");
+                    needed.add("rememberingValues");
+                    needed.add("valueMap");
+                }
+            } catch (Exception e) {
+                System.err.println("  [warn] text scan failed for " + ludFile.getName() + ": " + e.getMessage());
+            }
+        }
 
         return needed;
     }
 
-    /**
-     * Convert a game name into a valid Java class identifier prefix.
-     * Strips non-alphanumerics, prepends "G" if it would start with a digit,
-     * empty string if nothing salvageable.
-     */
     private static String sanitizeClassName(String gameName) {
         StringBuilder sb = new StringBuilder();
         boolean capNext = true;
@@ -240,5 +303,8 @@ public class StateClassGenerator {
         if (sb.length() == 0) return "";
         if (Character.isDigit(sb.charAt(0))) sb.insert(0, "G");
         return sb.toString();
+    }
+    public static Set<String> neededFields(final File ludFile, final Game game) {
+        return analyseFields(ludFile, game);
     }
 }

@@ -711,11 +711,12 @@ public class Move extends BaseAction
 				for(int i = 0; i < previousState.size(); i++)
 					trial.previousState().add(previousState.get(i));
 			}
-			if(remainingDominoes != null)
+			final main.collections.FastTIntArrayList stateDominoes = currentState.remainingDominoes();
+			if (stateDominoes != null)
 			{
-				currentState.remainingDominoes().clear();
-				for(int i = 0; i < remainingDominoes.size(); i++)
-					currentState.remainingDominoes().add(remainingDominoes.get(i));
+			    stateDominoes.clear();
+			    for (int i = 0; i < remainingDominoes.size(); i++)
+			        stateDominoes.add(remainingDominoes.get(i));
 			}
 			
 			if(visited != null)
@@ -726,11 +727,12 @@ public class Move extends BaseAction
 						currentState.visit(site);
 			}
 	
-			if(sitesToRemove != null)
+			final gnu.trove.list.array.TIntArrayList stateSites = currentState.sitesToRemove();
+			if (stateSites != null)
 			{
-				currentState.sitesToRemove().clear();
-				for(int i = 0; i < sitesToRemove.size(); i++)
-					currentState.sitesToRemove().add(sitesToRemove.get(i));
+			    stateSites.clear();
+			    for (int i = 0; i < sitesToRemove.size(); i++)
+			        stateSites.add(sitesToRemove.get(i));
 			}
 			
 			// Undo the list of actions

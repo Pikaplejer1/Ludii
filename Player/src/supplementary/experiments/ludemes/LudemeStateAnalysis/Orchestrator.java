@@ -11,11 +11,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 public class Orchestrator {
 
+	// yeah idk what this was ai isn't that good
     public static void main(String[] args) throws Exception {
 
-        // -------------------------------------------------------
-        // STEP 1: Find all .lud files
-        // -------------------------------------------------------
         File ludDir = new File("C:\\Users\\pendy\\Desktop\\wszystko\\studia\\thesis\\ludii\\Ludii\\Ludiiiiii\\Common\\res\\lud");
         File[] ludFiles = Files.walk(ludDir.toPath())
                 .filter(p -> p.toString().endsWith(".lud"))
@@ -28,10 +26,6 @@ public class Orchestrator {
             return;
         }
 
-        // -------------------------------------------------------
-        // STEP 2: Run analysis on every game
-        // gameName -> Map<variableName, javaType>
-        // -------------------------------------------------------
         Map<String, Map<String, String>> resultsPerGame = new LinkedHashMap<>();
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
