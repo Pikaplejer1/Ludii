@@ -13,7 +13,7 @@ public final class StateRegistry {
 
     private static final Map<String, BiFunction<Game, StateConstructorLock, State>> FACTORIES = new HashMap<>();
 
-    public static volatile boolean useFullStateOnly = false;
+    public static volatile boolean useFullStateOnly = true;
 
     
     static {

@@ -44,14 +44,15 @@ public final class CorpusBenchmark {
 
 	static int     WARMUP_MS          = 10_000;
 	static int     WINDOW_MS          = 30_000;
-	static int     NUM_THREADS        = 4;        // playout worker threads
+	static int     NUM_THREADS        = 4;
 	static int     AB_DEPTH           = 4;
-	static int     AB_SEARCH_CAP_MS   = 4_000;    //
-	static int     MAX_PLAYOUT_ACTIONS = 10_000;  // playout length cap
-	static long    GAME_TIMEOUT_S     = 600;      // backstop for the whole game (both conditions)
+	static int     AB_SEARCH_CAP_MS   = 4_000;
+	static int     MAX_PLAYOUT_ACTIONS = 10_000;
+	static long    GAME_TIMEOUT_S     = 600;
 	static boolean RUN_ALPHABETA      = true;
 	static String  LUD_DIR = System.getenv().getOrDefault("LUD_DIR",
 			"C:\\Users\\pendy\\Desktop\\wszystko\\studia\\thesis\\ludii\\Ludii\\Ludiiiiii\\Common\\res\\lud");
+	static String  GAMES_FILE         = null;   // --games-file: only run these games
 
 	static volatile long sinkLong;
 
@@ -107,7 +108,28 @@ public final class CorpusBenchmark {
 			System.err.println("No games discovered under " + LUD_DIR + " (genres " + ALLOWED_GENRES + ")");
 			System.exit(1);
 		}
-		Arrays.sort(all);   // identical order in every shard  nonoverlapping stride slices
+		Arrays.sort(all);
+
+		// ── games-file filter ─────────────────────────────────────────────
+		if (GAMES_FILE != null) {
+			final Set<String> allowed = new HashSet<>();
+			try (BufferedReader br = new BufferedReader(new FileReader(GAMES_FILE))) {
+				String line;
+				while ((line = br.readLine()) != null) {
+					line = line.trim();
+					if (!line.isEmpty()) allowed.add(line);
+				}
+			}
+			final List<File> filtered = new ArrayList<>();
+			for (File f : all) {
+				if (allowed.contains(gameId(f))) filtered.add(f);
+			}
+			System.out.println("[games-file] " + allowed.size() + " names requested, "
+				+ filtered.size() + " lud files matched.");
+			all = filtered.toArray(new File[0]);
+		}
+		// ─────────────────────────────────────────────────────────────────
+
 		System.out.println("Discovered " + all.length + " games across the allowed genres.");
 
 		final List<File> mine = new ArrayList<>();
@@ -130,7 +152,7 @@ public final class CorpusBenchmark {
 				System.out.println("[" + n + "/" + mine.size() + "] " + id);
 				final long t0 = System.currentTimeMillis();
 				for (Row r : runGameWithTimeout(f, id)) out.println(r.toCsv());
-				out.flush();  
+				out.flush();
 				System.out.printf("    done in %.1fs%n", (System.currentTimeMillis() - t0) / 1000.0);
 			}
 		}
@@ -219,7 +241,6 @@ public final class CorpusBenchmark {
 		}
 	}
 
-	/** Perplayer current phase array  */
 	private static int[] phasesOf(Game game, Context ctx) {
 		final int n = game.players().count();
 		final int[] phases = new int[n + 1];
@@ -228,7 +249,6 @@ public final class CorpusBenchmark {
 		return phases;
 	}
 
-	/** Activeplayers bitmask bit p set if player p is active. */
 	private static int activeMask(Game game, Context ctx) {
 		final int n = game.players().count();
 		int mask = 0;
@@ -293,7 +313,6 @@ public final class CorpusBenchmark {
 		row.playoutsPerSec = Math.round(row.playouts / secs);
 	}
 
-	//AlphAbeta throughput via the existing AlphaBetaSearch
 	private static void alphaBeta(final Game game, Row row) {
 		final AlphaBetaSearch ab = new AlphaBetaSearch();
 		if (!ab.supportsGame(game)) { row.abNote = "UNSUPPORTED"; return; }
@@ -375,6 +394,7 @@ public final class CorpusBenchmark {
 				case "--max-actions":  MAX_PLAYOUT_ACTIONS = Integer.parseInt(args[++i]); break;
 				case "--timeout-s":    GAME_TIMEOUT_S = Long.parseLong(args[++i]); break;
 				case "--lud-dir":      LUD_DIR = args[++i]; break;
+				case "--games-file":   GAMES_FILE = args[++i]; break;
 				default: System.err.println("Unknown option: " + args[i]);
 			}
 		}

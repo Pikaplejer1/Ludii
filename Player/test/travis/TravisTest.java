@@ -88,7 +88,7 @@ public class TravisTest
 
 	//-------------------------------------------------------------------------------
 
-	@Test
+	@Testy
 	public void runTests()
 	{
 		// Get the current hour in our time zone.

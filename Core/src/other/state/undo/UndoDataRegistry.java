@@ -13,7 +13,7 @@ public final class UndoDataRegistry {
     private UndoDataRegistry() { }
 
     /** Set true BEFORE loading a game to force the full fallback (benchmark baseline). */
-    public static volatile boolean useFullUndoDataOnly = false;
+    public static volatile boolean useFullUndoDataOnly = true;
 
     @FunctionalInterface
     public interface UndoDataFactory {
