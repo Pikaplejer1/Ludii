@@ -1,3 +1,24 @@
+# Research Fork - Ludii Game System
+
+## Bachelor's Thesis: JVM State Specialization via Bytecode Analysis
+
+This fork on branch 'dev' contains the implementation of my bachelor's thesis optimisation of the Ludii general game system's memory layout and AI search performance.
+
+### Results (across 1,270 benchmarked games from the Ludii corpus)
+- **1.72×** median state copy throughput improvement (98.7% of games faster)
+- **26%** reduction in shallow State object size
+- **1.15×** alpha-beta search throughput improvement  
+- **1.06×** end-to-end playout improvement
+
+### Approach
+Static JVM bytecode analysis of field usage per game → pre-compilation pipeline that generates per-game State subclasses containing only fields the game actually uses. Same technique applied to UndoData class.
+
+### Publication
+To be added in later date.
+
+---
+*Original Ludii README below*
+
 <img align="right" src="./resources/ludii-logo-64x64.png">
 
 # The Ludii General Game System
